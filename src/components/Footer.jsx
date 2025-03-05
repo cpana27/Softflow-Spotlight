@@ -6,7 +6,7 @@ function NavLink({ href, children }) {
   return (
     <Link
       href={href}
-      className="transition hover:text-teal-500 dark:hover:text-teal-400"
+      className="transition hover:text-sky-500 dark:hover:text-sky-400"
     >
       {children}
     </Link>
@@ -21,10 +21,10 @@ export function Footer() {
           <ContainerInner>
             <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
               <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-800 dark:text-zinc-200">
-                <NavLink href="/about">About</NavLink>
-                <NavLink href="/projects">Projects</NavLink>
+                <NavLink href="/about">Über mich</NavLink>
+                <NavLink href="/projects">Projekte</NavLink>
                 <NavLink href="/speaking">Speaking</NavLink>
-                <NavLink href="/uses">Uses</NavLink>
+                <NavLink href="/uses">Hardware</NavLink>
               </div>
               <p className="text-sm text-zinc-400 dark:text-zinc-500">
                 &copy; {new Date().getFullYear()} Spencer Sharp. All rights
