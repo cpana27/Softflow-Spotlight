@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import clsx from 'clsx'
 
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
@@ -11,15 +10,6 @@ import {
   LinkedInIcon,
   XIcon,
 } from '@/components/SocialIcons'
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoStarbucks from '@/images/logos/starbucks.svg'
-import image1 from '@/images/photos/image-1.jpg'
-import image2 from '@/images/photos/image-2.jpg'
-import image3 from '@/images/photos/image-3.jpg'
-import image4 from '@/images/photos/image-4.jpg'
-import image5 from '@/images/photos/image-5.jpg'
 import { getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 import Kenntnisse from '@/components/Kenntnisse'
@@ -93,7 +83,7 @@ function Article({ article }) {
         {formatDate(article.date)}
       </Card.Eyebrow>
       <Card.Description>{article.description}</Card.Description>
-      <Card.Cta>Read article</Card.Cta>
+      <Card.Cta>Artikel lesen</Card.Cta>
     </Card>
   )
 }
@@ -106,150 +96,203 @@ function SocialLink({ icon: Icon, ...props }) {
   )
 }
 
-function Newsletter() {
-  return (
-    <form
-      action="/thank-you"
-      className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
-    >
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <MailIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Stay up to date</span>
-      </h2>
-      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        Get notified when I publish something new, and unsubscribe at any time.
-      </p>
-      <div className="mt-6 flex">
-        <input
-          type="email"
-          placeholder="Email address"
-          aria-label="Email address"
-          required
-          className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(--spacing(2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 focus:outline-hidden sm:text-sm dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10"
-        />
-        <Button type="submit" className="ml-4 flex-none">
-          Join
-        </Button>
-      </div>
-    </form>
-  )
-}
-
-function Role({ role }) {
-  let startLabel =
-    typeof role.start === 'string' ? role.start : role.start.label
-  let startDate =
-    typeof role.start === 'string' ? role.start : role.start.dateTime
-
-  let endLabel = typeof role.end === 'string' ? role.end : role.end.label
-  let endDate = typeof role.end === 'string' ? role.end : role.end.dateTime
-
-  return (
-    <li className="flex gap-4">
-      <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full ring-1 shadow-md shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-        <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
-      </div>
-      <dl className="flex flex-auto flex-wrap gap-x-2">
-        <dt className="sr-only">Company</dt>
-        <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-          {role.company}
-        </dd>
-        <dt className="sr-only">Role</dt>
-        <dd className="text-xs text-zinc-500 dark:text-zinc-400">
-          {role.title}
-        </dd>
-        <dt className="sr-only">Date</dt>
-        <dd
-          className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-          aria-label={`${startLabel} until ${endLabel}`}
-        >
-          <time dateTime={startDate}>{startLabel}</time>{' '}
-          <span aria-hidden="true">—</span>{' '}
-          <time dateTime={endDate}>{endLabel}</time>
-        </dd>
-      </dl>
-    </li>
-  )
-}
-
 function Resume() {
   let resume = [
     {
-      company: 'Planetaria',
-      title: 'CEO',
-      logo: logoPlanetaria,
-      start: '2019',
+      company: 'Aktuelles Unternehmen',
+      title: 'Senior Software Developer',
+      //logo: logoCurrentCompany,
+      start: '2022',
       end: {
-        label: 'Present',
+        label: 'Heute',
         dateTime: new Date().getFullYear().toString(),
       },
     },
     {
-      company: 'Airbnb',
-      title: 'Product Designer',
-      logo: logoAirbnb,
-      start: '2014',
-      end: '2019',
+      company: 'Vorheriges Unternehmen',
+      title: 'Full-Stack Developer',
+      //logo: logoPreviousCompany,
+      start: '2020',
+      end: '2022',
     },
     {
-      company: 'Facebook',
-      title: 'iOS Software Engineer',
-      logo: logoFacebook,
-      start: '2011',
-      end: '2014',
+      company: 'Tech Solutions GmbH',
+      title: 'Software Engineer',
+      //logo: logoTechSolutions,
+      start: '2018',
+      end: '2020',
     },
     {
-      company: 'Starbucks',
-      title: 'Shift Supervisor',
-      logo: logoStarbucks,
-      start: '2008',
-      end: '2011',
+      company: 'Web Development AG',
+      title: 'Junior Developer',
+      //logo: logoWebDev,
+      start: '2017',
+      end: '2018',
     },
   ]
 
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <BriefcaseIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Work</span>
+        <BriefcaseIcon className="h-6 w-6 flex-none text-zinc-500 dark:text-zinc-400" />
+        <span className="ml-3">Berufserfahrung</span>
       </h2>
       <ol className="mt-6 space-y-4">
         {resume.map((role, roleIndex) => (
           <Role key={roleIndex} role={role} />
         ))}
       </ol>
-      <Button href="#" variant="secondary" className="group mt-6 w-full">
-        Download CV
-        <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
-      </Button>
+
+      <div className="mt-8 border-t border-zinc-200 pt-6 dark:border-zinc-700/40">
+        <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+          <AcademicCapIcon className="h-6 w-6 flex-none text-zinc-500 dark:text-zinc-400" />
+          <span className="ml-3">Ausbildung</span>
+        </h2>
+        <ol className="mt-6 space-y-4">
+          <li className="flex gap-4">
+            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full ring-1 shadow-md shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+              <UniversityIcon className="h-7 w-7" />
+            </div>
+            <dl className="flex flex-auto flex-wrap gap-x-2">
+              <dt className="sr-only">Hochschule</dt>
+              <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                Technische Universität
+              </dd>
+              <dt className="sr-only">Studiengang</dt>
+              <dd className="text-xs text-zinc-500 dark:text-zinc-400">
+                Technische Informatik
+              </dd>
+              <dt className="sr-only">Zeitraum</dt>
+              <dd className="ml-auto text-xs text-zinc-500 dark:text-zinc-400">
+                Abschluss 2017
+              </dd>
+            </dl>
+          </li>
+        </ol>
+      </div>
+
+      <div className="mt-8 border-t border-zinc-200 pt-6 dark:border-zinc-700/40">
+        <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+          <ChipIcon className="h-6 w-6 flex-none text-zinc-500 dark:text-zinc-400" />
+          <span className="ml-3">Technologien</span>
+        </h2>
+        <div className="mt-4 flex flex-wrap gap-2">
+          <Skill>JavaScript</Skill>
+          <Skill>TypeScript</Skill>
+          <Skill>React</Skill>
+          <Skill>Next.js</Skill>
+          <Skill>Tailwind CSS</Skill>
+          <Skill>Java</Skill>
+          <Skill>Kotlin</Skill>
+          <Skill>Spring Boot</Skill>
+          <Skill>Quarkus</Skill>
+          <Skill>Go</Skill>
+        </div>
+      </div>
     </div>
   )
 }
 
-function Photos() {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+function Role({ role }) {
+  let { company, title, logo, start, end } = role
 
   return (
-    <div className="mt-16 sm:mt-20">
-      <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {[image1, image2, image3, image4, image5].map((image, imageIndex) => (
-          <div
-            key={image.src}
-            className={clsx(
-              'relative aspect-9/10 w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 sm:w-72 sm:rounded-2xl dark:bg-zinc-800',
-              rotations[imageIndex % rotations.length],
-            )}
-          >
-            <Image
-              src={image}
-              alt=""
-              sizes="(min-width: 640px) 18rem, 11rem"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
-        ))}
+    <li className="flex gap-4">
+      <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full ring-1 shadow-md shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+        <Image src={logo} alt="" className="h-7 w-7" unoptimized />
       </div>
-    </div>
+      <dl className="flex flex-auto flex-wrap gap-x-2">
+        <dt className="sr-only">Unternehmen</dt>
+        <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
+          {company}
+        </dd>
+        <dt className="sr-only">Position</dt>
+        <dd className="text-xs text-zinc-500 dark:text-zinc-400">{title}</dd>
+        <dt className="sr-only">Zeitraum</dt>
+        <dd
+          className="ml-auto text-xs text-zinc-500 dark:text-zinc-400"
+          aria-label={`${start} bis ${typeof end === 'string' ? end : end.label}`}
+        >
+          <time dateTime={start}>{start}</time>
+          <span aria-hidden="true">—</span>{' '}
+          <time dateTime={typeof end === 'string' ? end : end.dateTime}>
+            {typeof end === 'string' ? end : end.label}
+          </time>
+        </dd>
+      </dl>
+    </li>
+  )
+}
+
+function Skill({ children }) {
+  return (
+    <span className="inline-flex items-center rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-800 ring-1 ring-zinc-500/20 ring-inset dark:bg-zinc-800 dark:text-zinc-300 dark:ring-zinc-500/40">
+      {children}
+    </span>
+  )
+}
+
+function UniversityIcon(props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-zinc-500 dark:text-zinc-400"
+      {...props}
+    >
+      <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+      <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+    </svg>
+  )
+}
+
+function ChipIcon(props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-zinc-500 dark:text-zinc-400"
+      {...props}
+    >
+      <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+      <path d="M8 3v4"></path>
+      <path d="M16 3v4"></path>
+      <path d="M8 21v-4"></path>
+      <path d="M16 21v-4"></path>
+      <path d="M3 8h4"></path>
+      <path d="M17 8h4"></path>
+      <path d="M3 16h4"></path>
+      <path d="M17 16h4"></path>
+    </svg>
+  )
+}
+
+function AcademicCapIcon(props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-zinc-500 dark:text-zinc-400"
+      {...props}
+    >
+      <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+      <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+    </svg>
   )
 }
 
@@ -306,7 +349,6 @@ export default async function Home() {
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Newsletter />
             <Resume />
           </div>
         </div>

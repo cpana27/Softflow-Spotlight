@@ -1,90 +1,304 @@
-import { ArticleLayout } from '@/components/ArticleLayout'
-import designSystem from './planetaria-design-system.png'
+import {ArticleLayout} from '../../../components/ArticleLayout'
 
 export const article = {
-  author: 'Adam Wathan',
-  date: '2022-09-05',
-  title: 'Crafting a design system for a multiplanetary future',
-  description:
-    'Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system.',
+    author: 'Christian Pana',
+    date: '2024-08-26',
+    title: 'Moderne Backend-Architekturen mit Spring, Quarkus und Kotlin',
+    description:
+        'Wie ich hochskalierbare und wartbare Microservice-Architekturen mit Java-Frameworks entwickle. Eine Analyse der Vor- und Nachteile von Spring Boot vs. Quarkus und warum Kotlin die Java-Welt revolutioniert.',
 }
 
 export const metadata = {
-  title: article.title,
-  description: article.description,
+    title: article.title,
+    description: article.description,
 }
 
 export default (props) => <ArticleLayout article={article} {...props} />
 
-Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system.
+In der Welt der Backend-Entwicklung haben sich die Anforderungen an moderne Systeme grundlegend verändert. Statt monolithischer Anwendungen entwickeln wir heute verteilte Systeme, die skalierbar, resilient und ressourceneffizient sein müssen. Nach Jahren der Entwicklung mit verschiedenen Frameworks haben sich für mich vor allem Spring Boot, Quarkus und die Programmiersprache Kotlin als die idealen Tools erwiesen.
 
-<Image src={designSystem} alt="" />
+Die Entscheidung für das richtige Framework und die passende Sprache hat langfristige Auswirkungen auf Entwicklungsgeschwindigkeit, Wartbarkeit und betriebliche Effizienz. Nach intensiver Erfahrung mit beiden Ansätzen möchte ich meine Erkenntnisse teilen.
 
-I knew that to get it right I was going to have to replicate the viewing conditions of someone from the future, so I grabbed my space helmet from the closet, created a new Figma document, and got to work.
+## Spring Boot: Der etablierte Standard
 
-## Sermone fata
+Spring Boot hat die Java-Entwicklung revolutioniert und ist heute der De-facto-Standard für Enterprise-Anwendungen. Der größte Vorteil liegt in seinem umfassenden Ökosystem und der ausgereiften Dokumentation.
 
-Lorem markdownum, bracchia in redibam! Terque unda puppi nec, linguae posterior
-in utraque respicere candidus Mimasque formae; quae conantem cervice. Parcite
-variatus, redolentia adeunt. Tyrioque dies, naufraga sua adit partibus celanda
-torquere temptata, erit maneat et ramos, [iam](#) ait dominari
-potitus! Tibi litora matremque fumantia condi radicibus opusque.
+Hier ein Beispiel für einen einfachen REST-Controller mit Spring Boot:
 
-Deus feram verumque, fecit, ira tamen, terras per alienae victum. Mutantur
-levitate quas ubi arcum ripas oculos abest. Adest [commissaque
-victae](#) in gemitus nectareis ire diva
-dotibus ora, et findi huic invenit; fatis? Fractaque dare superinposita
-nimiumque simulatoremque sanguine, at voce aestibus diu! Quid veterum hausit tu
-nil utinam paternos ima, commentaque.
+```java
+@RestController
+@RequestMapping("/api/products")
+public class ProductController {
 
-```c
-exbibyte_wins = gigahertz(3);
-grayscaleUtilityClient = control_uat;
-pcmciaHibernate = oop_virus_console(text_mountain);
-if (stateWaisFirewire >= -2) {
-    jfs = 647065 / ldapVrml(tutorialRestore, 85);
-    metal_runtime_parse = roomComputingResolution - toolbarUpload +
-            ipx_nvram_open;
-} else {
-    maximizeSidebar *= suffix_url(flatbed + 2, requirements_encoding_node +
-            only_qbe_media, minicomputer);
+    private final ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
+
+    @GetMapping
+    public List<Product> getAllProducts() {
+        return productService.findAllProducts();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Product> getProductById(@PathVariable Long id) {
+        return productService.findProductById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Product createProduct(@RequestBody @Valid ProductRequest request) {
+        return productService.createProduct(request);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Product> updateProduct(
+            @PathVariable Long id,
+            @RequestBody @Valid ProductRequest request) {
+        return ResponseEntity.ok(productService.updateProduct(id, request));
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteProduct(@PathVariable Long id) {
+        productService.deleteProduct(id);
+    }
 }
 ```
 
-Aere repetiti cognataque natus. Habebat vela solutis saepe munus nondum adhuc
-oscula nomina pignora corpus deserat.
+Spring Boot überzeugt durch seine intuitive Konfiguration und die starke Dependency Injection. Mit Annotations lassen sich komplexe Funktionen mit wenig Code realisieren. Besonders wertvoll sind Features wie:
 
-## Lethaei Pindumve me quae dinumerat Pavor
+- Spring Data JPA für vereinfachten Datenbankzugriff
+- Spring Security für umfassende Absicherung
+- Spring Cloud für Microservice-Architektur
 
-Idem se saxa fata pollentibus geminos; quos pedibus. Est urnis Herses omnes nec
-divite: et ille illa furit sim verbis Cyllenius.
+Der größte Nachteil von Spring Boot ist sein Ressourcenhunger. Die Startup-Zeit und der Speicherverbrauch können für bestimmte Anwendungsfälle problematisch sein.
 
-1. Captus inpleverunt collo
-2. Nec nam placebant
-3. Siquos vulgus
-4. Dictis carissime fugae
-5. A tacitos nulla viginti
+## Quarkus: Das Cloud-Native Java-Framework
 
-Ungues fistula annoso, ille addit linoque motatque uberior verso
-[rubuerunt](#) confine desuetaque. _Sanguine_ anteit
-emerguntque expugnacior est pennas iniqui ecce **haeret** genus: peiora imagine
-fossas Cephisos formosa! Refugitque amata [refelli](#)
-supplex. Summa brevis vetuere tenebas, hostes vetantis, suppressit, arreptum
-regna. Postquam conpescit iuvenis habet corpus, et erratica, perdere, tot mota
-ars talis.
+Quarkus wurde von Grund auf für die Cloud-Native-Welt konzipiert. Als jüngeres Framework bringt es frische Ansätze und beeindruckende Performance-Werte mit.
 
-```c
-digital.webcam_dual_frequency = webmasterMms;
-if (5 + language_standalone_google) {
-    cc_inbox_layout *= file_character;
-    task += p;
-    lockUnicode += enterprise_monochrome(tokenFunctionPersonal, keyVirtual,
-            adf);
+Ein analoger REST-Controller in Quarkus:
+
+```java
+@Path("/api/products")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
+public class ProductResource {
+
+    @Inject
+    ProductService productService;
+
+    @GET
+    public List<Product> getAllProducts() {
+        return productService.findAllProducts();
+    }
+
+    @GET
+    @Path("/{id}")
+    public Response getProductById(@PathParam("id") Long id) {
+        return productService.findProductById(id)
+                .map(product -> Response.ok(product).build())
+                .orElse(Response.status(Response.Status.NOT_FOUND).build());
+    }
+
+    @POST
+    public Response createProduct(ProductRequest request) {
+        Product created = productService.createProduct(request);
+        return Response.status(Response.Status.CREATED).entity(created).build();
+    }
+
+    @PUT
+    @Path("/{id}")
+    public Response updateProduct(
+            @PathParam("id") Long id,
+            ProductRequest request) {
+        Product updated = productService.updateProduct(id, request);
+        return Response.ok(updated).build();
+    }
+
+    @DELETE
+    @Path("/{id}")
+    public Response deleteProduct(@PathParam("id") Long id) {
+        productService.deleteProduct(id);
+        return Response.noContent().build();
+    }
 }
-windows_binary_esports(87734, array(restoreRomTopology, adRaw(407314),
-        dongleBashThumbnail), interpreter);
 ```
 
-Sit volat naturam; motu Cancri. Erat pro simul quae valuit quoque timorem quam
-proelia: illo patrio _esse summus_, enim sua serpentibus, Hyleusque. Est coniuge
-recuso; refert Coroniden ignotos manat, adfectu.
+Was Quarkus besonders auszeichnet:
+
+- Supersonic Subatomic Java: Extrem schnelle Startup-Zeiten
+- Deutlich niedrigerer Speicherverbrauch
+- Native Kompilierung mit GraalVM
+- Live Coding mit nahezu sofortiger Feedback-Schleife
+
+Ein Dienst, der mit Spring Boot mehrere Sekunden zum Starten benötigt, kann mit Quarkus in Millisekunden hochfahren. Das macht einen enormen Unterschied für Serverless-Anwendungen und Containerumgebungen.
+
+## Kotlin: Die moderne JVM-Sprache
+
+Während Java 17+ viele moderne Features mitbringt, bietet Kotlin noch weitergehende Vorteile. Die Sprache wurde von JetBrains entwickelt und kombiniert funktionale und objektorientierte Konzepte auf elegante Weise.
+
+Hier ein Beispiel eines Datenmodells und Repositories in Kotlin:
+
+```kotlin
+// Datenmodell mit Kotlin data class
+data class Product(
+    @Id val id: Long? = null,
+    val name: String,
+    val description: String,
+    val price: BigDecimal,
+    val category: Category,
+    val attributes: Map<String, String> = emptyMap(),
+    val available: Boolean = true,
+    @CreatedDate val createdAt: LocalDateTime = LocalDateTime.now(),
+    @LastModifiedDate val updatedAt: LocalDateTime = LocalDateTime.now()
+)
+
+// Repository-Interface mit Kotlin-Sprachfeatures
+interface ProductRepository : JpaRepository<Product, Long> {
+
+    fun findByCategory(category: Category): List<Product>
+
+    fun findByAvailableTrue(): List<Product>
+
+    fun findByPriceLessThan(maxPrice: BigDecimal): List<Product>
+
+    // Extension Function für komplexere Abfragen
+    fun findAvailableByCategory(category: Category): List<Product> =
+        findAll(where(Product::available).isTrue()
+            .and(Product::category).isEqualTo(category))
+
+    // Nutzt Kotlin Coroutines für nicht-blockierende Operationen
+    @Async
+    suspend fun findProductsByNameContaining(namePart: String): Flow<Product>
+}
+```
+
+Die Vorteile von Kotlin sind vielfältig:
+
+- Null-Safety durch das Typsystem
+- Prägnanterer Code (30-40% weniger Code als Java)
+- Erweiterte Funktionen wie Coroutines für asynchrone Programmierung
+- Hervorragende Interoperabilität mit bestehendem Java-Code
+
+Besonders das Feature der Erweiterungsfunktionen erlaubt es, bestehende Klassen um neue Funktionalität zu erweitern, ohne sie zu modifizieren:
+
+```kotlin
+// Eine Erweiterungsfunktion für die String-Klasse
+fun String.toSlug() = this.lowercase()
+    .replace(Regex("[^a-z0-9]+"), "-")
+    .replace(Regex("^-|-$"), "")
+
+// Verwendung
+val title = "Spring Boot mit Kotlin und JPA"
+val slug = title.toSlug() // "spring-boot-mit-kotlin-und-jpa"
+```
+
+## Reaktive Programmierung mit Spring WebFlux und Quarkus Reactive
+
+Moderne Backend-Systeme müssen oft tausende von gleichzeitigen Verbindungen effizient verarbeiten. Reaktive Programmierung ist hier der Schlüssel.
+
+Hier ein Beispiel eines reaktiven Services mit Spring WebFlux und Kotlin:
+
+```kotlin
+@Service
+class ReactiveProductService(
+    private val productRepository: ReactiveProductRepository
+) {
+    fun getAllProducts(): Flux<Product> =
+        productRepository.findAll()
+
+    fun getProductById(id: Long): Mono<Product> =
+        productRepository.findById(id)
+            .switchIfEmpty(Mono.error(NotFoundException("Produkt nicht gefunden")))
+
+    fun createProduct(request: ProductRequest): Mono<Product> {
+        val product = Product(
+            name = request.name,
+            description = request.description,
+            price = request.price,
+            category = request.category
+        )
+        return productRepository.save(product)
+    }
+
+    fun processInventoryUpdates(updates: Flux<InventoryUpdate>): Flux<Product> =
+        updates
+            .flatMap { update ->
+                productRepository.findById(update.productId)
+                    .flatMap { product ->
+                        val updated = product.copy(
+                            available = update.available,
+                            updatedAt = LocalDateTime.now()
+                        )
+                        productRepository.save(updated)
+                    }
+                    .onErrorResume { Mono.empty() }
+            }
+}
+```
+
+Der reaktive Ansatz ermöglicht:
+
+- Höhere Skalierbarkeit mit weniger Ressourcen
+- Bessere Fehlertoleranz und Resilience
+- Event-Driven-Architektur für Echtzeit-Anwendungen
+
+## Performance-Vergleich und Anwendungsfälle
+
+Nach meinen Benchmark-Tests ergeben sich folgende typische Werte:
+
+| Metrik | Spring Boot (JVM) | Quarkus (JVM) | Quarkus (Native) |
+|--------|-------------------|---------------|------------------|
+| Startup-Zeit | 2-4 Sekunden | 0.8-1.5 Sekunden | 0.015-0.05 Sekunden |
+| RAM-Verbrauch | ~350-500 MB | ~150-250 MB | ~50-120 MB |
+| Throughput | Hoch | Sehr hoch | Hoch |
+| Latenz unter Last | Gut | Sehr gut | Sehr gut |
+
+Typische Anwendungsfälle:
+
+- **Spring Boot**: Große Enterprise-Anwendungen, komplexe Geschäftslogik, umfangreiche Teams
+- **Quarkus**: Microservices, Serverless-Funktionen, ressourcenbeschränkte Umgebungen
+- **Kotlin**: Für beide Frameworks ideal, besonders vorteilhaft bei komplexen Domänenmodellen
+
+## Praxisnahe Microservice-Architektur
+
+In meinen Projekten setze ich oft auf eine Kombination:
+
+```
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│  API Gateway    │     │ Auth Service    │     │  Config Server  │
+│  (Spring Cloud) │────▶│ (Quarkus+Kotlin)│     │  (Spring Boot)  │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+         │                      │                        │
+         ▼                      ▼                        ▼
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│ Product Service │     │ Inventory Svc   │     │  Order Service  │
+│ (Spring+Kotlin) │───▶│ (Quarkus Native)│────▶│ (Spring+Kotlin) │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+         │                      │                        │
+         └──────────────────────┼────────────────────────┘
+                                ▼
+                      ┌─────────────────┐
+                      │   Event Bus     │
+                      │   (Kafka)       │
+                      └─────────────────┘
+```
+
+Ich setze Spring Boot für komplexe Services mit umfangreicher Geschäftslogik ein, während Quarkus (besonders in der Native-Variante) für hochperformante Dienste mit vielen parallelen Anfragen zum Einsatz kommt.
+
+## Fazit und Ausblick
+
+Nach mehr als fünf Jahren Entwicklungserfahrung mit diesen Technologien kann ich sagen: Es gibt nicht das eine perfekte Framework oder die eine perfekte Sprache. Vielmehr kommt es darauf an, die Stärken jeder Technologie für den jeweiligen Anwendungsfall zu nutzen.
+
+- **Spring Boot** bleibt das robuste Fundament für komplexe Enterprise-Anwendungen
+- **Quarkus** setzt neue Maßstäbe für Cloud-Native-Anwendungen
+- **Kotlin** bringt Produktivität und Sicherheit in die Java-Welt
+
+Meine persönliche Präferenz liegt bei der Kombination aus Kotlin mit Spring Boot für größere Dienste und Quarkus Native für leichtgewichtige Mikroservices. Diese Kombination bietet optimale Entwicklungsproduktivität bei gleichzeitig hervorragender Laufzeitperformance.
+
+Die Zukunft wird noch stärker durch Cloud-Native-Technologien geprägt sein. WebAssembly und noch effizientere Kompilierungstechniken werden die Grenzen zwischen verschiedenen Programmiersprachen weiter verwischen. Mit Kotlin und modernen Frameworks wie Spring Boot und Quarkus sind wir bestens für diese Entwicklung gerüstet.
