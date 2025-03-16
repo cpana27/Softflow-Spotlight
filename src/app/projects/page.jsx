@@ -133,7 +133,7 @@ export default function Projects() {
         <div className="mt-12 flex justify-center">
           <a
             href="#"
-            className="inline-flex items-center rounded-full bg-teal-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-teal-700 focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 focus:outline-none dark:bg-teal-500 dark:hover:bg-teal-600"
+            className="inline-flex items-center rounded-full bg-blue-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none dark:bg-blue-500 dark:hover:bg-blue-600"
           >
             Alle Projekte anzeigen
             <svg

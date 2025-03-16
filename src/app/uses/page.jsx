@@ -6,7 +6,7 @@ function ToolsSection({ children, title, icon, ...props }) {
   return (
       <Section {...props}>
         <div className="flex items-center mb-8 border-b border-zinc-200 pb-4 dark:border-zinc-700/40">
-          <div className="mr-4 text-teal-500 dark:text-teal-400">
+          <div className="mr-4 text-blue-500 dark:text-blue-400">
             {icon}
           </div>
           <h2 className="text-xl font-bold text-zinc-800 dark:text-zinc-100">{title}</h2>
@@ -23,12 +23,12 @@ function Tool({ title, href, icon, children }) {
       <Card as="li" className="group relative transition-all duration-300">
         <div className="flex items-start">
           {icon && (
-              <div className="flex-shrink-0 mr-4 text-zinc-500 dark:text-zinc-400 group-hover:text-teal-500 dark:group-hover:text-teal-400 transition-colors duration-300">
+              <div className="flex-shrink-0 mr-4 text-zinc-500 dark:text-zinc-400 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors duration-300">
                 {icon}
               </div>
           )}
           <div>
-            <Card.Title as="h3" href={href} className="text-base font-semibold text-zinc-800 dark:text-zinc-100 group-hover:text-teal-500 dark:group-hover:text-teal-400 transition-colors duration-300">
+            <Card.Title as="h3" href={href} className="text-base font-semibold text-zinc-800 dark:text-zinc-100 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors duration-300">
               {title}
             </Card.Title>
             <Card.Description className="mt-2 text-sm">{children}</Card.Description>
