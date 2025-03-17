@@ -7,15 +7,15 @@ import { useTheme } from 'next-themes'
 
 // Lokale Bilder importieren
 import logoGo from '@/images/logos/Go-Logo_LightBlue.svg'
-import logoJs from '@/images/logos/js.png'
-import logoTs from '@/images/logos/typescript.png'
-import logoReact from '@/images/logos/react.png'
+import logoJs from '@/images/logos/js.svg'
+import logoTs from '@/images/logos/typescript.svg'
+import logoReact from '@/images/logos/react.svg'
 import logoNode from '@/images/logos/nodejs.png'
-import logoPython from '@/images/logos/python.png'
+import logoPython from '@/images/logos/python.svg'
 import logoJava from '@/images/logos/java.svg'
 import logoDocker from '@/images/logos/docker.png'
-import logoKotlin from '@/images/logos/kotlin.png'
-import logoFlutter from '@/images/logos/flutter.png'
+import logoKotlin from '@/images/logos/kotlin.svg'
+import logoFlutter from '@/images/logos/flutter.svg'
 
 export default function Kenntnisse() {
   const { resolvedTheme } = useTheme()

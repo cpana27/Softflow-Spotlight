@@ -5,10 +5,15 @@ import remarkGfm from 'remark-gfm'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+  output: 'export', // Diese Zeile hinzufügen für statischen Export
   experimental: {
     outputFileTracingIncludes: {
       '/articles/*': ['./src/app/articles/**/*.mdx'],
     },
+  },
+  // Images müssen im statischen Export konfiguriert werden
+  images: {
+    unoptimized: true,
   },
 }
 

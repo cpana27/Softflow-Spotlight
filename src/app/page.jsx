@@ -3,15 +3,12 @@ import Link from 'next/link'
 
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
-import {
-  GitHubIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  XIcon,
-} from '@/components/SocialIcons'
+import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
 import { getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 import Kenntnisse from '@/components/Kenntnisse'
+import Case from '@/images/logos/icons8-briefcase.svg'
+import home from "@/images/logos/home-icon-svg-28.jpg"
 
 function MailIcon(props) {
   return (
@@ -98,9 +95,9 @@ function SocialLink({ icon: Icon, ...props }) {
 function Resume() {
   let resume = [
     {
-      company: 'Aktuelles Unternehmen',
-      title: 'Senior Software Developer',
-      //logo: logoCurrentCompany,
+      company: 'Convista AG',
+      title: 'Software Developer',
+      logo: Case,
       start: '2022',
       end: {
         label: 'Heute',
@@ -108,25 +105,11 @@ function Resume() {
       },
     },
     {
-      company: 'Vorheriges Unternehmen',
+      company: 'Lise GmbH',
       title: 'Full-Stack Developer',
-      //logo: logoPreviousCompany,
+      logo: Case,
       start: '2020',
       end: '2022',
-    },
-    {
-      company: 'Tech Solutions GmbH',
-      title: 'Software Engineer',
-      //logo: logoTechSolutions,
-      start: '2018',
-      end: '2020',
-    },
-    {
-      company: 'Web Development AG',
-      title: 'Junior Developer',
-      //logo: logoWebDev,
-      start: '2017',
-      end: '2018',
     },
   ]
 
@@ -155,7 +138,7 @@ function Resume() {
             <dl className="flex flex-auto flex-wrap gap-x-2">
               <dt className="sr-only">Hochschule</dt>
               <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                Technische Universität
+                Technische Hochschule Köln
               </dd>
               <dt className="sr-only">Studiengang</dt>
               <dd className="text-xs text-zinc-500 dark:text-zinc-400">
@@ -163,7 +146,7 @@ function Resume() {
               </dd>
               <dt className="sr-only">Zeitraum</dt>
               <dd className="ml-auto text-xs text-zinc-500 dark:text-zinc-400">
-                Abschluss 2017
+                Abschluss 2020
               </dd>
             </dl>
           </li>
@@ -320,22 +303,15 @@ export default async function Home() {
             Aktivität und technischer Kreativität.
           </p>
           <div className="mt-6 flex gap-6">
-            <SocialLink href="#" aria-label="Follow on X" icon={XIcon} />
+            <SocialLink href="https://github.com/cpana27" icon={GitHubIcon}>
+              Folge mir auf GitHub
+            </SocialLink>
             <SocialLink
-              href="#"
-              aria-label="Follow on Instagram"
-              icon={InstagramIcon}
-            />
-            <SocialLink
-              href="#"
-              aria-label="Follow on GitHub"
-              icon={GitHubIcon}
-            />
-            <SocialLink
-              href="#"
-              aria-label="Follow on LinkedIn"
+              href="https://www.linkedin.com/in/christian-cornelius-pana-b9831b245/"
               icon={LinkedInIcon}
-            />
+            >
+              Vernetze dich auf LinkedIn
+            </SocialLink>
           </div>
         </div>
       </Container>

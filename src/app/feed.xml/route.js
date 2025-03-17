@@ -1,8 +1,11 @@
 import assert from 'assert'
 import * as cheerio from 'cheerio'
 import { Feed } from 'feed'
+import fs from 'fs'
+import path from 'path'
 
-export async function GET(req) {
+// Diese Funktion wird nun während der Build-Zeit ausgeführt
+export async function GET() {
   let siteUrl = process.env.NEXT_PUBLIC_SITE_URL
 
   if (!siteUrl) {
@@ -28,32 +31,45 @@ export async function GET(req) {
     },
   })
 
-  let articleIds = require
-    .context('../articles', true, /\/page\.mdx$/)
-    .keys()
-    .filter((key) => key.startsWith('./'))
-    .map((key) => key.slice(2).replace(/\/page\.mdx$/, ''))
+  // Diese Methode funktioniert im statischen Export nicht zuverlässig
+  // Wir ersetzen sie durch direkte Verarbeitung der MDX-Dateien
+  const articlesDir = path.join(process.cwd(), 'src/app/articles')
+  const articleIds = fs.readdirSync(articlesDir).filter((dir) => {
+    // Überprüfe, ob es sich um ein Verzeichnis mit page.mdx handelt
+    const stat = fs.statSync(path.join(articlesDir, dir))
+    return (
+      stat.isDirectory() &&
+      fs.existsSync(path.join(articlesDir, dir, 'page.mdx'))
+    )
+  })
 
   for (let id of articleIds) {
-    let url = String(new URL(`/articles/${id}`, req.url))
-    let html = await (await fetch(url)).text()
-    let $ = cheerio.load(html)
+    // Wir lesen die MDX-Datei direkt
+    const mdxPath = path.join(articlesDir, id, 'page.mdx')
+    const mdxContent = fs.readFileSync(mdxPath, 'utf-8')
 
-    let publicUrl = `${siteUrl}/articles/${id}`
-    let article = $('article').first()
-    let title = article.find('h1').first().text()
-    let date = article.find('time').first().attr('datetime')
-    let content = article.find('[data-mdx-content]').first().html()
+    // Einfache Extraktion von Metadaten (passe dies an dein MDX-Format an)
+    const titleMatch = mdxContent.match(/# (.*)/)
+    const dateMatch = mdxContent.match(
+      /export const meta = \{\s*date: ['"](.*)['"],/s,
+    )
 
-    assert(typeof title === 'string')
-    assert(typeof date === 'string')
-    assert(typeof content === 'string')
+    const title = titleMatch ? titleMatch[1] : `Artikel: ${id}`
+    const date = dateMatch ? dateMatch[1] : new Date().toISOString()
+
+    // Inhalt vereinfacht
+    const content = mdxContent
+      .replace(/^---[\s\S]*?---/m, '') // Frontmatter entfernen
+      .replace(/import.*$/gm, '') // Imports entfernen
+      .replace(/export.*$/gm, '') // Exports entfernen
+
+    const publicUrl = `${siteUrl}/articles/${id}`
 
     feed.addItem({
       title,
       id: publicUrl,
       link: publicUrl,
-      content,
+      content: `<div>${content}</div>`,
       author: [author],
       contributor: [author],
       date: new Date(date),
@@ -64,7 +80,10 @@ export async function GET(req) {
     status: 200,
     headers: {
       'content-type': 'application/xml',
-      'cache-control': 's-maxage=31556952',
+      'cache-control': 'public, max-age=3600',
     },
   })
 }
+
+// Damit Next.js weiß, dass dies eine statische Route sein soll
+export const dynamic = 'force-static'

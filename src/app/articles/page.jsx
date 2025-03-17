@@ -33,9 +33,9 @@ function Article({ article }) {
 }
 
 export const metadata = {
-  title: 'Articles',
+  title: 'Artikel',
   description:
-    'All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order.',
+    'Meine gesammelten ausführlichen Gedanken zu Programmierung, Führung, Produktdesign und weiteren Themen, in chronologischer Reihenfolge dargestellt.',
 }
 
 export default async function ArticlesIndex() {
