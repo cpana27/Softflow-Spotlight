@@ -1,16 +1,16 @@
-import { ArticleLayout } from '@/components/ArticleLayout'
+import {ArticleLayout} from '../../../components/ArticleLayout'
 
 export const article = {
-  author: 'Christian Pana',
-  date: '2024-12-08',
-  title: 'Hardwareprogrammierung mit Rust und Low-Level-Optimierung',
-  description:
-    'Nach Jahren der Entwicklung mit verschiedenen Hochsprachen habe ich mich intensiv mit Rust für Low-Level-Hardwareprogrammierung beschäftigt. Hier sind meine Erfahrungen, warum Rust die perfekte Wahl für systemnahe Programmierung ist und wie es meine Herangehensweise an Optimierung verändert hat.',
+    author: 'Christian Pana',
+    date: '2024-12-08',
+    title: 'Hardwareprogrammierung mit Rust und Low-Level-Optimierung',
+    description:
+        'Nach Jahren der Entwicklung mit verschiedenen Hochsprachen habe ich mich intensiv mit Rust für Low-Level-Hardwareprogrammierung beschäftigt. Hier sind meine Erfahrungen, warum Rust die perfekte Wahl für systemnahe Programmierung ist und wie es meine Herangehensweise an Optimierung verändert hat.',
 }
 
 export const metadata = {
-  title: article.title,
-  description: article.description,
+    title: article.title,
+    description: article.description,
 }
 
 export default (props) => <ArticleLayout article={article} {...props} />

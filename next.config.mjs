@@ -5,7 +5,8 @@ import remarkGfm from 'remark-gfm'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
-  output: 'export', // Diese Zeile hinzufügen für statischen Export
+  output: 'export',
+  assetPrefix: './', // Verwendet relative Pfade für Assets
   experimental: {
     outputFileTracingIncludes: {
       '/articles/*': ['./src/app/articles/**/*.mdx'],

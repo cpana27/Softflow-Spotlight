@@ -85,5 +85,4 @@ export async function GET() {
   })
 }
 
-// Damit Next.js weiß, dass dies eine statische Route sein soll
-export const dynamic = 'force-static'
+// Damit Next.js weiß, dass dies eine statische Route sein so
