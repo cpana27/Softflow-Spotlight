@@ -266,13 +266,13 @@ function MobileNav() {
 
 export function Navbar({ banner }) {
   return (
-    <div className="pt-12 sm:pt-16">
+    <div className="pt-4 sm:pt-4">
       <Disclosure as="header" className="sticky top-0 z-50">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-2 lg:px-2">
           <div className="flex items-center justify-between gap-6">
             <div className="flex items-center gap-6">
               <Link href="/" title="Home">
-                <Logo className="h-9" />
+                <Logo className="h-22" />
               </Link>
               {banner && (
                 <div className="relative hidden items-center py-3 lg:flex">

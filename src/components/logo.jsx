@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import softflow from "@/images/softflow.png"
+import softflow from "@/images/softflowR.png"
 
 export function Logo({ className }) {
   return (

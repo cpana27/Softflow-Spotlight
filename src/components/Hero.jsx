@@ -1,6 +1,5 @@
 import { Button } from '@/components/button'
 import { Container } from '@/components/container'
-import { Gradient } from '@/components/gradient'
 import { Navbar } from '@/components/navbar'
 import chrisImage from '@/images/chris.png'
 import Image from 'next/image'
@@ -9,10 +8,9 @@ import Image from 'next/image'
 export function Hero() {
   return (
     <div className="relative">
-      <Gradient className="absolute inset-2 bottom-0 rounded-4xl ring-1 ring-black/5 ring-inset" />
       <Container className="relative">
         <Navbar />
-        <div className="pt-16 pb-24 sm:pt-24 sm:pb-32 md:pt-32 md:pb-48">
+        <div className="pt-16 pb-12 sm:pt-22 sm:pb-24 md:pt-24 md:pb-24">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             <div>
               <p className="text-base font-semibold text-emerald-600 mb-4">
@@ -25,7 +23,7 @@ export function Hero() {
                 Ein Software-Entwickler und Technik-Begeisterter aus Deutschland.
               </p>
               <p className="mt-4 text-base/7 text-gray-600">
-                Mit 29 Jahren und einem abgeschlossenen Studium der Technischen Informatik bringe ich 5 Jahre Berufserfahrung als Fullstack-Entwickler im Versicherungsbereich und in allgemeinen Programmiertätigkeiten mit. Diese vielseitigen Kenntnisse ermöglichen es mir, komplexe Softwarelösungen zu entwickeln, die sowohl effizient als auch benutzerfreundlich sind.
+                Mit 30 Jahren und einem abgeschlossenen Studium der Technischen Informatik bringe ich 7 Jahre Berufserfahrung als Fullstack-Entwickler im Versicherungsbereich und in allgemeinen Programmiertätigkeiten mit. Diese vielseitigen Kenntnisse ermöglichen es mir, komplexe Softwarelösungen zu entwickeln, die sowohl effizient als auch benutzerfreundlich sind.
               </p>
               <p className="mt-4 text-base/7 text-gray-600">
                 In meiner Freizeit widme ich mich dem Kraftsport und vertiefe mich in Hardware-Projekte – eine perfekte Balance zwischen körperlicher Aktivität und technischer Kreativität.
@@ -43,9 +41,9 @@ export function Hero() {
                 <Image
                     src={chrisImage}
                     alt="Christian"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover rounded-4xl"
                     fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 90vw, 50vw"
                 />
               </div>
               {/* Decorative element in grün passend zum Logo */}

@@ -25,7 +25,7 @@ export const metadata = {
 function FeatureSection() {
   return (
     <div className="overflow-hidden">
-      <Container className="pb-24">
+      <Container className="pb-12">
         <Heading as="h2" className="max-w-3xl">
           A snapshot of your entire sales pipeline.
         </Heading>
@@ -159,10 +159,9 @@ export default function Home() {
     <div className="overflow-hidden">
       <Hero />
       <main>
-        <Container className="mt-10">
-          <LogoCloud />
+        <Container className="mt-8">
         </Container>
-        <div className="bg-linear-to-b from-white from-50% to-gray-100 py-32">
+        <div className="bg-linear-to-b from-white from-50% to-gray-100 py-22">
           <FeatureSection />
           <BentoSection />
         </div>

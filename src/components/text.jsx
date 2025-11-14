@@ -2,7 +2,7 @@ import { clsx } from 'clsx'
 
 export function Heading({
   className,
-  as: Element = 'h2',
+  as: Element = 'h4',
   dark = false,
   ...props
 }) {
@@ -12,7 +12,7 @@ export function Heading({
       data-dark={dark ? 'true' : undefined}
       className={clsx(
         className,
-        'text-4xl font-medium tracking-tighter text-pretty text-gray-950 data-dark:text-white sm:text-6xl',
+        'text-2xl font-medium tracking-tighter text-pretty text-gray-950 data-dark:text-white sm:text-6xl',
       )}
     />
   )
@@ -20,7 +20,7 @@ export function Heading({
 
 export function Subheading({
   className,
-  as: Element = 'h2',
+  as: Element = 'h3',
   dark = false,
   ...props
 }) {
