@@ -23,7 +23,7 @@ export const metadata = {
 function FeatureSection() {
   return (
     <div className="overflow-hidden">
-      <Container className="pb-12">
+      <Container className="pb-12 mt-8">
         <Heading as="h2" className="max-w-3xl">
           A snapshot of your entire sales pipeline.
         </Heading>
@@ -41,8 +41,7 @@ function FeatureSection() {
 function BentoSection() {
   return (
     <Container>
-      <Subheading>Sales</Subheading>
-      <Heading as="h3" className="mt-2 max-w-3xl">
+      <Heading as="h3" className="mt-2 mb-8 max-w-3xl">
         Know more about your customers than they do.
       </Heading>
 
@@ -160,8 +159,9 @@ export default function Home() {
         <Container className="mt-8">
         </Container>
         <div className="bg-linear-to-b from-white from-50% to-gray-100 py-22">
+            <BentoSection />
           <FeatureSection />
-          <BentoSection />
+        
         </div>
         <DarkBentoSection />
       </main>

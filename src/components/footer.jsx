@@ -12,7 +12,7 @@ const navigation = {
     { name: 'Press', href: '#' },
     { name: 'Accessibility', href: '#' },
     { name: 'Partners', href: '#' },
-    { name: 'Datenschutz', href: '#' },
+    { name: 'Datenschutz', href: 'datenschutz' },
     { name: 'Impressum', href: '#' },
   ],
   social: [

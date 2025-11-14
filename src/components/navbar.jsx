@@ -31,7 +31,7 @@ const engagement = [
   { name: 'About', href: 'about', icon: InformationCircleIcon },
   { name: 'Projekte', href: 'projekte', icon: UsersIcon },
   { name: 'Hardware', href: 'hardware', icon: BriefcaseIcon },
-  { name: 'Datenschutz', href: 'datenschutz', icon: ShieldCheckIcon },
+  { name: 'Cybersicherheit', href: 'cybersicherheit', icon: ShieldCheckIcon },
 ]
 
 const resources = [
