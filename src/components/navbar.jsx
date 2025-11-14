@@ -25,7 +25,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { motion } from 'framer-motion'
 import { Link } from './link'
-import { Logo } from './logo'
+import { Logo } from '@/components/logo'
 
 const engagement = [
   { name: 'About', href: '#', icon: InformationCircleIcon },
