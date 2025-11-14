@@ -28,18 +28,16 @@ import { Link } from './link'
 import { Logo } from '@/components/logo'
 
 const engagement = [
-  { name: 'About', href: '#', icon: InformationCircleIcon },
-  { name: 'Customers', href: '#', icon: UsersIcon },
-  { name: 'Press', href: '#', icon: NewspaperIcon },
-  { name: 'Careers', href: '#', icon: BriefcaseIcon },
-  { name: 'Privacy', href: '#', icon: ShieldCheckIcon },
+  { name: 'About', href: 'about', icon: InformationCircleIcon },
+  { name: 'Projekte', href: 'projekte', icon: UsersIcon },
+  { name: 'Hardware', href: 'hardware', icon: BriefcaseIcon },
+  { name: 'Datenschutz', href: 'datenschutz', icon: ShieldCheckIcon },
 ]
 
 const resources = [
-  { name: 'Community', href: '#', icon: UserGroupIcon },
-  { name: 'Partners', href: '#', icon: GlobeAltIcon },
-  { name: 'Guides', href: '#', icon: BookOpenIcon },
-  { name: 'Webinars', href: '#', icon: VideoCameraIcon },
+  { name: 'Beratung', href: 'beratung', icon: UserGroupIcon },
+  { name: 'Webinars', href: 'webinar', icon: VideoCameraIcon },
+  { name: 'Preise', href: 'preise', icon: VideoCameraIcon },
 ]
 
 const recentPosts = [
