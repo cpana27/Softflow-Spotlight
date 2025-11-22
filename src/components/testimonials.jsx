@@ -15,53 +15,54 @@ import { Container } from './container'
 import { Link } from './link'
 import { Heading, Subheading } from './text'
 
-const testimonials = [
+const projects = [
   {
-    img: '/testimonials/tina-yards.jpg',
-    name: 'Tina Yards',
-    title: 'VP of Sales, Protocol',
-    quote:
-      'Thanks to Radiant, we’re finding new leads that we never would have found with legal methods.',
+    img: '/projects/ecommerce-project.jpg',
+    company: 'TechCorp GmbH',
+    industry: 'E-Commerce',
+    description:
+      'Entwicklung einer skalierbaren E-Commerce-Plattform mit React und Node.js. Migration von Legacy-System zu moderner Microservices-Architektur.',
   },
   {
-    img: '/testimonials/conor-neville.jpg',
-    name: 'Conor Neville',
-    title: 'Head of Customer Success, TaxPal',
-    quote:
-      'Radiant made undercutting all of our competitors an absolute breeze.',
+    img: '/projects/fintech-project.jpg',
+    company: 'FinanzApp AG',
+    industry: 'FinTech',
+    description:
+      'Backend-Entwicklung mit Go für hochperformante Banking-APIs. Implementierung von Echtzeit-Transaktionen und sicherer Datenverschlüsselung.',
   },
   {
-    img: '/testimonials/amy-chase.jpg',
-    name: 'Amy Chase',
-    title: 'Head of GTM, Pocket',
-    quote:
-      'We closed a deal in literally a few minutes because we knew their exact budget.',
+    img: '/projects/healthcare-project.jpg',
+    company: 'MedTech Solutions',
+    industry: 'Healthcare',
+    description:
+      'Cross-Platform Mobile App mit Flutter für Patientenverwaltung. Integration mit bestehenden Krankenhaus-Systemen via REST APIs.',
   },
   {
-    img: '/testimonials/veronica-winton.jpg',
-    name: 'Veronica Winton',
-    title: 'CSO, Planeteria',
-    quote:
-      'We’ve managed to put two of our main competitors out of business in 6 months.',
+    img: '/projects/logistics-project.jpg',
+    company: 'LogisticPro',
+    industry: 'Logistik',
+    description:
+      'Enterprise-Lösung mit Java für Lagerverwaltung und Routenoptimierung. Python-basierte Datenanalyse für Effizienzsteigerung.',
   },
   {
-    img: '/testimonials/dillon-lenora.jpg',
-    name: 'Dillon Lenora',
-    title: 'VP of Sales, Detax',
-    quote: 'I was able to replace 80% of my team with RadiantAI bots.',
+    img: '/projects/saas-project.jpg',
+    company: 'StartupXYZ',
+    industry: 'SaaS',
+    description:
+      'Full-Stack Entwicklung einer B2B-Plattform mit TypeScript, React und Node.js. CI/CD-Pipeline und Cloud-Deployment mit Docker.',
   },
   {
-    img: '/testimonials/harriet-arron.jpg',
-    name: 'Harriet Arron',
-    title: 'Account Manager, Commit',
-    quote:
-      'I’ve smashed all my targets without having to speak to a lead in months.',
+    img: '/projects/iot-project.jpg',
+    company: 'SmartHome Tech',
+    industry: 'IoT',
+    description:
+      'Native Android-App mit Kotlin für Smart-Home-Steuerung. WebSocket-Integration für Echtzeit-Kommunikation mit IoT-Geräten.',
   },
 ]
 
-function TestimonialCard({
-  name,
-  title,
+function ProjectCard({
+  company,
+  industry,
   img,
   children,
   bounds,
@@ -121,20 +122,14 @@ function TestimonialCard({
       <figure className="relative p-10">
         <blockquote>
           <p className="relative text-xl/7 text-white">
-            <span aria-hidden="true" className="absolute -translate-x-full">
-              “
-            </span>
             {children}
-            <span aria-hidden="true" className="absolute">
-              ”
-            </span>
           </p>
         </blockquote>
         <figcaption className="mt-6 border-t border-white/20 pt-6">
-          <p className="text-sm/6 font-medium text-white">{name}</p>
+          <p className="text-sm/6 font-medium text-white">{company}</p>
           <p className="text-sm/6 font-medium">
             <span className="bg-linear-to-r from-[#fff1be] from-28% via-[#ee87cb] via-70% to-[#b060ff] bg-clip-text text-transparent">
-              {title}
+              {industry}
             </span>
           </p>
         </figcaption>
@@ -147,15 +142,15 @@ function CallToAction() {
   return (
     <div>
       <p className="max-w-sm text-sm/6 text-gray-600">
-        Join the best sellers in the business and start using Radiant to hit
-        your targets today.
+        Gemeinsam entwickeln wir maßgeschneiderte Software-Lösungen für dein Business. 
+        Lass uns über dein nächstes Projekt sprechen.
       </p>
       <div className="mt-2">
         <Link
-          href="#"
-          className="inline-flex items-center gap-2 text-sm/6 font-medium text-pink-600"
+          href="#contact"
+          className="inline-flex items-center gap-2 text-sm/6 font-medium text-emerald-600"
         >
-          Get started
+          Projekt anfragen
           <ArrowLongRightIcon className="size-5" />
         </Link>
       </div>
@@ -163,7 +158,7 @@ function CallToAction() {
   )
 }
 
-export function Testimonials() {
+export function Projects() {
   let scrollRef = useRef(null)
   let { scrollX } = useScroll({ container: scrollRef })
   let [setReferenceWindowRef, bounds] = useMeasure()
@@ -183,9 +178,9 @@ export function Testimonials() {
     <div className="overflow-hidden py-32">
       <Container>
         <div ref={setReferenceWindowRef}>
-          <Subheading>What everyone is saying</Subheading>
+          <Subheading>Referenzen</Subheading>
           <Heading as="h3" className="mt-2">
-            Trusted by professionals.
+            Erfolgreiche Projekte & Beratungen.
           </Heading>
         </div>
       </Container>
@@ -198,18 +193,18 @@ export function Testimonials() {
           '[--scroll-padding:max(--spacing(6),calc((100vw-(var(--container-2xl)))/2))] lg:[--scroll-padding:max(--spacing(8),calc((100vw-(var(--container-7xl)))/2))]',
         ])}
       >
-        {testimonials.map(({ img, name, title, quote }, testimonialIndex) => (
-          <TestimonialCard
-            key={testimonialIndex}
-            name={name}
-            title={title}
+        {projects.map(({ img, company, industry, description }, projectIndex) => (
+          <ProjectCard
+            key={projectIndex}
+            company={company}
+            industry={industry}
             img={img}
             bounds={bounds}
             scrollX={scrollX}
-            onClick={() => scrollTo(testimonialIndex)}
+            onClick={() => scrollTo(projectIndex)}
           >
-            {quote}
-          </TestimonialCard>
+            {description}
+          </ProjectCard>
         ))}
         <div className="w-2xl shrink-0 sm:w-216" />
       </div>
@@ -217,14 +212,14 @@ export function Testimonials() {
         <div className="flex justify-between">
           <CallToAction />
           <div className="hidden sm:flex sm:gap-2">
-            {testimonials.map(({ name }, testimonialIndex) => (
+            {projects.map(({ company }, projectIndex) => (
               <Headless.Button
-                key={testimonialIndex}
-                onClick={() => scrollTo(testimonialIndex)}
+                key={projectIndex}
+                onClick={() => scrollTo(projectIndex)}
                 data-active={
-                  activeIndex === testimonialIndex ? true : undefined
+                  activeIndex === projectIndex ? true : undefined
                 }
-                aria-label={`Scroll to testimonial from ${name}`}
+                aria-label={`Scroll to project for ${company}`}
                 className={clsx(
                   'size-2.5 rounded-full border border-transparent bg-gray-300 transition',
                   'data-active:bg-gray-400 data-hover:bg-gray-400',

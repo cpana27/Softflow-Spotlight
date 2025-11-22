@@ -4,8 +4,8 @@ import { Mark } from './logo'
 function Row({ children }) {
   return (
     <div className="group relative">
-      <div className="absolute inset-x-0 top-1/2 h-0.5 bg-linear-to-r from-white/15 from-[2px] to-[2px] bg-size-[12px_100%]" />
-      <div className="absolute inset-x-0 bottom-0 h-0.5 bg-linear-to-r from-white/5 from-[2px] to-[2px] bg-size-[12px_100%] group-last:hidden" />
+      <div className="absolute inset-x-0 top-1/2 h-0.5 bg-linear-to-r from-gray-400 from-[2px] to-[2px] bg-size-[12px_100%]" />
+      <div className="absolute inset-x-0 bottom-0 h-0.5 bg-linear-to-r from-gray-100 from-[2px] to-[2px] bg-size-[12px_100%] group-last:hidden" />
       {children}
     </div>
   )
@@ -17,12 +17,12 @@ function Logo({ label, src, className }) {
       className={clsx(
         className,
         'absolute top-2 grid grid-cols-[1rem_1fr] items-center gap-2 px-3 py-1 whitespace-nowrap',
-        'rounded-full bg-linear-to-t from-gray-800 from-50% to-gray-700 ring-1 ring-white/10 ring-inset',
+        'rounded-full bg-linear-to-t from-gray-50 from-50% to-white ring-1 ring-gray-200 ring-inset shadow-sm',
         '[--move-x-from:-100%] [--move-x-to:calc(100%+100cqw)] [animation-iteration-count:infinite] [animation-name:move-x] [animation-play-state:paused] [animation-timing-function:linear] group-hover:[animation-play-state:running]',
       )}
     >
       <img alt="" src={src} className="size-4" />
-      <span className="text-sm/6 font-medium text-white">{label}</span>
+      <span className="text-sm/6 font-medium text-gray-900">{label}</span>
     </div>
   )
 }
@@ -39,8 +39,8 @@ export function LogoTimeline() {
             maskRepeat: 'no-repeat',
           }}
         />
-        <div className="relative flex size-24 items-center justify-center rounded-xl bg-linear-to-t from-white/5 to-white/25 shadow-sm ring-1 ring-white/10 outline outline-offset-[-5px] outline-white/5 ring-inset">
-          <Mark className="h-9 fill-white" />
+        <div className="relative flex size-24 items-center justify-center rounded-xl bg-linear-to-t from-gray-100 to-white shadow-md ring-1 ring-gray-200 outline outline-offset-[-5px] outline-gray-100 ring-inset">
+          <Mark className="h-9 fill-gray-900" />
         </div>
       </div>
       <div className="@container absolute inset-0 grid grid-cols-1 pt-8">

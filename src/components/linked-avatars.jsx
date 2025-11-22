@@ -37,7 +37,7 @@ function Rings() {
           cx="250"
           cy="250"
           r={n * 14 + 4}
-          className="stroke-white"
+          className="stroke-black"
         />
       ))}
     </svg>
@@ -55,7 +55,7 @@ function Checkmark() {
             transition: { ...transition, duration: 0.75 },
           },
         }}
-        className="flex size-6 items-center justify-center rounded-full bg-linear-to-t from-green-500 to-green-300 shadow-sm"
+        className="flex size-6 items-center justify-center rounded-full bg-linear-to-t from-green-500 to-green-300 shadow-md"
       >
         <CheckIcon className="size-4 fill-white" />
       </motion.div>
@@ -70,12 +70,12 @@ function Photos() {
         <img
           alt=""
           src="/linked-avatars/customer.jpg"
-          className="size-20 rounded-full bg-white/15 ring-4 ring-white/10"
+          className="size-20 rounded-full bg-gray-100 ring-4 ring-gray-200 shadow-sm"
         />
         <img
           alt=""
           src="/linked-avatars/manager.jpg"
-          className="size-20 rounded-full bg-white/15 ring-4 ring-white/10"
+          className="size-20 rounded-full bg-gray-100 ring-4 ring-gray-200 shadow-sm"
         />
       </div>
     </div>
