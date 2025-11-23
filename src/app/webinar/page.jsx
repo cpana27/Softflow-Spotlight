@@ -7,9 +7,8 @@ import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
 
 export const metadata = {
-  title: 'Company',
   description:
-    'We’re on a mission to transform revenue organizations by harnessing vast amounts of illegally acquired customer data.',
+    'Softflow - Maßgeschneiderte Softwarelösung und Beratung'
 }
 
 function Header() {

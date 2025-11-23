@@ -147,7 +147,7 @@ function CallToAction() {
       </p>
       <div className="mt-2">
         <Link
-          href="#contact"
+          href="kontakt"
           className="inline-flex items-center gap-2 text-sm/6 font-medium text-emerald-600"
         >
           Projekt anfragen

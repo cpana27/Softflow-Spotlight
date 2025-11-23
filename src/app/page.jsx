@@ -17,7 +17,7 @@ import {Hero} from "@/components/Hero"
 
 export const metadata = {
   description:
-    'Radiant helps you sell more by revealing sensitive information about your customers.',
+   'Softflow - Maßgeschneiderte Softwarelösung und Beratung',
 }
 
 import { CodeBracketIcon, CpuChipIcon, DevicePhoneMobileIcon, CloudIcon, RocketLaunchIcon, ShieldCheckIcon } from '@heroicons/react/20/solid'
