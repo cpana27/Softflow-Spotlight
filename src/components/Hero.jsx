@@ -29,8 +29,8 @@ export function Hero() {
                 In meiner Freizeit widme ich mich dem Kraftsport und vertiefe mich in Hardware-Projekte – eine perfekte Balance zwischen körperlicher Aktivität und technischer Kreativität.
               </p>
               <div className="mt-8 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
-                <Button href="#projekte">Meine Projekte</Button>
-                <Button variant="secondary" href="#kontakt">
+                <Button href="projekte">Meine Projekte</Button>
+                <Button variant="secondary" href="kontakt">
                   Kontakt aufnehmen
                 </Button>
               </div>

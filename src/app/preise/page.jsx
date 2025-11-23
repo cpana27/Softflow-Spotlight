@@ -1,283 +1,400 @@
-import { AnimatedNumber } from '@/components/animated-number'
 import { Button } from '@/components/button'
 import { Container } from '@/components/container'
 import { Footer } from '@/components/footer'
-import { GradientBackground } from '@/components/gradient'
+import { Gradient, GradientBackground } from '@/components/gradient'
+import { Link } from '@/components/link'
+import { LogoCloud } from '@/components/logo-cloud'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
-import { CTASection } from '@/components/CtaSection'
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import {
+  CheckIcon,
+  ChevronUpDownIcon,
+  MinusIcon,
+} from '@heroicons/react/16/solid'
 
 export const metadata = {
-  title: 'Projekte – Fullstack Development',
+  title: 'Preise – Fullstack Development',
   description:
-    'Eine Auswahl meiner Projekte – von modernen Web-Apps über E-Commerce-Lösungen bis zu komplexen Backend-Systemen.',
+    'Agentur-Qualität zu Freelancer-Konditionen. Transparente Preise für moderne Web-Apps, MVPs und professionelle Websites.',
 }
 
-// Dummy-Daten für Projekte - hier später deine echten Projekte einfügen
-const projects = [
+const services = [
   {
-    id: 1,
-    title: 'E-Commerce Platform',
-    category: 'Fullstack Web App',
-    description: 'Moderne E-Commerce-Plattform mit React, Node.js und Stripe-Integration. Komplettes Warenwirtschaftssystem mit Admin-Dashboard.',
-    image: '/projects/ecommerce.jpg',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-    year: '2024',
-    link: '#',
+    category: 'Development',
+    icon: '⚡',
+    items: [
+      'Web Apps & Progressive Web Apps',
+      'Corporate Websites & Landing Pages',
+      'E-Commerce & Shop-Systeme',
+      'Dashboards & Admin-Panels',
+      'REST APIs & GraphQL Backends',
+      'Datenbank-Design & -Migration',
+      'Cloud-Deployment & DevOps',
+      'Legacy-Code Modernisierung',
+    ],
   },
   {
-    id: 2,
-    title: 'SaaS Dashboard',
-    category: 'Web Application',
-    description: 'Analytics-Dashboard für ein SaaS-Startup. Real-time Datenvisualisierung mit WebSockets und komplexem Rechtemanagement.',
-    image: '/projects/dashboard.jpg',
-    tags: ['Next.js', 'TypeScript', 'MongoDB', 'WebSockets'],
-    year: '2024',
-    link: '#',
+    category: 'Consulting & Architektur',
+    icon: '🎯',
+    items: [
+      'Tech-Stack Beratung & Evaluation',
+      'System-Architektur & Design',
+      'Code Reviews & Quality Audits',
+      'Performance-Optimierung',
+      'Security & Penetration Testing',
+      'Cloud-Strategie (AWS, Azure, GCP)',
+      'CI/CD Pipeline Setup',
+      'Team-Training & Workshops',
+    ],
   },
   {
-    id: 3,
-    title: 'Corporate Website',
-    category: 'Website',
-    description: 'Hochperformante Unternehmenswebsite mit Headless CMS. SEO-optimiert und perfekte Core Web Vitals Scores.',
-    image: '/projects/corporate.jpg',
-    tags: ['Next.js', 'Sanity CMS', 'Vercel'],
-    year: '2023',
-    link: '#',
-  },
-  {
-    id: 4,
-    title: 'Booking System',
-    category: 'Fullstack Web App',
-    description: 'Online-Buchungssystem für Dienstleister mit Kalendersynchronisation, Zahlungsabwicklung und automatisierten E-Mail-Benachrichtigungen.',
-    image: '/projects/booking.jpg',
-    tags: ['React', 'Express', 'PostgreSQL', 'AWS'],
-    year: '2023',
-    link: '#',
-  },
-  {
-    id: 5,
-    title: 'API Modernization',
-    category: 'Backend',
-    description: 'Migration einer Legacy REST API zu einer modernen GraphQL-Architektur. Performance-Verbesserung um 300%.',
-    image: '/projects/api.jpg',
-    tags: ['GraphQL', 'Node.js', 'Redis', 'Docker'],
-    year: '2024',
-    link: '#',
-  },
-  {
-    id: 6,
-    title: 'Progressive Web App',
-    category: 'Mobile Web App',
-    description: 'Offline-fähige PWA für Außendienstmitarbeiter. Synchronisation mit Backend-API und lokaler Datenspeicherung.',
-    image: '/projects/pwa.jpg',
-    tags: ['React', 'Service Workers', 'IndexedDB'],
-    year: '2023',
-    link: '#',
+    category: 'Spezialisierungen',
+    icon: '🚀',
+    items: [
+      'React, Next.js, TypeScript',
+      'Node.js, Express, NestJS',
+      'PostgreSQL, MongoDB, Redis',
+      'Docker, Kubernetes, Terraform',
+      'Stripe, PayPal Integration',
+      'Auth0, JWT, OAuth',
+      'Websockets & Real-time Apps',
+      'Microservices Architecture',
+    ],
   },
 ]
 
-const techStack = [
+const tiers = [
   {
-    category: 'Frontend',
-    technologies: [
-      { name: 'React', level: 95 },
-      { name: 'Next.js', level: 90 },
-      { name: 'TypeScript', level: 88 },
-      { name: 'Tailwind CSS', level: 92 },
+    name: 'Quick Start',
+    slug: 'quick-start',
+    description: 'Der perfekte Einstieg – kennenlernen ohne Risiko.',
+    price: 490,
+    priceLabel: 'Einmalig',
+    href: '#',
+    badge: 'Beliebt',
+    highlights: [
+      { description: 'Umfassender Code Review' },
+      { description: 'Security & Vulnerability Scan' },
+      { description: 'Tech-Stack Analyse (2 Std.)' },
+      { description: 'Architektur-Feedback' },
+      { description: 'Detaillierte Handlungsempfehlungen' },
+      { description: 'Follow-up Video Call' },
+    ],
+    features: [
+      { section: 'Leistungen', name: 'Code Review', value: true },
+      { section: 'Leistungen', name: 'Security Audit', value: true },
+      { section: 'Leistungen', name: 'Beratungsstunden', value: '2 Std.' },
+      { section: 'Leistungen', name: 'Implementierung', value: false },
+      { section: 'Support', name: 'E-Mail Support', value: true },
+      { section: 'Support', name: 'Follow-up Call', value: true },
+      { section: 'Zeitrahmen', name: 'Lieferzeit', value: '3-5 Tage' },
     ],
   },
   {
-    category: 'Backend',
-    technologies: [
-      { name: 'Node.js', level: 93 },
-      { name: 'Express', level: 90 },
-      { name: 'NestJS', level: 85 },
-      { name: 'GraphQL', level: 87 },
+    name: 'Professional Web',
+    slug: 'professional-web',
+    description: 'Moderne Websites mit Premium-Performance.',
+    price: 3200,
+    priceLabel: 'Ab',
+    href: '#',
+    badge: 'Empfohlen',
+    highlights: [
+      { description: 'React/Next.js Frontend mit TypeScript' },
+      { description: 'SEO-optimiert & Core Web Vitals' },
+      { description: 'Headless CMS Integration (Sanity/Strapi)' },
+      { description: 'Responsive & Mobile-First Design' },
+      { description: 'Analytics & Tracking Setup' },
+      { description: '2 Monate kostenloser Support' },
+    ],
+    features: [
+      { section: 'Leistungen', name: 'Code Review', value: true },
+      { section: 'Leistungen', name: 'Security Audit', value: true },
+      { section: 'Leistungen', name: 'Beratungsstunden', value: 'Inklusive' },
+      { section: 'Leistungen', name: 'Implementierung', value: 'Komplett' },
+      { section: 'Support', name: 'E-Mail Support', value: true },
+      { section: 'Support', name: 'Follow-up Call', value: true },
+      { section: 'Zeitrahmen', name: 'Lieferzeit', value: '2-4 Wochen' },
     ],
   },
   {
-    category: 'Databases',
-    technologies: [
-      { name: 'PostgreSQL', level: 90 },
-      { name: 'MongoDB', level: 88 },
-      { name: 'Redis', level: 85 },
-      { name: 'Prisma ORM', level: 87 },
+    name: 'MVP Launch',
+    slug: 'mvp-launch',
+    description: 'Von der Idee zur lauffähigen Web-App.',
+    price: 11500,
+    priceLabel: 'Ab',
+    href: '#',
+    badge: 'Enterprise',
+    highlights: [
+      { description: 'Fullstack Web-App (React + Node.js)' },
+      { description: 'RESTful API oder GraphQL Backend' },
+      { description: 'PostgreSQL/MongoDB Datenbank' },
+      { description: 'User Authentication & Authorization' },
+      { description: 'Cloud-Deployment & CI/CD' },
+      { description: 'Admin-Dashboard inklusive' },
+      { description: '3 Monate Support & Updates' },
+    ],
+    features: [
+      { section: 'Leistungen', name: 'Code Review', value: true },
+      { section: 'Leistungen', name: 'Security Audit', value: true },
+      { section: 'Leistungen', name: 'Beratungsstunden', value: 'Unbegrenzt' },
+      { section: 'Leistungen', name: 'Implementierung', value: 'Komplett' },
+      { section: 'Support', name: 'E-Mail Support', value: true },
+      { section: 'Support', name: 'Follow-up Call', value: true },
+      { section: 'Zeitrahmen', name: 'Lieferzeit', value: '6-10 Wochen' },
+    ],
+  },
+]
+
+const hourlyRates = [
+  {
+    title: 'Fullstack Development',
+    rate: '75-90',
+    market: '100-140',
+    description: 'React, Node.js, Datenbanken, APIs',
+    badge: 'Standard',
+  },
+  {
+    title: 'Senior Consulting',
+    rate: '95-110',
+    market: '160-250',
+    description: 'Architektur, Security, Cloud-Strategie',
+    badge: 'Premium',
+  },
+]
+
+const retainerOptions = [
+  {
+    name: 'Essential',
+    price: 150,
+    market: '250-350',
+    features: [
+      'Security Updates & Patches',
+      'Server Monitoring & Uptime',
+      'Backup Management',
+      'Bug Fixes (bis 2 Std./Monat)',
+      'E-Mail Support',
     ],
   },
   {
-    category: 'DevOps & Cloud',
-    technologies: [
-      { name: 'Docker', level: 88 },
-      { name: 'AWS', level: 82 },
-      { name: 'CI/CD', level: 85 },
-      { name: 'Vercel', level: 92 },
+    name: 'Professional',
+    price: 250,
+    market: '400-500',
+    features: [
+      'Alles aus Essential',
+      'Feature Updates & Anpassungen',
+      'Performance-Optimierung',
+      'Erweiterte Analysen',
+      'Bis 5 Std. Development/Monat',
+      'Priority Support',
     ],
   },
 ]
 
 function Header() {
   return (
-    <Container className="mt-16 mb-8">
-      <Heading as="h1">Projekte, die Technologie und Design vereinen</Heading>
-      <Lead className="mt-6 max-w-3xl">
-        Eine Auswahl meiner Arbeiten – von modernen Web-Apps über E-Commerce-Lösungen 
-        bis zu komplexen Backend-Systemen. Jedes Projekt mit Fokus auf Performance, 
-        Skalierbarkeit und Best Practices.
+    <Container className="mt-28">
+      <Heading as="h1">Agentur-Qualität zu Freelancer-Konditionen</Heading>
+      <Lead className="mt-6 max-w-xl">
+        Fullstack-Entwicklung von Apps, Websites bis komplexe Web-Anwendungen. 
+        Direkter Kontakt zum Experten, moderne Tech-Stacks und faire Preise – 
+        ohne Agentur-Overhead.
       </Lead>
-      <section className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2">
-          <p className="text-sm/6 text-gray-600">
-            In den letzten Jahren habe ich eine Vielzahl von Projekten für Startups, 
-            mittelständische Unternehmen und Enterprise-Kunden umgesetzt. Mein Fokus 
-            liegt dabei auf modernen Tech-Stacks, die sowohl entwicklerfreundlich als 
-            auch zukunftssicher sind.
-          </p>
-          <p className="mt-6 text-sm/6 text-gray-600">
-            Jedes Projekt beginnt mit einer gründlichen Analyse der Anforderungen und 
-            einer durchdachten Architektur. Ich lege großen Wert auf clean code, 
-            automatisierte Tests und CI/CD-Pipelines, um langfristige Wartbarkeit zu 
-            gewährleisten.
-          </p>
-          <p className="mt-6 text-sm/6 text-gray-600">
-            Von der ersten Konzeption über das Design bis zum finalen Deployment – 
-            ich begleite Projekte durch alle Phasen. Dabei arbeite ich eng mit meinen 
-            Kunden zusammen und halte sie durch regelmäßige Updates auf dem Laufenden.
-          </p>
-        </div>
-        <div className="lg:col-span-1">
-          <Subheading>Die Zahlen</Subheading>
-          <hr className="mt-6 border-t border-gray-200" />
-          <dl className="mt-6 grid grid-cols-1 gap-y-4">
-            <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
-              <dd className="text-6xl font-medium tracking-tight">
-                45+
-              </dd>
-              <dt className="text-sm/6 text-gray-600">Abgeschlossene Projekte</dt>
-            </div>
-            <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
-              <dd className="text-6xl font-medium tracking-tight">
-                7+
-              </dd>
-              <dt className="text-sm/6 text-gray-600">Jahre Erfahrung</dt>
-            </div>
-            <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
-              <dd className="text-6xl font-medium tracking-tight">
-                30+
-              </dd>
-              <dt className="text-sm/6 text-gray-600">Zufriedene Kunden</dt>
-            </div>
-          </dl>
-        </div>
-      </section>
     </Container>
   )
 }
 
-function ProjectCard({ project }) {
+function ServicesOverview() {
   return (
-    <article className="group relative">
-      <div className="overflow-hidden rounded-3xl bg-gray-100 shadow-md ring-1 ring-black/5 transition hover:shadow-xl">
-        <div className="aspect-4/3 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
-          {/* Platzhalter für Projekt-Bild */}
-          <div className="flex h-full items-center justify-center text-gray-400">
-            <svg className="h-24 w-24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-          </div>
+    <div className="relative py-24">
+      <Container>
+        <Subheading className="text-center">Mein Leistungsspektrum</Subheading>
+        <Heading as="div" className="mt-2 mb-12 text-center">
+          Von der Idee bis zum Launch – alles aus einer Hand
+        </Heading>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="group relative rounded-3xl bg-gradient-to-br from-gray-50 to-gray-100/50 p-8 shadow-md ring-1 ring-black/5 transition hover:shadow-xl hover:ring-black/10"
+            >
+              <div className="mb-4 text-4xl">{service.icon}</div>
+              <h3 className="text-xl font-semibold text-gray-950">
+                {service.category}
+              </h3>
+              <ul className="mt-6 space-y-3">
+                {service.items.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-sm text-gray-700">
+                    <CheckIcon className="mt-0.5 size-4 shrink-0 fill-green-600" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-        <div className="p-8">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
-              {project.category}
-            </span>
-            <span className="text-xs text-gray-400">{project.year}</span>
+      </Container>
+    </div>
+  )
+}
+
+function PricingCards() {
+  return (
+    <div className="relative bg-gray-50 py-24">
+      <Container className="relative">
+        <Subheading className="text-center">Projekt-Pakete</Subheading>
+        <Heading as="div" className="mt-2 mb-12 text-center">
+          Der richtige Einstieg für jedes Ziel
+        </Heading>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          {tiers.map((tier, tierIndex) => (
+            <PricingCard key={tierIndex} tier={tier} />
+          ))}
+        </div>
+      </Container>
+    </div>
+  )
+}
+
+function PricingCard({ tier }) {
+  return (
+    <div className="relative -m-2 grid grid-cols-1 rounded-4xl shadow-[inset_0_0_2px_1px_#ffffff4d] ring-1 ring-black/5 max-lg:mx-auto max-lg:w-full max-lg:max-w-md">
+      {tier.badge && (
+        <div className="absolute -top-4 left-1/2 z-10 -translate-x-1/2">
+          <span className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 to-blue-500 px-4 py-1.5 text-xs font-semibold text-white shadow-lg">
+            {tier.badge}
+          </span>
+        </div>
+      )}
+      <div className="grid grid-cols-1 rounded-4xl p-2 shadow-md shadow-black/5">
+        <div className="rounded-3xl bg-white p-10 pb-9 shadow-2xl ring-1 ring-black/5">
+          <Subheading>{tier.name}</Subheading>
+          <p className="mt-2 text-sm/6 text-gray-950/75">{tier.description}</p>
+          <div className="mt-8 flex items-center gap-4">
+            <div className="text-5xl font-medium text-gray-950">
+              {tier.price.toLocaleString('de-DE')}€
+            </div>
+            <div className="text-sm/5 text-gray-950/75">
+              <p>{tier.priceLabel}</p>
+            </div>
           </div>
-          <h3 className="mt-4 text-xl font-semibold text-gray-950 group-hover:text-blue-600 transition">
-            {project.title}
-          </h3>
-          <p className="mt-2 text-sm/6 text-gray-600">
-            {project.description}
-          </p>
-          <div className="mt-6 flex flex-wrap gap-2">
-            {project.tags.map((tag, index) => (
-              <span
-                key={index}
-                className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-          <div className="mt-6">
-            <Button variant="outline" href={project.link}>
-              Details ansehen
+          <div className="mt-8">
+            <Button href={tier.href} className="w-full">
+              Jetzt anfragen
             </Button>
           </div>
+          <div className="mt-8">
+            <h3 className="text-sm/6 font-medium text-gray-950">
+              Inklusive:
+            </h3>
+            <ul className="mt-3 space-y-3">
+              {tier.highlights.map((props, featureIndex) => (
+                <FeatureItem key={featureIndex} {...props} />
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
-    </article>
+    </div>
   )
 }
 
-function ProjectsGrid() {
+function HourlyRatesSection() {
   return (
-    <Container className="mt-24">
-      <Subheading>Ausgewählte Projekte</Subheading>
-      <Heading as="h3" className="mt-2">
-        Von der Idee zur fertigen Lösung
+    <Container className="py-24">
+      <Subheading className="text-center">Stundensätze & Beratung</Subheading>
+      <Heading as="div" className="mt-2 mb-12 text-center">
+        Flexibel für individuelle Anforderungen
       </Heading>
-      <Lead className="mt-6 max-w-3xl">
-        Jedes Projekt ist einzigartig und erfordert einen individuellen Ansatz. 
-        Hier finden Sie eine Auswahl meiner Arbeiten aus verschiedenen Bereichen.
-      </Lead>
-      <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3">
-        {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+      <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
+        {hourlyRates.map((item, index) => (
+          <div
+            key={index}
+            className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-md ring-1 ring-black/5 transition hover:shadow-xl"
+          >
+            <div className="absolute right-4 top-4">
+              <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">
+                {item.badge}
+              </span>
+            </div>
+            <h3 className="text-xl font-semibold text-gray-950">
+              {item.title}
+            </h3>
+            <p className="mt-2 text-sm text-gray-600">{item.description}</p>
+            <div className="mt-6 flex items-baseline gap-2">
+              <span className="text-4xl font-bold text-gray-950">
+                {item.rate}€
+              </span>
+              <span className="text-sm text-gray-500">/ Stunde</span>
+            </div>
+            <div className="mt-3 flex items-center gap-2">
+              <span className="text-sm text-gray-500">Marktüblich:</span>
+              <span className="text-sm font-medium text-gray-400 line-through">
+                {item.market}€
+              </span>
+              <span className="ml-auto text-sm font-semibold text-green-600">
+                Ersparnis bis zu {Math.round(((parseInt(item.market.split('-')[1]) - parseInt(item.rate.split('-')[1])) / parseInt(item.market.split('-')[1])) * 100)}%
+              </span>
+            </div>
+          </div>
         ))}
+      </div>
+      <div className="mt-12 text-center">
+        <p className="text-sm text-gray-600">
+          <strong>Direkter Expertenkontakt:</strong> Sie zahlen nicht für 
+          Projektmanager oder Kommunikationswege – nur für qualitative Entwicklung.
+        </p>
       </div>
     </Container>
   )
 }
 
-function TechStackSection() {
+function RetainerSection() {
   return (
-    <div className="relative mt-32 bg-gray-900 py-24">
+    <div className="relative bg-gray-900 py-24">
       <div className="absolute inset-0 bg-[url(/dot-texture.svg)] opacity-40" />
       <Container className="relative">
-        <Subheading className="text-gray-400">Technologie-Stack</Subheading>
-        <Heading as="h3" className="mt-2 text-white">
-          Moderne Tools für moderne Lösungen
+        <Subheading className="text-center text-gray-400">
+          Wartung & Support
+        </Subheading>
+        <Heading as="div" className="mt-2 mb-12 text-center text-white">
+          Langfristig sorgenfrei
         </Heading>
-        <Lead className="mt-6 max-w-3xl text-gray-300">
-          Ich arbeite mit bewährten, zukunftssicheren Technologien, die sowohl 
-          Performance als auch Entwicklerfreundlichkeit garantieren.
-        </Lead>
-        <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2">
-          {techStack.map((stack, index) => (
-            <div key={index}>
-              <h4 className="text-lg font-semibold text-white">
-                {stack.category}
-              </h4>
-              <div className="mt-6 space-y-6">
-                {stack.technologies.map((tech, techIndex) => (
-                  <div key={techIndex}>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-gray-300">
-                        {tech.name}
-                      </span>
-                      <span className="text-sm text-gray-400">
-                        {tech.level}%
-                      </span>
-                    </div>
-                    <div className="mt-2 h-2 overflow-hidden rounded-full bg-gray-800">
-                      <div
-                        className="h-full rounded-full bg-gradient-to-r from-blue-500 to-blue-400 transition-all duration-1000 ease-out"
-                        style={{ width: `${tech.level}%` }}
-                      />
-                    </div>
-                  </div>
+        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
+          {retainerOptions.map((option, index) => (
+            <div
+              key={index}
+              className="rounded-3xl bg-white/10 p-8 shadow-xl ring-1 ring-white/20 backdrop-blur-sm"
+            >
+              <div className="flex items-start justify-between">
+                <h3 className="text-xl font-semibold text-white">
+                  {option.name}
+                </h3>
+              </div>
+              <div className="mt-6 flex items-baseline gap-2">
+                <span className="text-4xl font-bold text-white">
+                  {option.price}€
+                </span>
+                <span className="text-sm text-gray-400">/ Monat</span>
+              </div>
+              <div className="mt-2 flex items-center gap-2 text-sm">
+                <span className="text-gray-400">Marktüblich:</span>
+                <span className="font-medium text-gray-500 line-through">
+                  {option.market}€
+                </span>
+              </div>
+              <ul className="mt-8 space-y-3">
+                {option.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-sm text-gray-300">
+                    <CheckIcon className="mt-0.5 size-4 shrink-0 fill-green-400" />
+                    <span>{feature}</span>
+                  </li>
                 ))}
+              </ul>
+              <div className="mt-8">
+                <Button variant="outline" href="#" className="w-full border-white/20 text-white hover:bg-white/10">
+                  Details anfordern
+                </Button>
               </div>
             </div>
           ))}
@@ -287,131 +404,399 @@ function TechStackSection() {
   )
 }
 
-function ProcessSection() {
-  const steps = [
-    {
-      number: '01',
-      title: 'Analyse & Konzept',
-      description: 'Gemeinsam definieren wir Ihre Anforderungen, Ziele und die optimale technische Architektur für Ihr Projekt.',
-      icon: '🎯',
-    },
-    {
-      number: '02',
-      title: 'Design & Prototyping',
-      description: 'Erstellung von Wireframes, UI-Designs und interaktiven Prototypen zur Visualisierung des finalen Produkts.',
-      icon: '🎨',
-    },
-    {
-      number: '03',
-      title: 'Entwicklung',
-      description: 'Agile Entwicklung mit modernen Tech-Stacks. Regelmäßige Updates und Demos halten Sie auf dem Laufenden.',
-      icon: '⚡',
-    },
-    {
-      number: '04',
-      title: 'Testing & Launch',
-      description: 'Umfangreiche Tests, Performance-Optimierung und reibungsloser Deployment-Prozess mit CI/CD-Pipelines.',
-      icon: '🚀',
-    },
-  ]
-
+function ValueProposition() {
   return (
-    <Container className="my-32">
-      <Subheading>Mein Prozess</Subheading>
-      <Heading as="h3" className="mt-2">
-        Von der ersten Idee bis zum Launch
-      </Heading>
-      <Lead className="mt-6 max-w-3xl">
-        Strukturiert, transparent und mit Fokus auf Ihre Anforderungen – 
-        so arbeite ich an jedem Projekt.
-      </Lead>
-      <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2">
-        {steps.map((step, index) => (
-          <div
-            key={index}
-            className="group relative rounded-3xl bg-gradient-to-br from-gray-50 to-gray-100/50 p-8 shadow-md ring-1 ring-black/5 transition hover:shadow-xl"
-          >
-            <div className="flex items-start gap-6">
-              <div className="text-4xl">{step.icon}</div>
-              <div className="flex-1">
-                <div className="flex items-center gap-4">
-                  <span className="text-sm font-bold text-blue-600">
-                    {step.number}
-                  </span>
-                  <h4 className="text-lg font-semibold text-gray-950">
-                    {step.title}
-                  </h4>
-                </div>
-                <p className="mt-3 text-sm/6 text-gray-600">
-                  {step.description}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </Container>
-  )
-}
-
-function TestimonialSection() {
-  const testimonials = [
-    {
-      quote: 'Hervorragende Arbeit! Die Web-App wurde pünktlich geliefert und übertrifft unsere Erwartungen. Sehr professionelle Kommunikation und tiefes technisches Know-how.',
-      author: 'Michael Schmidt',
-      role: 'CEO, TechStart GmbH',
-      image: '/testimonials/michael-schmidt.jpg',
-    },
-    {
-      quote: 'Die Zusammenarbeit war reibungslos und effizient. Besonders beeindruckt hat uns die Fähigkeit, komplexe technische Anforderungen in verständliche Lösungen zu übersetzen.',
-      author: 'Sarah Weber',
-      role: 'Product Lead, InnovateLabs',
-      image: '/testimonials/sarah-weber.jpg',
-    },
-    {
-      quote: 'Endlich jemand, der nicht nur entwickelt, sondern mitdenkt. Die Architektur-Beratung hat uns vor vielen Problemen bewahrt. Absolut empfehlenswert!',
-      author: 'Thomas Müller',
-      role: 'CTO, DataFlow Systems',
-      image: '/testimonials/thomas-mueller.jpg',
-    },
-  ]
-
-  return (
-    <Container className="my-32">
-      <Subheading className="text-center">Was Kunden sagen</Subheading>
-      <Heading as="h3" className="mt-2 text-center">
-        Feedback aus echten Projekten
-      </Heading>
-      <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
-        {testimonials.map((testimonial, index) => (
-          <div
-            key={index}
-            className="rounded-3xl bg-white p-8 shadow-md ring-1 ring-black/5"
-          >
-            <blockquote>
-              <p className="text-sm/6 text-gray-700">
-                "{testimonial.quote}"
+    <div className="py-24">
+      <Container>
+        <div className="mx-auto max-w-4xl">
+          <Subheading className="text-center">Warum diese Preise?</Subheading>
+          <Heading as="div" className="mt-2 mb-12 text-center">
+            Smart Efficiency statt Agentur-Overhead
+          </Heading>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            <div className="rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100/50 p-8">
+              <h3 className="text-lg font-semibold text-gray-950">
+                🎯 Single Point of Contact
+              </h3>
+              <p className="mt-3 text-sm text-gray-700">
+                Keine Stille Post zwischen Kundenberater, Projektmanager und 
+                Entwickler. Sie kommunizieren direkt mit mir – das spart Zeit, 
+                Missverständnisse und Kosten.
               </p>
-            </blockquote>
-            <div className="mt-6 flex items-center gap-4">
-              <div className="h-12 w-12 rounded-full bg-gradient-to-br from-blue-100 to-blue-200" />
-              <div>
-                <p className="text-sm font-semibold text-gray-950">
-                  {testimonial.author}
-                </p>
-                <p className="text-sm text-gray-500">
-                  {testimonial.role}
-                </p>
-              </div>
+            </div>
+            <div className="rounded-2xl bg-gradient-to-br from-green-50 to-green-100/50 p-8">
+              <h3 className="text-lg font-semibold text-gray-950">
+                ⚡ Fullstack-Vorteil
+              </h3>
+              <p className="mt-3 text-sm text-gray-700">
+                Von der Datenbank über das Backend bis zum Frontend – ich 
+                setze Features vertikal um. Keine Übergaben, keine 
+                Reibungsverluste, schnellere Ergebnisse.
+              </p>
+            </div>
+            <div className="rounded-2xl bg-gradient-to-br from-purple-50 to-purple-100/50 p-8">
+              <h3 className="text-lg font-semibold text-gray-950">
+                🚀 Moderne Tech-Stacks
+              </h3>
+              <p className="mt-3 text-sm text-gray-700">
+                React, Node.js und moderne Cloud-Infrastruktur ermöglichen 
+                effizientere Entwicklung. Was früher Wochen dauerte, ist heute 
+                in Tagen umsetzbar – ohne Qualitätsverlust.
+              </p>
+            </div>
+            <div className="rounded-2xl bg-gradient-to-br from-orange-50 to-orange-100/50 p-8">
+              <h3 className="text-lg font-semibold text-gray-950">
+                💡 Keine versteckten Kosten
+              </h3>
+              <p className="mt-3 text-sm text-gray-700">
+                Kein Büro, keine Vertriebsabteilung, kein Marketing-Team. 
+                Diese Einsparungen gebe ich direkt an meine Kunden weiter – 
+                bei gleicher Qualität.
+              </p>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      </Container>
+    </div>
+  )
+}
+
+function PricingTable({ selectedTier }) {
+  return (
+    <Container className="py-24">
+      <Subheading className="mb-8 text-center">
+        Detaillierter Leistungsvergleich
+      </Subheading>
+      <table className="w-full text-left">
+        <caption className="sr-only">Pricing plan comparison</caption>
+        <colgroup>
+          <col className="w-3/5 sm:w-2/5" />
+          <col
+            data-selected={selectedTier === tiers[0] ? true : undefined}
+            className="w-2/5 data-selected:table-column max-sm:hidden sm:w-1/5"
+          />
+          <col
+            data-selected={selectedTier === tiers[1] ? true : undefined}
+            className="w-2/5 data-selected:table-column max-sm:hidden sm:w-1/5"
+          />
+          <col
+            data-selected={selectedTier === tiers[2] ? true : undefined}
+            className="w-2/5 data-selected:table-column max-sm:hidden sm:w-1/5"
+          />
+        </colgroup>
+        <thead>
+          <tr className="max-sm:hidden">
+            <td className="p-0" />
+            {tiers.map((tier) => (
+              <th
+                key={tier.slug}
+                scope="col"
+                data-selected={selectedTier === tier ? true : undefined}
+                className="p-0 data-selected:table-cell max-sm:hidden"
+              >
+                <Subheading as="div">{tier.name}</Subheading>
+              </th>
+            ))}
+          </tr>
+          <tr className="sm:hidden">
+            <td className="p-0">
+              <div className="relative inline-block">
+                <Menu>
+                  <MenuButton className="flex items-center justify-between gap-2 font-medium">
+                    {selectedTier.name}
+                    <ChevronUpDownIcon className="size-4 fill-gray-900" />
+                  </MenuButton>
+                  <MenuItems
+                    anchor="bottom start"
+                    className="min-w-(--button-width) rounded-lg bg-white p-1 shadow-lg ring-1 ring-gray-200 [--anchor-gap:6px] [--anchor-offset:-4px] [--anchor-padding:10px]"
+                  >
+                    {tiers.map((tier) => (
+                      <MenuItem key={tier.slug}>
+                        <Link
+                          scroll={false}
+                          href={`/pricing?tier=${tier.slug}`}
+                          data-selected={
+                            tier === selectedTier ? true : undefined
+                          }
+                          className="group flex items-center gap-2 rounded-md px-2 py-1 data-focus:bg-gray-200"
+                        >
+                          {tier.name}
+                          <CheckIcon className="hidden size-4 group-data-selected:block" />
+                        </Link>
+                      </MenuItem>
+                    ))}
+                  </MenuItems>
+                </Menu>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
+                  <ChevronUpDownIcon className="size-4 fill-gray-900" />
+                </div>
+              </div>
+            </td>
+            <td colSpan={3} className="p-0 text-right">
+              <Button variant="outline" href={selectedTier.href}>
+                Anfragen
+              </Button>
+            </td>
+          </tr>
+          <tr className="max-sm:hidden">
+            <th className="p-0" scope="row">
+              <span className="sr-only">Get started</span>
+            </th>
+            {tiers.map((tier) => (
+              <td
+                key={tier.slug}
+                data-selected={selectedTier === tier ? true : undefined}
+                className="px-0 pt-4 pb-0 data-selected:table-cell max-sm:hidden"
+              >
+                <Button variant="outline" href={tier.href}>
+                  Anfragen
+                </Button>
+              </td>
+            ))}
+          </tr>
+        </thead>
+        {[...new Set(tiers[0].features.map(({ section }) => section))].map(
+          (section) => (
+            <tbody key={section} className="group">
+              <tr>
+                <th
+                  scope="colgroup"
+                  colSpan={4}
+                  className="px-0 pt-10 pb-0 group-first-of-type:pt-5"
+                >
+                  <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold">
+                    {section}
+                  </div>
+                </th>
+              </tr>
+              {tiers[0].features
+                .filter((feature) => feature.section === section)
+                .map(({ name }) => (
+                  <tr
+                    key={name}
+                    className="border-b border-gray-100 last:border-none"
+                  >
+                    <th
+                      scope="row"
+                      className="px-0 py-4 text-sm/6 font-normal text-gray-600"
+                    >
+                      {name}
+                    </th>
+                    {tiers.map((tier) => {
+                      let value = tier.features.find(
+                        (feature) =>
+                          feature.section === section && feature.name === name,
+                      )?.value
+
+                      return (
+                        <td
+                          key={tier.slug}
+                          data-selected={
+                            selectedTier === tier ? true : undefined
+                          }
+                          className="p-4 data-selected:table-cell max-sm:hidden"
+                        >
+                          {value === true ? (
+                            <>
+                              <CheckIcon className="size-4 fill-green-600" />
+                              <span className="sr-only">
+                                Included in {tier.name}
+                              </span>
+                            </>
+                          ) : value === false || value === undefined ? (
+                            <>
+                              <MinusIcon className="size-4 fill-gray-400" />
+                              <span className="sr-only">
+                                Not included in {tier.name}
+                              </span>
+                            </>
+                          ) : (
+                            <div className="text-sm/6">{value}</div>
+                          )}
+                        </td>
+                      )
+                    })}
+                  </tr>
+                ))}
+            </tbody>
+          ),
+        )}
+      </table>
     </Container>
   )
 }
 
-export default function Projects() {
+function FeatureItem({ description, disabled = false }) {
+  return (
+    <li
+      data-disabled={disabled ? true : undefined}
+      className="flex items-start gap-4 text-sm/6 text-gray-950/75 data-disabled:text-gray-950/25"
+    >
+      <span className="inline-flex h-6 items-center">
+        <CheckIcon className="size-4 shrink-0 fill-green-600" />
+      </span>
+      {disabled && <span className="sr-only">Nicht enthalten:</span>}
+      {description}
+    </li>
+  )
+}
+
+function FrequentlyAskedQuestions() {
+  return (
+    <Container>
+      <section id="faqs" className="scroll-mt-8">
+        <Subheading className="text-center">
+          Häufig gestellte Fragen
+        </Subheading>
+        <Heading as="div" className="mt-2 text-center">
+          Transparenz von Anfang an
+        </Heading>
+        <div className="mx-auto mt-16 mb-32 max-w-3xl space-y-12">
+          <dl>
+            <dt className="text-sm font-semibold">
+              Warum sind Ihre Preise günstiger als bei Agenturen?
+            </dt>
+            <dd className="mt-4 text-sm/6 text-gray-600">
+              Sie zahlen bei mir nicht für Overhead, Projektmanager oder 
+              Kommunikationswege. Als Fullstack-Entwickler setze ich Ihr 
+              Projekt von der Datenbank bis zum Frontend komplett selbst um – 
+              das spart Zeit und Kosten. Moderne Tech-Stacks wie React und 
+              Node.js ermöglichen mir zudem eine effizientere Entwicklung. 
+              Keine Büros, keine Vertriebsabteilungen – nur pure Entwicklungsleistung.
+            </dd>
+          </dl>
+          <dl>
+            <dt className="text-sm font-semibold">
+              Welche Projekte können Sie umsetzen?
+            </dt>
+            <dd className="mt-4 text-sm/6 text-gray-600">
+              Von einfachen Landing Pages über komplexe E-Commerce-Plattformen 
+              bis hin zu vollständigen SaaS-Anwendungen. Ich entwickle moderne 
+              Web-Apps, Progressive Web Apps, REST/GraphQL APIs, Dashboards, 
+              Admin-Panels und integriere Payment-Systeme. Auch Legacy-Code 
+              Modernisierung, Datenbank-Migrationen und Backend-Erweiterungen 
+              gehören zu meinem Alltag.
+            </dd>
+          </dl>
+          <dl>
+            <dt className="text-sm font-semibold">
+              Was beinhaltet Ihre Beratungsleistung?
+            </dt>
+            <dd className="mt-4 text-sm/6 text-gray-600">
+              Meine Consulting-Services umfassen Tech-Stack Evaluation, 
+              System-Architektur Design, Code Reviews, Security Audits, 
+              Performance-Optimierung, Cloud-Strategie (AWS, Azure, GCP), 
+              CI/CD Pipeline Setup und Team-Training. Ich helfe bei der 
+              Entscheidungsfindung für neue Projekte, evaluiere bestehende 
+              Systeme und gebe konkrete Handlungsempfehlungen für Skalierung, 
+              Security und moderne Best Practices.
+            </dd>
+          </dl>
+          <dl>
+            <dt className="text-sm font-semibold">
+              Wie läuft die Zusammenarbeit ab?
+            </dt>
+            <dd className="mt-4 text-sm/6 text-gray-600">
+              Direkter und persönlicher Kontakt ist mein Prinzip. Sie 
+              kommunizieren nur mit mir – kein Durchreichen an verschiedene 
+              Abteilungen. Nach einem Erstgespräch erstelle ich ein Angebot, 
+              das genau auf Ihre Anforderungen zugeschnitten ist. Während der 
+              Entwicklung bleiben Sie durch regelmäßige Updates immer auf dem 
+              Laufenden. Ich arbeite agil und liefere in kurzen Iterationen.
+            </dd>
+          </dl>
+          <dl>
+            <dt className="text-sm font-semibold">
+              Welche Technologien setzen Sie ein?
+            </dt>
+            <dd className="mt-4 text-sm/6 text-gray-600">
+              Mein Fokus liegt auf modernen, bewährten Technologien: React, 
+              Next.js und TypeScript für Frontends, Node.js, Express und NestJS 
+              für Backend-APIs, PostgreSQL, MongoDB und Redis für Datenbanken. 
+              Für das Hosting nutze ich moderne Cloud-Plattformen wie Vercel, 
+              AWS, Railway oder DigitalOcean. DevOps mit Docker, CI/CD Pipelines 
+              und Infrastructure as Code gehören zum Standard.
+            </dd>
+          </dl>
+          <dl>
+            <dt className="text-sm font-semibold">
+              Was passiert nach dem Launch?
+            </dt>
+            <dd className="mt-4 text-sm/6 text-gray-600">
+              Jedes Projekt beinhaltet eine Support-Phase nach dem Launch. 
+              Für langfristige Betreuung biete ich Wartungspakete an, die 
+              Updates, Security Patches, Monitoring und kleinere Anpassungen 
+              abdecken. Sie entscheiden selbst, ob Sie laufenden Support 
+              benötigen oder lieber punktuell auf Stundenbasis arbeiten möchten.
+            </dd>
+          </dl>
+          <dl>
+            <dt className="text-sm font-semibold">
+              Können Sie auch bestehende Projekte übernehmen?
+            </dt>
+            <dd className="mt-4 text-sm/6 text-gray-600">
+              Ja, auf jeden Fall. Mit dem Quick Start Paket biete ich einen 
+              Code Review und Security-Check an – ideal, um den Zustand Ihres 
+              Projekts zu bewerten. Danach kann ich gezielt Verbesserungen 
+              vornehmen, Features hinzufügen, Performance optimieren oder das 
+              gesamte Projekt modernisieren. Auch Legacy-Code Migrationen zu 
+              modernen Tech-Stacks sind möglich.
+            </dd>
+          </dl>
+          <dl>
+            <dt className="text-sm font-semibold">
+              Bieten Sie auch Backend-Entwicklung und Datenbank-Design an?
+            </dt>
+            <dd className="mt-4 text-sm/6 text-gray-600">
+              Absolut. Als Fullstack-Entwickler decke ich die komplette 
+              Anwendungsarchitektur ab: RESTful und GraphQL APIs, 
+              Microservices, Datenbank-Design und -Optimierung, Authentication 
+              & Authorization, Payment-Integration (Stripe, PayPal), 
+              Websockets für Real-time Features, Cloud-Deployment und 
+              Serverless Functions. Ich entwickle skalierbare Backend-Systeme, 
+              die mit Ihrem Business wachsen.
+            </dd>
+          </dl>
+          <dl>
+            <dt className="text-sm font-semibold">
+              Wie stellen Sie die Sicherheit meiner Anwendung sicher?
+            </dt>
+            <dd className="mt-4 text-sm/6 text-gray-600">
+              Security ist bei jedem Projekt von Anfang an integriert. Ich 
+              implementiere sichere Authentication (OAuth, JWT), verschlüsselte 
+              Datenübertragung (HTTPS, TLS), Input-Validierung, SQL-Injection 
+              Prevention, XSS-Protection und CORS-Policies. Bei Bedarf führe ich 
+              auch dedizierte Security Audits und Penetration Tests durch. 
+              Regelmäßige Dependency Updates und Security Patches gehören zum 
+              Standard-Wartungspaket.
+            </dd>
+          </dl>
+          <dl>
+            <dt className="text-sm font-semibold">
+              Arbeiten Sie auch mit meinem bestehenden Team zusammen?
+            </dt>
+            <dd className="mt-4 text-sm/6 text-gray-600">
+              Ja, sehr gerne. Ich kann als externer Fullstack-Entwickler 
+              zeitweise Ihr Team verstärken, Code Reviews durchführen, 
+              Pair-Programming Sessions leiten oder Workshops zu modernen 
+              Entwicklungs-Praktiken geben. Auch als technischer Berater für 
+              strategische Entscheidungen stehe ich zur Verfügung. Die 
+              Zusammenarbeit ist flexibel – remote oder vor Ort (DACH-Region).
+              </dd>
+          </dl>
+        </div>
+      </section>
+    </Container>
+  )
+}
+
+export default async function Pricing({ searchParams }) {
+  let params = await searchParams
+  let tier =
+    typeof params.tier === 'string'
+      ? tiers.find(({ slug }) => slug === params.tier)
+      : tiers[0]
+
   return (
     <main className="overflow-hidden">
       <GradientBackground />
@@ -419,11 +804,13 @@ export default function Projects() {
         <Navbar />
       </Container>
       <Header />
-      <ProjectsGrid />
-      <ProcessSection />
-      <TechStackSection />
-      <TestimonialSection />
-      <CTASection />
+      <ServicesOverview />
+      <PricingCards />
+      <HourlyRatesSection />
+      <RetainerSection />
+      <ValueProposition />
+      <PricingTable selectedTier={tier} />
+      <FrequentlyAskedQuestions />
       <Footer />
     </main>
   )

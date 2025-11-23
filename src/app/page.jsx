@@ -118,12 +118,12 @@ export function FeatureSection() {
 function BentoSection() {
   return (
     <Container>
-      <Subheading>Entwicklung & Tech-Stack</Subheading>
+      <Subheading className="mt-26">Entwicklung & Tech-Stack</Subheading>
       <Heading as="h2" className="mt-2">
         Moderne Software Lösungen für dein Business.
       </Heading>
 
-      <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
+      <div className="mt-16 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
         <BentoCard
           eyebrow="Expertise"
           title="Full-Stack Entwicklung"
@@ -231,11 +231,8 @@ export default function Home() {
       <main>
         <Container className="mt-8">
         </Container>
-        <div className="bg-linear-to-b from-white from-50% to-gray-100 py-22">
             <BentoSection />
           <FeatureSection />
-        
-        </div>
         <DarkBentoSection />
       </main>
       <Projects />

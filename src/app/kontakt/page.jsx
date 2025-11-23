@@ -272,7 +272,7 @@ export default function Contact() {
                 message={modal.message}
             />
 
-                <div className="-m-2 grid grid-cols-1 rounded-[2rem] ring-1 shadow-[inset_0_0_2px_1px_#ffffff4d] ring-black/5">
+                <div className="-m-2 grid grid-cols-1 rounded-[2rem] ring-1 shadow-[inset_0_0_2px_1px_#ffffff4d] ring-black/5 mb-18">
                     <div className="grid grid-cols-1 rounded-[2rem] p-2 shadow-md shadow-black/5">
                         <div className="rounded-3xl bg-white p-10 pb-9 ring-1 shadow-2xl ring-black/5">
                             <div className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
@@ -349,15 +349,12 @@ export default function Contact() {
                                             <br></br>
                                             Lass uns gerne unverbindlich treffen.
                                         </p>
-                                       
-
-                                        <Offices className="mt-8 grid grid-cols-1 gap-6" />
 
                                         <Border className="mt-16 pt-6">
                                             <div className="flex items-center mb-4">
                                                 <span className="text-2xl mr-3">📞</span>
                                                 <h2 className="text-lg font-semibold text-emerald-600">
-                                                    So erreichst mich uns
+                                                    So erreichst du mich
                                                 </h2>
                                             </div>
                                             <dl className="mt-4 grid grid-cols-1 gap-4 text-sm sm:grid-cols-2">

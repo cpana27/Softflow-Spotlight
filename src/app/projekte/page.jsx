@@ -118,14 +118,14 @@ const techStack = [
 
 function Header() {
   return (
-    <Container className="mt-16 mb-8">
+    <Container className="mt-26 mb-8">
       <Heading as="h1">Projekte, die Technologie und Design vereinen</Heading>
       <Lead className="mt-6 max-w-3xl">
         Eine Auswahl meiner Arbeiten – von modernen Web-Apps über E-Commerce-Lösungen 
         bis zu komplexen Backend-Systemen. Jedes Projekt mit Fokus auf Performance, 
         Skalierbarkeit und Best Practices.
       </Lead>
-      <section className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+     <section className="mt-4 grid grid-cols-1 lg:grid-cols-1">
         <div className="lg:col-span-2">
           <p className="text-sm/6 text-gray-600">
             In den letzten Jahren habe ich eine Vielzahl von Projekten für Startups, 
@@ -144,32 +144,33 @@ function Header() {
             ich begleite Projekte durch alle Phasen. Dabei arbeite ich eng mit meinen 
             Kunden zusammen und halte sie durch regelmäßige Updates auf dem Laufenden.
           </p>
-        </div>
-        <div className="lg:col-span-1">
-          <Subheading>Die Zahlen</Subheading>
+        </div>   
+       <div className="max-lg:mt-16 lg:col-span-1">
+          <Subheading>The Numbers</Subheading>
           <hr className="mt-6 border-t border-gray-200" />
-          <dl className="mt-6 grid grid-cols-1 gap-y-4">
+          <dl className="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-3">
             <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
+              <dd className="text-6xl font-medium tracking-tight">
+                45+
+              </dd>
               <dt className="text-sm/6 text-gray-600">Abgeschlossene Projekte</dt>
-              <dd className="order-first text-6xl font-medium tracking-tight">
-                <AnimatedNumber start={20} end={45} />+
-              </dd>
             </div>
             <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
+              <dd className="text-6xl font-medium tracking-tight">
+                7+
+              </dd>
               <dt className="text-sm/6 text-gray-600">Jahre Erfahrung</dt>
-              <dd className="order-first text-6xl font-medium tracking-tight">
-                <AnimatedNumber start={4} end={7} />+
-              </dd>
             </div>
             <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
-              <dt className="text-sm/6 text-gray-600">Zufriedene Kunden</dt>
-              <dd className="order-first text-6xl font-medium tracking-tight">
-                <AnimatedNumber start={15} end={30} />+
+              <dd className="text-6xl font-medium tracking-tight">
+                30+
               </dd>
+              <dt className="text-sm/6 text-gray-600">Zufriedene Kunden</dt>
             </div>
           </dl>
-        </div>
-      </section>
+            </div>
+        </section>
+
     </Container>
   )
 }
@@ -353,8 +354,6 @@ function ProcessSection() {
     </Container>
   )
 }
-
-
 
 function TestimonialSection() {
   const testimonials = [
