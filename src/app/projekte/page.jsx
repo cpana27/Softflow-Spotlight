@@ -5,78 +5,166 @@ import { Footer } from '@/components/footer'
 import { GradientBackground } from '@/components/gradient'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
+import { CTASection } from '@/components/CtaSection'
 
 export const metadata = {
-  title: 'Company',
+  title: 'Projekte – Fullstack Development',
   description:
-    'We’re on a mission to transform revenue organizations by harnessing vast amounts of illegally acquired customer data.',
+    'Eine Auswahl meiner Projekte – von modernen Web-Apps über E-Commerce-Lösungen bis zu komplexen Backend-Systemen.',
 }
+
+// Dummy-Daten für Projekte - hier später deine echten Projekte einfügen
+const projects = [
+  {
+    id: 1,
+    title: 'E-Commerce Platform',
+    category: 'Fullstack Web App',
+    description: 'Moderne E-Commerce-Plattform mit React, Node.js und Stripe-Integration. Komplettes Warenwirtschaftssystem mit Admin-Dashboard.',
+    image: '/projects/ecommerce.jpg',
+    tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
+    year: '2024',
+    link: '#',
+  },
+  {
+    id: 2,
+    title: 'SaaS Dashboard',
+    category: 'Web Application',
+    description: 'Analytics-Dashboard für ein SaaS-Startup. Real-time Datenvisualisierung mit WebSockets und komplexem Rechtemanagement.',
+    image: '/projects/dashboard.jpg',
+    tags: ['Next.js', 'TypeScript', 'MongoDB', 'WebSockets'],
+    year: '2024',
+    link: '#',
+  },
+  {
+    id: 3,
+    title: 'Corporate Website',
+    category: 'Website',
+    description: 'Hochperformante Unternehmenswebsite mit Headless CMS. SEO-optimiert und perfekte Core Web Vitals Scores.',
+    image: '/projects/corporate.jpg',
+    tags: ['Next.js', 'Sanity CMS', 'Vercel'],
+    year: '2023',
+    link: '#',
+  },
+  {
+    id: 4,
+    title: 'Booking System',
+    category: 'Fullstack Web App',
+    description: 'Online-Buchungssystem für Dienstleister mit Kalendersynchronisation, Zahlungsabwicklung und automatisierten E-Mail-Benachrichtigungen.',
+    image: '/projects/booking.jpg',
+    tags: ['React', 'Express', 'PostgreSQL', 'AWS'],
+    year: '2023',
+    link: '#',
+  },
+  {
+    id: 5,
+    title: 'API Modernization',
+    category: 'Backend',
+    description: 'Migration einer Legacy REST API zu einer modernen GraphQL-Architektur. Performance-Verbesserung um 300%.',
+    image: '/projects/api.jpg',
+    tags: ['GraphQL', 'Node.js', 'Redis', 'Docker'],
+    year: '2024',
+    link: '#',
+  },
+  {
+    id: 6,
+    title: 'Progressive Web App',
+    category: 'Mobile Web App',
+    description: 'Offline-fähige PWA für Außendienstmitarbeiter. Synchronisation mit Backend-API und lokaler Datenspeicherung.',
+    image: '/projects/pwa.jpg',
+    tags: ['React', 'Service Workers', 'IndexedDB'],
+    year: '2023',
+    link: '#',
+  },
+]
+
+const techStack = [
+  {
+    category: 'Frontend',
+    technologies: [
+      { name: 'React', level: 95 },
+      { name: 'Next.js', level: 90 },
+      { name: 'TypeScript', level: 88 },
+      { name: 'Tailwind CSS', level: 92 },
+    ],
+  },
+  {
+    category: 'Backend',
+    technologies: [
+      { name: 'Node.js', level: 93 },
+      { name: 'Express', level: 90 },
+      { name: 'NestJS', level: 85 },
+      { name: 'GraphQL', level: 87 },
+    ],
+  },
+  {
+    category: 'Databases',
+    technologies: [
+      { name: 'PostgreSQL', level: 90 },
+      { name: 'MongoDB', level: 88 },
+      { name: 'Redis', level: 85 },
+      { name: 'Prisma ORM', level: 87 },
+    ],
+  },
+  {
+    category: 'DevOps & Cloud',
+    technologies: [
+      { name: 'Docker', level: 88 },
+      { name: 'AWS', level: 82 },
+      { name: 'CI/CD', level: 85 },
+      { name: 'Vercel', level: 92 },
+    ],
+  },
+]
 
 function Header() {
   return (
     <Container className="mt-16 mb-8">
-      <Heading as="h1">Entwickler mit Leidenschaft für Technik, Hardware und Design.</Heading>
+      <Heading as="h1">Projekte, die Technologie und Design vereinen</Heading>
       <Lead className="mt-6 max-w-3xl">
-        Seit mehr als 7 Jahren arbeite ich als Entwickler und habe meine Leidenschaft für Technologie zum Beruf gemacht. 
+        Eine Auswahl meiner Arbeiten – von modernen Web-Apps über E-Commerce-Lösungen 
+        bis zu komplexen Backend-Systemen. Jedes Projekt mit Fokus auf Performance, 
+        Skalierbarkeit und Best Practices.
       </Lead>
-      <section className="mt-4 grid grid-cols-1 lg:grid-cols-2 lg:gap-12">
-        <div className="max-w-lg">
+      <section className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-2">
+          <p className="text-sm/6 text-gray-600">
+            In den letzten Jahren habe ich eine Vielzahl von Projekten für Startups, 
+            mittelständische Unternehmen und Enterprise-Kunden umgesetzt. Mein Fokus 
+            liegt dabei auf modernen Tech-Stacks, die sowohl entwicklerfreundlich als 
+            auch zukunftssicher sind.
+          </p>
           <p className="mt-6 text-sm/6 text-gray-600">
-            Mit 29 Jahren blicke ich auf ein Studium der Technischen Informatik zurück, das mir das Fundament für meine heutige Tätigkeit gegeben hat.
-            Meine Faszination für Programmierung reicht weit zurück. Schon früh entdeckte ich die Möglichkeit, durch Code eigene Ideen zum Leben zu erwecken. Diese Begeisterung hat mich durch mein Studium begleitet und ist bis heute ungebrochen.
-            Beruflich bin ich in Vollzeit als Entwickler tätig, wo ich meine technischen Fähigkeiten täglich einsetzen und erweitern kann. Die Kombination aus theoretischem Wissen und praktischer Erfahrung ermöglicht es mir, komplexe Probleme zu lösen und innovative Lösungen zu entwickeln.
+            Jedes Projekt beginnt mit einer gründlichen Analyse der Anforderungen und 
+            einer durchdachten Architektur. Ich lege großen Wert auf clean code, 
+            automatisierte Tests und CI/CD-Pipelines, um langfristige Wartbarkeit zu 
+            gewährleisten.
           </p>
-          <p className="mt-8 text-sm/6 text-gray-600">
-            Neben der Softwareentwicklung beschäftige ich mich in meiner Freizeit intensiv mit Low-Level-Hardwareprogrammierung. Die direkte Interaktion mit der Hardware fasziniert mich und bietet mir einen tieferen Einblick in die Funktionsweise von Computersystemen.
-Wenn ich nicht am Computer sitze, findet man mich häufig beim Kraftsport, wo ich den nötigen Ausgleich zur sitzenden Tätigkeit finde. Außerdem teile ich meine Begeisterung für Autos und Design – zwei Bereiche, in denen Technik und Ästhetik auf faszinierende Weise zusammenkommen.
+          <p className="mt-6 text-sm/6 text-gray-600">
+            Von der ersten Konzeption über das Design bis zum finalen Deployment – 
+            ich begleite Projekte durch alle Phasen. Dabei arbeite ich eng mit meinen 
+            Kunden zusammen und halte sie durch regelmäßige Updates auf dem Laufenden.
           </p>
         </div>
-        <div className="pt-20 lg:row-span-2 lg:-mr-16 xl:mr-auto">
-          <div className="-mx-8 grid grid-cols-2 gap-4 sm:-mx-16 sm:grid-cols-4 lg:mx-0 lg:grid-cols-2 lg:gap-4 xl:gap-8">
-            <div className="aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10">
-              <img
-                alt=""
-                src="/company/1.jpg"
-                className="block size-full object-cover"
-              />
-            </div>
-            <div className="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10 lg:-mt-32">
-              <img
-                alt=""
-                src="/company/2.jpg"
-                className="block size-full object-cover"
-              />
-            </div>
-            <div className="aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10">
-              <img
-                alt=""
-                src="/company/3.jpg"
-                className="block size-full object-cover"
-              />
-            </div>
-            <div className="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10 lg:-mt-32">
-              <img
-                alt=""
-                src="/company/4.jpg"
-                className="block size-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="max-lg:mt-16 lg:col-span-1">
-          <Subheading>The Numbers</Subheading>
+        <div className="lg:col-span-1">
+          <Subheading>Die Zahlen</Subheading>
           <hr className="mt-6 border-t border-gray-200" />
-          <dl className="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
+          <dl className="mt-6 grid grid-cols-1 gap-y-4">
             <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
-              <dt className="text-sm/6 text-gray-600">Raised</dt>
+              <dt className="text-sm/6 text-gray-600">Abgeschlossene Projekte</dt>
               <dd className="order-first text-6xl font-medium tracking-tight">
-                $<AnimatedNumber start={100} end={150} />M
+                <AnimatedNumber start={20} end={45} />+
               </dd>
             </div>
             <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
-              <dt className="text-sm/6 text-gray-600">Companies</dt>
+              <dt className="text-sm/6 text-gray-600">Jahre Erfahrung</dt>
               <dd className="order-first text-6xl font-medium tracking-tight">
-                <AnimatedNumber start={15} end={30} />K
+                <AnimatedNumber start={4} end={7} />+
+              </dd>
+            </div>
+            <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
+              <dt className="text-sm/6 text-gray-600">Zufriedene Kunden</dt>
+              <dd className="order-first text-6xl font-medium tracking-tight">
+                <AnimatedNumber start={15} end={30} />+
               </dd>
             </div>
           </dl>
@@ -86,245 +174,246 @@ Wenn ich nicht am Computer sitze, findet man mich häufig beim Kraftsport, wo ic
   )
 }
 
-function Person({ name, description, img }) {
+function ProjectCard({ project }) {
   return (
-    <li className="flex items-center gap-4">
-      <img alt="" src={img} className="size-12 rounded-full" />
-      <div className="text-sm/6">
-        <h3 className="font-medium">{name}</h3>
-        <p className="text-gray-500">{description}</p>
+    <article className="group relative">
+      <div className="overflow-hidden rounded-3xl bg-gray-100 shadow-md ring-1 ring-black/5 transition hover:shadow-xl">
+        <div className="aspect-4/3 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+          {/* Platzhalter für Projekt-Bild */}
+          <div className="flex h-full items-center justify-center text-gray-400">
+            <svg className="h-24 w-24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+        </div>
+        <div className="p-8">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              {project.category}
+            </span>
+            <span className="text-xs text-gray-400">{project.year}</span>
+          </div>
+          <h3 className="mt-4 text-xl font-semibold text-gray-950 group-hover:text-blue-600 transition">
+            {project.title}
+          </h3>
+          <p className="mt-2 text-sm/6 text-gray-600">
+            {project.description}
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {project.tags.map((tag, index) => (
+              <span
+                key={index}
+                className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div className="mt-6">
+            <Button variant="outline" href={project.link}>
+              Details ansehen
+            </Button>
+          </div>
+        </div>
       </div>
-    </li>
+    </article>
   )
 }
 
-function Investors() {
+function ProjectsGrid() {
   return (
-    <Container className="mt-32">
-      <Subheading>Investors</Subheading>
+    <Container className="mt-24">
+      <Subheading>Ausgewählte Projekte</Subheading>
       <Heading as="h3" className="mt-2">
-        Funded by industry-leaders.
+        Von der Idee zur fertigen Lösung
       </Heading>
       <Lead className="mt-6 max-w-3xl">
-        We are fortunate to be backed by the best investors in the industry —
-        both literal and metaphorical partners in crime.
+        Jedes Projekt ist einzigartig und erfordert einen individuellen Ansatz. 
+        Hier finden Sie eine Auswahl meiner Arbeiten aus verschiedenen Bereichen.
       </Lead>
-      <Subheading as="h3" className="mt-24">
-        Venture Capital
-      </Subheading>
-      <hr className="mt-6 border-t border-gray-200" />
-      <ul
-        role="list"
-        className="mx-auto mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2"
-      >
-        <li>
-          <img
-            alt="Remington Schwartz"
-            src="/investors/remington-schwartz.svg"
-            className="h-14"
-          />
-          <p className="mt-6 max-w-lg text-sm/6 text-gray-500">
-            Remington Schwartz has been a driving force in the tech industry,
-            backing bold entrepreneurs who explore grey areas in financial and
-            privacy law. Their deep industry expertise and extensive political
-            lobbying provide their portfolio companies with favorable regulation
-            and direct access to lawmakers.
-          </p>
-        </li>
-        <li>
-          <img alt="Deccel" src="/investors/deccel.svg" className="h-14" />
-          <p className="mt-6 max-w-lg text-sm/6 text-gray-500">
-            Deccel has been at the forefront of innovation, investing in
-            pioneering companies across various sectors, including technology,
-            consumer goods, and healthcare. Their philosophy of ‘plausible
-            deniability’ and dedication to looking the other way have helped
-            produce some of the world’s most controversial companies.
-          </p>
-        </li>
-      </ul>
-      <Subheading as="h3" className="mt-24">
-        Individual investors
-      </Subheading>
-      <hr className="mt-6 border-t border-gray-200" />
-      <ul
-        role="list"
-        className="mx-auto mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
-      >
-        <Person
-          name="Kristin Watson"
-          description="TechNexus Ventures"
-          img="/individual-investors/kristin-watson.jpg"
-        />
-        <Person
-          name="Emma Dorsey"
-          description="Innovate Capital Partners"
-          img="/individual-investors/emma-dorsey.jpg"
-        />
-        <Person
-          name="Alicia Bell"
-          description="FutureWave Investments"
-          img="/individual-investors/alicia-bell.jpg"
-        />
-        <Person
-          name="Jenny Wilson"
-          description="SynergyTech Equity"
-          img="/individual-investors/jenny-wilson.jpg"
-        />
-        <Person
-          name="Anna Roberts"
-          description="NextGen Horizons"
-          img="/individual-investors/anna-roberts.jpg"
-        />
-        <Person
-          name="Benjamin Russel"
-          description="Pioneer Digital Ventures"
-          img="/individual-investors/benjamin-russel.jpg"
-        />
-      </ul>
+      <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3">
+        {projects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </div>
     </Container>
   )
 }
 
-function Testimonial() {
+function TechStackSection() {
   return (
-    <div className="relative flex aspect-square flex-col justify-end overflow-hidden rounded-3xl sm:aspect-5/4 lg:aspect-3/4">
-      <img
-        alt=""
-        src="/testimonials/veronica-winton.jpg"
-        className="absolute inset-0 object-cover"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 rounded-3xl bg-linear-to-t from-black from-10% to-75% ring-1 ring-gray-950/10 ring-inset lg:from-25%"
-      />
-      <figure className="relative p-10">
-        <blockquote>
-          <p className="relative text-xl/7 text-white before:absolute before:-translate-x-full before:content-['“'] after:absolute after:content-['”']">
-            We&apos;ve managed to put two of our main competitors out of
-            business in 6 months.
-          </p>
-        </blockquote>
-        <figcaption className="mt-6 border-t border-white/20 pt-6">
-          <p className="text-sm/6 font-medium text-white">Veronica Winton</p>
-          <p className="text-sm/6 font-medium">
-            <span className="bg-linear-to-r from-[#fff1be] from-28% via-[#ee87cb] via-70% to-[#b060ff] bg-clip-text text-transparent">
-              CSO, Planeteria
-            </span>
-          </p>
-        </figcaption>
-      </figure>
+    <div className="relative mt-32 bg-gray-900 py-24">
+      <div className="absolute inset-0 bg-[url(/dot-texture.svg)] opacity-40" />
+      <Container className="relative">
+        <Subheading className="text-gray-400">Technologie-Stack</Subheading>
+        <Heading as="h3" className="mt-2 text-white">
+          Moderne Tools für moderne Lösungen
+        </Heading>
+        <Lead className="mt-6 max-w-3xl text-gray-300">
+          Ich arbeite mit bewährten, zukunftssicheren Technologien, die sowohl 
+          Performance als auch Entwicklerfreundlichkeit garantieren.
+        </Lead>
+        <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2">
+          {techStack.map((stack, index) => (
+            <div key={index}>
+              <h4 className="text-lg font-semibold text-white">
+                {stack.category}
+              </h4>
+              <div className="mt-6 space-y-6">
+                {stack.technologies.map((tech, techIndex) => (
+                  <div key={techIndex}>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium text-gray-300">
+                        {tech.name}
+                      </span>
+                      <span className="text-sm text-gray-400">
+                        {tech.level}%
+                      </span>
+                    </div>
+                    <div className="mt-2 h-2 overflow-hidden rounded-full bg-gray-800">
+                      <div
+                        className="h-full rounded-full bg-gradient-to-r from-blue-500 to-blue-400 transition-all duration-1000 ease-out"
+                        style={{ width: `${tech.level}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Container>
     </div>
   )
 }
 
-function Careers() {
+function ProcessSection() {
+  const steps = [
+    {
+      number: '01',
+      title: 'Analyse & Konzept',
+      description: 'Gemeinsam definieren wir Ihre Anforderungen, Ziele und die optimale technische Architektur für Ihr Projekt.',
+      icon: '🎯',
+    },
+    {
+      number: '02',
+      title: 'Design & Prototyping',
+      description: 'Erstellung von Wireframes, UI-Designs und interaktiven Prototypen zur Visualisierung des finalen Produkts.',
+      icon: '🎨',
+    },
+    {
+      number: '03',
+      title: 'Entwicklung',
+      description: 'Agile Entwicklung mit modernen Tech-Stacks. Regelmäßige Updates und Demos halten Sie auf dem Laufenden.',
+      icon: '⚡',
+    },
+    {
+      number: '04',
+      title: 'Testing & Launch',
+      description: 'Umfangreiche Tests, Performance-Optimierung und reibungsloser Deployment-Prozess mit CI/CD-Pipelines.',
+      icon: '🚀',
+    },
+  ]
+
   return (
     <Container className="my-32">
-      <Subheading>Careers</Subheading>
+      <Subheading>Mein Prozess</Subheading>
       <Heading as="h3" className="mt-2">
-        Join our fully remote team.
+        Von der ersten Idee bis zum Launch
       </Heading>
       <Lead className="mt-6 max-w-3xl">
-        We work together from all over the world, mainly from locations without
-        extradition agreements.
+        Strukturiert, transparent und mit Fokus auf Ihre Anforderungen – 
+        so arbeite ich an jedem Projekt.
       </Lead>
-      <div className="mt-24 grid grid-cols-1 gap-16 lg:grid-cols-[1fr_24rem]">
-        <div className="lg:max-w-2xl">
-          <Subheading as="h3">Open positions</Subheading>
-          <div>
-            <table className="w-full text-left">
-              <colgroup>
-                <col className="w-2/3" />
-                <col className="w-1/3" />
-                <col className="w-0" />
-              </colgroup>
-              <thead className="sr-only">
-                <tr>
-                  <th scope="col">Title</th>
-                  <th scope="col">Location</th>
-                  <th scope="col">Read more</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="colgroup" colSpan={3} className="px-0 pt-10 pb-0">
-                    <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold">
-                      Engineering
-                    </div>
-                  </th>
-                </tr>
-                <tr className="border-b border-dotted border-gray-200 text-sm/6 font-normal">
-                  <td className="px-0 py-4">iOS Developer</td>
-                  <td className="px-0 py-4 text-gray-600">Remote</td>
-                  <td className="px-0 py-4 text-right">
-                    <Button variant="outline" href="#">
-                      View listing
-                    </Button>
-                  </td>
-                </tr>
-                <tr className="border-b border-dotted border-gray-200 text-sm/6 font-normal">
-                  <td className="px-0 py-4">Backend Engineer</td>
-                  <td className="px-0 py-4 text-gray-600">Remote</td>
-                  <td className="px-0 py-4 text-right">
-                    <Button variant="outline" href="#">
-                      View listing
-                    </Button>
-                  </td>
-                </tr>
-                <tr className="text-sm/6 font-normal">
-                  <td className="px-0 py-4">Product Engineer</td>
-                  <td className="px-0 py-4 text-gray-600">Remote</td>
-                  <td className="px-0 py-4 text-right">
-                    <Button variant="outline" href="#">
-                      View listing
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="colgroup" colSpan={3} className="px-0 pt-5 pb-0">
-                    <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold">
-                      Design
-                    </div>
-                  </th>
-                </tr>
-                <tr className="border-b border-dotted border-gray-200 text-sm/6 font-normal">
-                  <td className="px-0 py-4">Principal Designer</td>
-                  <td className="px-0 py-4 text-gray-600">Remote</td>
-                  <td className="px-0 py-4 text-right">
-                    <Button variant="outline" href="#">
-                      View listing
-                    </Button>
-                  </td>
-                </tr>
-                <tr className="border-b border-dotted border-gray-200 text-sm/6 font-normal">
-                  <td className="px-0 py-4">Designer</td>
-                  <td className="px-0 py-4 text-gray-600">Remote</td>
-                  <td className="px-0 py-4 text-right">
-                    <Button variant="outline" href="#">
-                      View listing
-                    </Button>
-                  </td>
-                </tr>
-                <tr className="text-sm/6 font-normal">
-                  <td className="px-0 py-4">Senior Designer</td>
-                  <td className="px-0 py-4 text-gray-600">Remote</td>
-                  <td className="px-0 py-4 text-right">
-                    <Button variant="outline" href="#">
-                      View listing
-                    </Button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2">
+        {steps.map((step, index) => (
+          <div
+            key={index}
+            className="group relative rounded-3xl bg-gradient-to-br from-gray-50 to-gray-100/50 p-8 shadow-md ring-1 ring-black/5 transition hover:shadow-xl"
+          >
+            <div className="flex items-start gap-6">
+              <div className="text-4xl">{step.icon}</div>
+              <div className="flex-1">
+                <div className="flex items-center gap-4">
+                  <span className="text-sm font-bold text-blue-600">
+                    {step.number}
+                  </span>
+                  <h4 className="text-lg font-semibold text-gray-950">
+                    {step.title}
+                  </h4>
+                </div>
+                <p className="mt-3 text-sm/6 text-gray-600">
+                  {step.description}
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-        <Testimonial />
+        ))}
       </div>
     </Container>
   )
 }
 
-export default function Company() {
+
+
+function TestimonialSection() {
+  const testimonials = [
+    {
+      quote: 'Hervorragende Arbeit! Die Web-App wurde pünktlich geliefert und übertrifft unsere Erwartungen. Sehr professionelle Kommunikation und tiefes technisches Know-how.',
+      author: 'Michael Schmidt',
+      role: 'CEO, TechStart GmbH',
+      image: '/testimonials/michael-schmidt.jpg',
+    },
+    {
+      quote: 'Die Zusammenarbeit war reibungslos und effizient. Besonders beeindruckt hat uns die Fähigkeit, komplexe technische Anforderungen in verständliche Lösungen zu übersetzen.',
+      author: 'Sarah Weber',
+      role: 'Product Lead, InnovateLabs',
+      image: '/testimonials/sarah-weber.jpg',
+    },
+    {
+      quote: 'Endlich jemand, der nicht nur entwickelt, sondern mitdenkt. Die Architektur-Beratung hat uns vor vielen Problemen bewahrt. Absolut empfehlenswert!',
+      author: 'Thomas Müller',
+      role: 'CTO, DataFlow Systems',
+      image: '/testimonials/thomas-mueller.jpg',
+    },
+  ]
+
+  return (
+    <Container className="my-32">
+      <Subheading className="text-center">Was Kunden sagen</Subheading>
+      <Heading as="h3" className="mt-2 text-center">
+        Feedback aus echten Projekten
+      </Heading>
+      <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
+        {testimonials.map((testimonial, index) => (
+          <div
+            key={index}
+            className="rounded-3xl bg-white p-8 shadow-md ring-1 ring-black/5"
+          >
+            <blockquote>
+              <p className="text-sm/6 text-gray-700">
+                "{testimonial.quote}"
+              </p>
+            </blockquote>
+            <div className="mt-6 flex items-center gap-4">
+              <div className="h-12 w-12 rounded-full bg-gradient-to-br from-blue-100 to-blue-200" />
+              <div>
+                <p className="text-sm font-semibold text-gray-950">
+                  {testimonial.author}
+                </p>
+                <p className="text-sm text-gray-500">
+                  {testimonial.role}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Container>
+  )
+}
+
+export default function Projects() {
   return (
     <main className="overflow-hidden">
       <GradientBackground />
@@ -332,8 +421,11 @@ export default function Company() {
         <Navbar />
       </Container>
       <Header />
-      <Investors />
-      <Careers />
+      <ProjectsGrid />
+      <ProcessSection />
+      <TechStackSection />
+      <TestimonialSection />
+      <CTASection />
       <Footer />
     </main>
   )

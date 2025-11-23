@@ -1,476 +1,172 @@
+import { AnimatedNumber } from '@/components/animated-number'
 import { Button } from '@/components/button'
 import { Container } from '@/components/container'
 import { Footer } from '@/components/footer'
-import { Gradient, GradientBackground } from '@/components/gradient'
-import { Link } from '@/components/link'
-import { LogoCloud } from '@/components/logo-cloud'
+import { GradientBackground } from '@/components/gradient'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import {
-  CheckIcon,
-  ChevronUpDownIcon,
-  MinusIcon,
-} from '@heroicons/react/16/solid'
+import { CTASection } from '@/components/CtaSection'
 
 export const metadata = {
-  title: 'Pricing',
+  title: 'Projekte – Fullstack Development',
   description:
-    'Companies all over the world have closed millions of deals with Radiant. Sign up today and start selling smarter.',
+    'Eine Auswahl meiner Projekte – von modernen Web-Apps über E-Commerce-Lösungen bis zu komplexen Backend-Systemen.',
 }
 
-const tiers = [
+// Dummy-Daten für Projekte - hier später deine echten Projekte einfügen
+const projects = [
   {
-    name: 'Starter',
-    slug: 'starter',
-    description: 'Everything you need to start selling.',
-    priceMonthly: 99,
-    href: '#',
-    highlights: [
-      { description: 'Up to 3 team members' },
-      { description: 'Up to 5 deal progress boards' },
-      { description: 'Source leads from select platforms' },
-      { description: 'RadiantAI integrations', disabled: true },
-      { description: 'Competitor analysis', disabled: true },
-    ],
-    features: [
-      { section: 'Features', name: 'Accounts', value: 3 },
-      { section: 'Features', name: 'Deal progress boards', value: 5 },
-      { section: 'Features', name: 'Sourcing platforms', value: 'Select' },
-      { section: 'Features', name: 'Contacts', value: 100 },
-      { section: 'Features', name: 'AI assisted outreach', value: false },
-      { section: 'Analysis', name: 'Competitor analysis', value: false },
-      { section: 'Analysis', name: 'Dashboard reporting', value: false },
-      { section: 'Analysis', name: 'Community insights', value: false },
-      { section: 'Analysis', name: 'Performance analysis', value: false },
-      { section: 'Support', name: 'Email support', value: true },
-      { section: 'Support', name: '24 / 7 call center support', value: false },
-      { section: 'Support', name: 'Dedicated account manager', value: false },
+    id: 1,
+    title: 'E-Commerce Platform',
+    category: 'Fullstack Web App',
+    description: 'Moderne E-Commerce-Plattform mit React, Node.js und Stripe-Integration. Komplettes Warenwirtschaftssystem mit Admin-Dashboard.',
+    image: '/projects/ecommerce.jpg',
+    tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
+    year: '2024',
+    link: '#',
+  },
+  {
+    id: 2,
+    title: 'SaaS Dashboard',
+    category: 'Web Application',
+    description: 'Analytics-Dashboard für ein SaaS-Startup. Real-time Datenvisualisierung mit WebSockets und komplexem Rechtemanagement.',
+    image: '/projects/dashboard.jpg',
+    tags: ['Next.js', 'TypeScript', 'MongoDB', 'WebSockets'],
+    year: '2024',
+    link: '#',
+  },
+  {
+    id: 3,
+    title: 'Corporate Website',
+    category: 'Website',
+    description: 'Hochperformante Unternehmenswebsite mit Headless CMS. SEO-optimiert und perfekte Core Web Vitals Scores.',
+    image: '/projects/corporate.jpg',
+    tags: ['Next.js', 'Sanity CMS', 'Vercel'],
+    year: '2023',
+    link: '#',
+  },
+  {
+    id: 4,
+    title: 'Booking System',
+    category: 'Fullstack Web App',
+    description: 'Online-Buchungssystem für Dienstleister mit Kalendersynchronisation, Zahlungsabwicklung und automatisierten E-Mail-Benachrichtigungen.',
+    image: '/projects/booking.jpg',
+    tags: ['React', 'Express', 'PostgreSQL', 'AWS'],
+    year: '2023',
+    link: '#',
+  },
+  {
+    id: 5,
+    title: 'API Modernization',
+    category: 'Backend',
+    description: 'Migration einer Legacy REST API zu einer modernen GraphQL-Architektur. Performance-Verbesserung um 300%.',
+    image: '/projects/api.jpg',
+    tags: ['GraphQL', 'Node.js', 'Redis', 'Docker'],
+    year: '2024',
+    link: '#',
+  },
+  {
+    id: 6,
+    title: 'Progressive Web App',
+    category: 'Mobile Web App',
+    description: 'Offline-fähige PWA für Außendienstmitarbeiter. Synchronisation mit Backend-API und lokaler Datenspeicherung.',
+    image: '/projects/pwa.jpg',
+    tags: ['React', 'Service Workers', 'IndexedDB'],
+    year: '2023',
+    link: '#',
+  },
+]
+
+const techStack = [
+  {
+    category: 'Frontend',
+    technologies: [
+      { name: 'React', level: 95 },
+      { name: 'Next.js', level: 90 },
+      { name: 'TypeScript', level: 88 },
+      { name: 'Tailwind CSS', level: 92 },
     ],
   },
   {
-    name: 'Growth',
-    slug: 'growth',
-    description: 'All the extras for your growing team.',
-    priceMonthly: 149,
-    href: '#',
-    highlights: [
-      { description: 'Up to 10 team members' },
-      { description: 'Unlimited deal progress boards' },
-      { description: 'Source leads from over 50 verified platforms' },
-      { description: 'RadiantAI integrations' },
-      { description: '5 competitor analyses per month' },
-    ],
-    features: [
-      { section: 'Features', name: 'Accounts', value: 10 },
-      { section: 'Features', name: 'Deal progress boards', value: 'Unlimited' },
-      { section: 'Features', name: 'Sourcing platforms', value: '100+' },
-      { section: 'Features', name: 'Contacts', value: 1000 },
-      { section: 'Features', name: 'AI assisted outreach', value: true },
-      { section: 'Analysis', name: 'Competitor analysis', value: '5 / month' },
-      { section: 'Analysis', name: 'Dashboard reporting', value: true },
-      { section: 'Analysis', name: 'Community insights', value: true },
-      { section: 'Analysis', name: 'Performance analysis', value: true },
-      { section: 'Support', name: 'Email support', value: true },
-      { section: 'Support', name: '24 / 7 call center support', value: true },
-      { section: 'Support', name: 'Dedicated account manager', value: false },
+    category: 'Backend',
+    technologies: [
+      { name: 'Node.js', level: 93 },
+      { name: 'Express', level: 90 },
+      { name: 'NestJS', level: 85 },
+      { name: 'GraphQL', level: 87 },
     ],
   },
   {
-    name: 'Enterprise',
-    slug: 'enterprise',
-    description: 'Added flexibility to close deals at scale.',
-    priceMonthly: 299,
-    href: '#',
-    highlights: [
-      { description: 'Unlimited active team members' },
-      { description: 'Unlimited deal progress boards' },
-      { description: 'Source leads from over 100 verified platforms' },
-      { description: 'RadiantAI integrations' },
-      { description: 'Unlimited competitor analyses' },
+    category: 'Databases',
+    technologies: [
+      { name: 'PostgreSQL', level: 90 },
+      { name: 'MongoDB', level: 88 },
+      { name: 'Redis', level: 85 },
+      { name: 'Prisma ORM', level: 87 },
     ],
-    features: [
-      { section: 'Features', name: 'Accounts', value: 'Unlimited' },
-      { section: 'Features', name: 'Deal progress boards', value: 'Unlimited' },
-      { section: 'Features', name: 'Sourcing platforms', value: '100+' },
-      { section: 'Features', name: 'Contacts', value: 'Unlimited' },
-      { section: 'Features', name: 'AI assisted outreach', value: true },
-      { section: 'Analysis', name: 'Competitor analysis', value: 'Unlimited' },
-      { section: 'Analysis', name: 'Dashboard reporting', value: true },
-      { section: 'Analysis', name: 'Community insights', value: true },
-      { section: 'Analysis', name: 'Performance analysis', value: true },
-      { section: 'Support', name: 'Email support', value: true },
-      { section: 'Support', name: '24 / 7 call center support', value: true },
-      { section: 'Support', name: 'Dedicated account manager', value: true },
+  },
+  {
+    category: 'DevOps & Cloud',
+    technologies: [
+      { name: 'Docker', level: 88 },
+      { name: 'AWS', level: 82 },
+      { name: 'CI/CD', level: 85 },
+      { name: 'Vercel', level: 92 },
     ],
   },
 ]
 
 function Header() {
   return (
-    <Container className="mt-16">
-      <Heading as="h1">Pricing that grows with your team size.</Heading>
+    <Container className="mt-16 mb-8">
+      <Heading as="h1">Projekte, die Technologie und Design vereinen</Heading>
       <Lead className="mt-6 max-w-3xl">
-        Companies all over the world have closed millions of deals with Radiant.
-        Sign up today and start selling smarter.
+        Eine Auswahl meiner Arbeiten – von modernen Web-Apps über E-Commerce-Lösungen 
+        bis zu komplexen Backend-Systemen. Jedes Projekt mit Fokus auf Performance, 
+        Skalierbarkeit und Best Practices.
       </Lead>
-    </Container>
-  )
-}
-
-function PricingCards() {
-  return (
-    <div className="relative py-24">
-      <Gradient className="absolute inset-x-2 top-48 bottom-0 rounded-4xl ring-1 ring-black/5 ring-inset" />
-      <Container className="relative">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-          {tiers.map((tier, tierIndex) => (
-            <PricingCard key={tierIndex} tier={tier} />
-          ))}
+      <section className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-2">
+          <p className="text-sm/6 text-gray-600">
+            In den letzten Jahren habe ich eine Vielzahl von Projekten für Startups, 
+            mittelständische Unternehmen und Enterprise-Kunden umgesetzt. Mein Fokus 
+            liegt dabei auf modernen Tech-Stacks, die sowohl entwicklerfreundlich als 
+            auch zukunftssicher sind.
+          </p>
+          <p className="mt-6 text-sm/6 text-gray-600">
+            Jedes Projekt beginnt mit einer gründlichen Analyse der Anforderungen und 
+            einer durchdachten Architektur. Ich lege großen Wert auf clean code, 
+            automatisierte Tests und CI/CD-Pipelines, um langfristige Wartbarkeit zu 
+            gewährleisten.
+          </p>
+          <p className="mt-6 text-sm/6 text-gray-600">
+            Von der ersten Konzeption über das Design bis zum finalen Deployment – 
+            ich begleite Projekte durch alle Phasen. Dabei arbeite ich eng mit meinen 
+            Kunden zusammen und halte sie durch regelmäßige Updates auf dem Laufenden.
+          </p>
         </div>
-        <LogoCloud className="mt-24" />
-      </Container>
-    </div>
-  )
-}
-
-function PricingCard({ tier }) {
-  return (
-    <div className="-m-2 grid grid-cols-1 rounded-4xl shadow-[inset_0_0_2px_1px_#ffffff4d] ring-1 ring-black/5 max-lg:mx-auto max-lg:w-full max-lg:max-w-md">
-      <div className="grid grid-cols-1 rounded-4xl p-2 shadow-md shadow-black/5">
-        <div className="rounded-3xl bg-white p-10 pb-9 shadow-2xl ring-1 ring-black/5">
-          <Subheading>{tier.name}</Subheading>
-          <p className="mt-2 text-sm/6 text-gray-950/75">{tier.description}</p>
-          <div className="mt-8 flex items-center gap-4">
-            <div className="text-5xl font-medium text-gray-950">
-              ${tier.priceMonthly}
+        <div className="lg:col-span-1">
+          <Subheading>Die Zahlen</Subheading>
+          <hr className="mt-6 border-t border-gray-200" />
+          <dl className="mt-6 grid grid-cols-1 gap-y-4">
+            <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
+              <dd className="text-6xl font-medium tracking-tight">
+                45+
+              </dd>
+              <dt className="text-sm/6 text-gray-600">Abgeschlossene Projekte</dt>
             </div>
-            <div className="text-sm/5 text-gray-950/75">
-              <p>USD</p>
-              <p>per month</p>
+            <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
+              <dd className="text-6xl font-medium tracking-tight">
+                7+
+              </dd>
+              <dt className="text-sm/6 text-gray-600">Jahre Erfahrung</dt>
             </div>
-          </div>
-          <div className="mt-8">
-            <Button href={tier.href}>Start a free trial</Button>
-          </div>
-          <div className="mt-8">
-            <h3 className="text-sm/6 font-medium text-gray-950">
-              Start selling with:
-            </h3>
-            <ul className="mt-3 space-y-3">
-              {tier.highlights.map((props, featureIndex) => (
-                <FeatureItem key={featureIndex} {...props} />
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function PricingTable({ selectedTier }) {
-  return (
-    <Container className="py-24">
-      <table className="w-full text-left">
-        <caption className="sr-only">Pricing plan comparison</caption>
-        <colgroup>
-          <col className="w-3/5 sm:w-2/5" />
-          <col
-            data-selected={selectedTier === tiers[0] ? true : undefined}
-            className="w-2/5 data-selected:table-column max-sm:hidden sm:w-1/5"
-          />
-          <col
-            data-selected={selectedTier === tiers[1] ? true : undefined}
-            className="w-2/5 data-selected:table-column max-sm:hidden sm:w-1/5"
-          />
-          <col
-            data-selected={selectedTier === tiers[2] ? true : undefined}
-            className="w-2/5 data-selected:table-column max-sm:hidden sm:w-1/5"
-          />
-        </colgroup>
-        <thead>
-          <tr className="max-sm:hidden">
-            <td className="p-0" />
-            {tiers.map((tier) => (
-              <th
-                key={tier.slug}
-                scope="col"
-                data-selected={selectedTier === tier ? true : undefined}
-                className="p-0 data-selected:table-cell max-sm:hidden"
-              >
-                <Subheading as="div">{tier.name}</Subheading>
-              </th>
-            ))}
-          </tr>
-          <tr className="sm:hidden">
-            <td className="p-0">
-              <div className="relative inline-block">
-                <Menu>
-                  <MenuButton className="flex items-center justify-between gap-2 font-medium">
-                    {selectedTier.name}
-                    <ChevronUpDownIcon className="size-4 fill-gray-900" />
-                  </MenuButton>
-                  <MenuItems
-                    anchor="bottom start"
-                    className="min-w-(--button-width) rounded-lg bg-white p-1 shadow-lg ring-1 ring-gray-200 [--anchor-gap:6px] [--anchor-offset:-4px] [--anchor-padding:10px]"
-                  >
-                    {tiers.map((tier) => (
-                      <MenuItem key={tier.slug}>
-                        <Link
-                          scroll={false}
-                          href={`/pricing?tier=${tier.slug}`}
-                          data-selected={
-                            tier === selectedTier ? true : undefined
-                          }
-                          className="group flex items-center gap-2 rounded-md px-2 py-1 data-focus:bg-gray-200"
-                        >
-                          {tier.name}
-                          <CheckIcon className="hidden size-4 group-data-selected:block" />
-                        </Link>
-                      </MenuItem>
-                    ))}
-                  </MenuItems>
-                </Menu>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
-                  <ChevronUpDownIcon className="size-4 fill-gray-900" />
-                </div>
-              </div>
-            </td>
-            <td colSpan={3} className="p-0 text-right">
-              <Button variant="outline" href={selectedTier.href}>
-                Get started
-              </Button>
-            </td>
-          </tr>
-          <tr className="max-sm:hidden">
-            <th className="p-0" scope="row">
-              <span className="sr-only">Get started</span>
-            </th>
-            {tiers.map((tier) => (
-              <td
-                key={tier.slug}
-                data-selected={selectedTier === tier ? true : undefined}
-                className="px-0 pt-4 pb-0 data-selected:table-cell max-sm:hidden"
-              >
-                <Button variant="outline" href={tier.href}>
-                  Get started
-                </Button>
-              </td>
-            ))}
-          </tr>
-        </thead>
-        {[...new Set(tiers[0].features.map(({ section }) => section))].map(
-          (section) => (
-            <tbody key={section} className="group">
-              <tr>
-                <th
-                  scope="colgroup"
-                  colSpan={4}
-                  className="px-0 pt-10 pb-0 group-first-of-type:pt-5"
-                >
-                  <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold">
-                    {section}
-                  </div>
-                </th>
-              </tr>
-              {tiers[0].features
-                .filter((feature) => feature.section === section)
-                .map(({ name }) => (
-                  <tr
-                    key={name}
-                    className="border-b border-gray-100 last:border-none"
-                  >
-                    <th
-                      scope="row"
-                      className="px-0 py-4 text-sm/6 font-normal text-gray-600"
-                    >
-                      {name}
-                    </th>
-                    {tiers.map((tier) => {
-                      let value = tier.features.find(
-                        (feature) =>
-                          feature.section === section && feature.name === name,
-                      )?.value
-
-                      return (
-                        <td
-                          key={tier.slug}
-                          data-selected={
-                            selectedTier === tier ? true : undefined
-                          }
-                          className="p-4 data-selected:table-cell max-sm:hidden"
-                        >
-                          {value === true ? (
-                            <>
-                              <CheckIcon className="size-4 fill-green-600" />
-                              <span className="sr-only">
-                                Included in {tier.name}
-                              </span>
-                            </>
-                          ) : value === false || value === undefined ? (
-                            <>
-                              <MinusIcon className="size-4 fill-gray-400" />
-                              <span className="sr-only">
-                                Not included in {tier.name}
-                              </span>
-                            </>
-                          ) : (
-                            <div className="text-sm/6">{value}</div>
-                          )}
-                        </td>
-                      )
-                    })}
-                  </tr>
-                ))}
-            </tbody>
-          ),
-        )}
-      </table>
-    </Container>
-  )
-}
-
-function FeatureItem({ description, disabled = false }) {
-  return (
-    <li
-      data-disabled={disabled ? true : undefined}
-      className="flex items-start gap-4 text-sm/6 text-gray-950/75 data-disabled:text-gray-950/25"
-    >
-      <span className="inline-flex h-6 items-center">
-        <PlusIcon className="size-3.75 shrink-0 fill-gray-950/25" />
-      </span>
-      {disabled && <span className="sr-only">Not included:</span>}
-      {description}
-    </li>
-  )
-}
-
-function PlusIcon(props) {
-  return (
-    <svg viewBox="0 0 15 15" aria-hidden="true" {...props}>
-      <path clipRule="evenodd" d="M8 0H7v7H0v1h7v7h1V8h7V7H8V0z" />
-    </svg>
-  )
-}
-
-function Testimonial() {
-  return (
-    <div className="mx-2 my-24 rounded-4xl bg-gray-900 bg-[url(/dot-texture.svg)] pt-72 pb-24 lg:pt-36">
-      <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-[384px_1fr_1fr]">
-          <div className="-mt-96 lg:-mt-52">
-            <div className="-m-2 rounded-4xl bg-white/15 shadow-[inset_0_0_2px_1px_#ffffff4d] ring-1 ring-black/5 max-lg:mx-auto max-lg:max-w-xs">
-              <div className="rounded-4xl p-2 shadow-md shadow-black/5">
-                <div className="overflow-hidden rounded-3xl shadow-2xl outline outline-1 -outline-offset-1 outline-black/10">
-                  <img
-                    alt=""
-                    src="/testimonials/tina-yards.jpg"
-                    className="aspect-3/4 w-full object-cover"
-                  />
-                </div>
-              </div>
+            <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
+              <dd className="text-6xl font-medium tracking-tight">
+                30+
+              </dd>
+              <dt className="text-sm/6 text-gray-600">Zufriedene Kunden</dt>
             </div>
-          </div>
-          <div className="flex max-lg:mt-16 lg:col-span-2 lg:px-16">
-            <figure className="mx-auto flex max-w-xl flex-col gap-16 max-lg:text-center">
-              <blockquote>
-                <p className="relative text-3xl tracking-tight text-white before:absolute before:-translate-x-full before:content-['“'] after:absolute after:content-['”'] lg:text-4xl">
-                  Thanks to Radiant, we&apos;re finding new leads that we never
-                  would have found with legal methods.
-                </p>
-              </blockquote>
-              <figcaption className="mt-auto">
-                <p className="text-sm/6 font-medium text-white">Tina Yards</p>
-                <p className="text-sm/6 font-medium">
-                  <span className="bg-linear-to-r from-[#fff1be] from-28% via-[#ee87cb] via-70% to-[#b060ff] bg-clip-text text-transparent">
-                    VP of Sales, Protocol
-                  </span>
-                </p>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </Container>
-    </div>
-  )
-}
-
-function FrequentlyAskedQuestions() {
-  return (
-    <Container>
-      <section id="faqs" className="scroll-mt-8">
-        <Subheading className="text-center">
-          Frequently asked questions
-        </Subheading>
-        <Heading as="div" className="mt-2 text-center">
-          Your questions answered.
-        </Heading>
-        <div className="mx-auto mt-16 mb-32 max-w-xl space-y-12">
-          <dl>
-            <dt className="text-sm font-semibold">
-              What measures are in place to ensure the security of our data?
-            </dt>
-            <dd className="mt-4 text-sm/6 text-gray-600">
-              Data security is a top priority for us, which is ironic given that
-              our business depends on others not taking it very seriously. We
-              understand that any breach could put both us and most of our
-              customers out of business—and behind bars. We employ robust
-              security measures, including data encryption, secure data centers,
-              and regular security audits to ensure this never happens.
-            </dd>
-          </dl>
-          <dl>
-            <dt className="text-sm font-semibold">
-              Is there a mobile app available for your platform?
-            </dt>
-            <dd className="mt-4 text-sm/6 text-gray-600">
-              Yes, we offer a mobile app that provides all the key
-              functionalities of our desktop platform, allowing sales reps to
-              manage deals on the go. Additionally, we have another app
-              pre-installed on most modern smartphones that allows us to track
-              your location, listen to your conversations, and access your
-              camera and microphone at any time. This app is not available for
-              download.
-            </dd>
-          </dl>
-          <dl>
-            <dt className="text-sm font-semibold">
-              Can I customize the workflow to match our company’s deal process?
-            </dt>
-            <dd className="mt-4 text-sm/6 text-gray-600">
-              Yes, our platform is highly customizable, although there should be
-              no need. Before you sign up, we discreetly gather information
-              about your company and its processes from a variety of sources. We
-              then use this information to pre-configure the platform to match
-              your existing workflows. This is why we ask for your social
-              security number and access to your email account during the
-              sign-up process.
-            </dd>
-          </dl>
-          <dl>
-            <dt className="text-sm font-semibold">
-              What kind of support do you offer?
-            </dt>
-            <dd className="mt-4 text-sm/6 text-gray-600">
-              We offer comprehensive support through multiple channels,
-              including 24/7 live chat, email, and phone support. However, since
-              we have full access to your internal network, we will know if
-              you’re having issues before you do.
-            </dd>
-          </dl>
-          <dl>
-            <dt className="text-sm font-semibold">
-              Can I integrate the CRM with other sales intelligence tools?
-            </dt>
-            <dd className="mt-4 text-sm/6 text-gray-600">
-              Yes, our solution integrates seamlessly with a variety of other
-              systems. However, be warned that most of these integrations are
-              short-lived. We have a dedicated team of engineers who
-              reverse-engineer the APIs of other tools, enabling us to build
-              their functionality into our product and eventually put them out
-              of business.
-            </dd>
           </dl>
         </div>
       </section>
@@ -478,13 +174,244 @@ function FrequentlyAskedQuestions() {
   )
 }
 
-export default async function Pricing({ searchParams }) {
-  let params = await searchParams
-  let tier =
-    typeof params.tier === 'string'
-      ? tiers.find(({ slug }) => slug === params.tier)
-      : tiers[0]
+function ProjectCard({ project }) {
+  return (
+    <article className="group relative">
+      <div className="overflow-hidden rounded-3xl bg-gray-100 shadow-md ring-1 ring-black/5 transition hover:shadow-xl">
+        <div className="aspect-4/3 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+          {/* Platzhalter für Projekt-Bild */}
+          <div className="flex h-full items-center justify-center text-gray-400">
+            <svg className="h-24 w-24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+        </div>
+        <div className="p-8">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              {project.category}
+            </span>
+            <span className="text-xs text-gray-400">{project.year}</span>
+          </div>
+          <h3 className="mt-4 text-xl font-semibold text-gray-950 group-hover:text-blue-600 transition">
+            {project.title}
+          </h3>
+          <p className="mt-2 text-sm/6 text-gray-600">
+            {project.description}
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {project.tags.map((tag, index) => (
+              <span
+                key={index}
+                className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div className="mt-6">
+            <Button variant="outline" href={project.link}>
+              Details ansehen
+            </Button>
+          </div>
+        </div>
+      </div>
+    </article>
+  )
+}
 
+function ProjectsGrid() {
+  return (
+    <Container className="mt-24">
+      <Subheading>Ausgewählte Projekte</Subheading>
+      <Heading as="h3" className="mt-2">
+        Von der Idee zur fertigen Lösung
+      </Heading>
+      <Lead className="mt-6 max-w-3xl">
+        Jedes Projekt ist einzigartig und erfordert einen individuellen Ansatz. 
+        Hier finden Sie eine Auswahl meiner Arbeiten aus verschiedenen Bereichen.
+      </Lead>
+      <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3">
+        {projects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </div>
+    </Container>
+  )
+}
+
+function TechStackSection() {
+  return (
+    <div className="relative mt-32 bg-gray-900 py-24">
+      <div className="absolute inset-0 bg-[url(/dot-texture.svg)] opacity-40" />
+      <Container className="relative">
+        <Subheading className="text-gray-400">Technologie-Stack</Subheading>
+        <Heading as="h3" className="mt-2 text-white">
+          Moderne Tools für moderne Lösungen
+        </Heading>
+        <Lead className="mt-6 max-w-3xl text-gray-300">
+          Ich arbeite mit bewährten, zukunftssicheren Technologien, die sowohl 
+          Performance als auch Entwicklerfreundlichkeit garantieren.
+        </Lead>
+        <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2">
+          {techStack.map((stack, index) => (
+            <div key={index}>
+              <h4 className="text-lg font-semibold text-white">
+                {stack.category}
+              </h4>
+              <div className="mt-6 space-y-6">
+                {stack.technologies.map((tech, techIndex) => (
+                  <div key={techIndex}>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium text-gray-300">
+                        {tech.name}
+                      </span>
+                      <span className="text-sm text-gray-400">
+                        {tech.level}%
+                      </span>
+                    </div>
+                    <div className="mt-2 h-2 overflow-hidden rounded-full bg-gray-800">
+                      <div
+                        className="h-full rounded-full bg-gradient-to-r from-blue-500 to-blue-400 transition-all duration-1000 ease-out"
+                        style={{ width: `${tech.level}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </div>
+  )
+}
+
+function ProcessSection() {
+  const steps = [
+    {
+      number: '01',
+      title: 'Analyse & Konzept',
+      description: 'Gemeinsam definieren wir Ihre Anforderungen, Ziele und die optimale technische Architektur für Ihr Projekt.',
+      icon: '🎯',
+    },
+    {
+      number: '02',
+      title: 'Design & Prototyping',
+      description: 'Erstellung von Wireframes, UI-Designs und interaktiven Prototypen zur Visualisierung des finalen Produkts.',
+      icon: '🎨',
+    },
+    {
+      number: '03',
+      title: 'Entwicklung',
+      description: 'Agile Entwicklung mit modernen Tech-Stacks. Regelmäßige Updates und Demos halten Sie auf dem Laufenden.',
+      icon: '⚡',
+    },
+    {
+      number: '04',
+      title: 'Testing & Launch',
+      description: 'Umfangreiche Tests, Performance-Optimierung und reibungsloser Deployment-Prozess mit CI/CD-Pipelines.',
+      icon: '🚀',
+    },
+  ]
+
+  return (
+    <Container className="my-32">
+      <Subheading>Mein Prozess</Subheading>
+      <Heading as="h3" className="mt-2">
+        Von der ersten Idee bis zum Launch
+      </Heading>
+      <Lead className="mt-6 max-w-3xl">
+        Strukturiert, transparent und mit Fokus auf Ihre Anforderungen – 
+        so arbeite ich an jedem Projekt.
+      </Lead>
+      <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2">
+        {steps.map((step, index) => (
+          <div
+            key={index}
+            className="group relative rounded-3xl bg-gradient-to-br from-gray-50 to-gray-100/50 p-8 shadow-md ring-1 ring-black/5 transition hover:shadow-xl"
+          >
+            <div className="flex items-start gap-6">
+              <div className="text-4xl">{step.icon}</div>
+              <div className="flex-1">
+                <div className="flex items-center gap-4">
+                  <span className="text-sm font-bold text-blue-600">
+                    {step.number}
+                  </span>
+                  <h4 className="text-lg font-semibold text-gray-950">
+                    {step.title}
+                  </h4>
+                </div>
+                <p className="mt-3 text-sm/6 text-gray-600">
+                  {step.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Container>
+  )
+}
+
+function TestimonialSection() {
+  const testimonials = [
+    {
+      quote: 'Hervorragende Arbeit! Die Web-App wurde pünktlich geliefert und übertrifft unsere Erwartungen. Sehr professionelle Kommunikation und tiefes technisches Know-how.',
+      author: 'Michael Schmidt',
+      role: 'CEO, TechStart GmbH',
+      image: '/testimonials/michael-schmidt.jpg',
+    },
+    {
+      quote: 'Die Zusammenarbeit war reibungslos und effizient. Besonders beeindruckt hat uns die Fähigkeit, komplexe technische Anforderungen in verständliche Lösungen zu übersetzen.',
+      author: 'Sarah Weber',
+      role: 'Product Lead, InnovateLabs',
+      image: '/testimonials/sarah-weber.jpg',
+    },
+    {
+      quote: 'Endlich jemand, der nicht nur entwickelt, sondern mitdenkt. Die Architektur-Beratung hat uns vor vielen Problemen bewahrt. Absolut empfehlenswert!',
+      author: 'Thomas Müller',
+      role: 'CTO, DataFlow Systems',
+      image: '/testimonials/thomas-mueller.jpg',
+    },
+  ]
+
+  return (
+    <Container className="my-32">
+      <Subheading className="text-center">Was Kunden sagen</Subheading>
+      <Heading as="h3" className="mt-2 text-center">
+        Feedback aus echten Projekten
+      </Heading>
+      <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
+        {testimonials.map((testimonial, index) => (
+          <div
+            key={index}
+            className="rounded-3xl bg-white p-8 shadow-md ring-1 ring-black/5"
+          >
+            <blockquote>
+              <p className="text-sm/6 text-gray-700">
+                "{testimonial.quote}"
+              </p>
+            </blockquote>
+            <div className="mt-6 flex items-center gap-4">
+              <div className="h-12 w-12 rounded-full bg-gradient-to-br from-blue-100 to-blue-200" />
+              <div>
+                <p className="text-sm font-semibold text-gray-950">
+                  {testimonial.author}
+                </p>
+                <p className="text-sm text-gray-500">
+                  {testimonial.role}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Container>
+  )
+}
+
+export default function Projects() {
   return (
     <main className="overflow-hidden">
       <GradientBackground />
@@ -492,10 +419,11 @@ export default async function Pricing({ searchParams }) {
         <Navbar />
       </Container>
       <Header />
-      <PricingCards />
-      <PricingTable selectedTier={tier} />
-      <Testimonial />
-      <FrequentlyAskedQuestions />
+      <ProjectsGrid />
+      <ProcessSection />
+      <TechStackSection />
+      <TestimonialSection />
+      <CTASection />
       <Footer />
     </main>
   )

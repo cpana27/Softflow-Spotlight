@@ -2,6 +2,15 @@
 
 import { useId, useState } from 'react'
 import Link from 'next/link'
+import { Heading, Subheading } from '@/components/text'
+import { Container } from '@/components/container'
+import { FadeIn} from "@/components/FadeIn"
+import { Button } from '@/components/button'
+import { Offices} from '@/components/Offices'
+import { Border } from '@/components/Border'
+import { Footer } from '@/components/footer'
+import { Navbar } from '@/components/navbar'
+import { GradientBackground } from '@/components/gradient'
 
 function TextInput({ label, ...props }) {
     let id = useId()
@@ -249,11 +258,11 @@ export default function Contact() {
     };
 
     return (
-        <>
-            <PageIntro eyebrow="Kontaktier uns" title="Lass uns zusammenarbeiten.">
-                <p>Wir können es kaum erwarten, von dir zu hören.</p>
-            </PageIntro>
-
+        
+        <Container>
+            <GradientBackground>/</GradientBackground>
+            <Navbar/>
+             <Subheading className= "mt-32 mb-12 text-emerald-600">Kontaktier mich  Ich kann es kaum erwarten von dir zu hören! </Subheading>
             {/* Modal */}
             <Modal
                 isOpen={modal.isOpen}
@@ -263,7 +272,6 @@ export default function Contact() {
                 message={modal.message}
             />
 
-            <Container className="mt-24 mb-20 sm:mt-32 lg:mt-40">
                 <div className="-m-2 grid grid-cols-1 rounded-[2rem] ring-1 shadow-[inset_0_0_2px_1px_#ffffff4d] ring-black/5">
                     <div className="grid grid-cols-1 rounded-[2rem] p-2 shadow-md shadow-black/5">
                         <div className="rounded-3xl bg-white p-10 pb-9 ring-1 shadow-2xl ring-black/5">
@@ -272,7 +280,7 @@ export default function Contact() {
                                     <div>
                                         <div className="flex items-center mb-6">
                                             <span className="text-2xl mr-3">📝</span>
-                                            <h2 className="text-lg font-semibold text-amber-600">
+                                            <h2 className="text-lg font-semibold text-emerald-600">
                                                 Kontakt
                                             </h2>
                                         </div>
@@ -319,7 +327,7 @@ export default function Contact() {
                                             <Button
                                                 type="submit"
                                                 disabled={isLoading}
-                                                className="w-full sm:w-auto bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-900 font-semibold px-8 py-3 transition-all duration-200 transform hover:scale-[1.02] shadow-lg mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
+                                                className="w-full sm:w-auto bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-500 hover:to-teal-600 text-slate-900 font-semibold px-8 py-3 transition-all duration-200 transform hover:scale-[1.02] shadow-lg mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
                                             >
                                                 {isLoading ? 'Wird gesendet...' : 'Lass uns zusammenarbeiten.'}
                                             </Button>
@@ -331,13 +339,15 @@ export default function Contact() {
                                     <div className="lg:border-r lg:border-neutral-200 lg:pr-8">
                                         <div className="flex items-center mb-6">
                                             <span className="text-2xl mr-3">🏢</span>
-                                            <h2 className="text-lg font-semibold text-amber-600">
-                                                Unser Büro
+                                            <h2 className="text-lg font-semibold text-emerald-600">
+                                                Büro
                                             </h2>
                                         </div>
 
                                         <p className="mt-2 text-sm/6 text-gray-600">
                                             Du bevorzugst es, Dinge persönlich zu erledigen?
+                                            <br></br>
+                                            Lass uns gerne unverbindlich treffen.
                                         </p>
                                        
 
@@ -346,14 +356,13 @@ export default function Contact() {
                                         <Border className="mt-16 pt-6">
                                             <div className="flex items-center mb-4">
                                                 <span className="text-2xl mr-3">📞</span>
-                                                <h2 className="text-lg font-semibold text-amber-600">
-                                                    So erreichst du uns
+                                                <h2 className="text-lg font-semibold text-emerald-600">
+                                                    So erreichst mich uns
                                                 </h2>
                                             </div>
                                             <dl className="mt-4 grid grid-cols-1 gap-4 text-sm sm:grid-cols-2">
                                                 {[
-                                                    ['Email:', 'info@solarwelt-gmbh.de'],
-                                                    ['Karriere', 'info@solarwelt-gmbh.de'],
+                                                    ['Email:', 'christian.pana@softflow.dev'],
                                                     ['Telefonnummer', '0203 73823127'],
                                                 ].map(([label, email]) => (
                                                     <div key={email} className="text-sm/6">
@@ -374,11 +383,10 @@ export default function Contact() {
                                         <Border className="mt-10 pt-6">
                                             <div className="flex items-center mb-4">
                                                 <span className="text-2xl mr-3">🌐</span>
-                                                <h2 className="text-lg font-semibold text-amber-600">
-                                                    Hier kannst du uns auch finden
+                                                <h2 className="text-lg font-semibold text-emerald-600">
+                                                    Hier kannst du mich auch finden
                                                 </h2>
                                             </div>
-                                            <SocialMedia className="mt-4" />
                                         </Border>
                                     </div>
                                 </FadeIn>
@@ -386,7 +394,8 @@ export default function Contact() {
                         </div>
                     </div>
                 </div>
-            </Container>
-        </>
+
+               <Footer />
+     </Container>
     )
 }

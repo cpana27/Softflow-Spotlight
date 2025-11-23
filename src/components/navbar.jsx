@@ -1,6 +1,7 @@
 'use client'
 
 import {
+  Button,
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
@@ -22,6 +23,7 @@ import {
   UserGroupIcon,
   UsersIcon,
   VideoCameraIcon,
+  CurrencyEuroIcon
 } from '@heroicons/react/24/outline'
 import { motion } from 'framer-motion'
 import { Link } from './link'
@@ -37,7 +39,7 @@ const engagement = [
 const resources = [
   { name: 'Beratung', href: 'beratung', icon: UserGroupIcon },
   { name: 'Webinars', href: 'webinar', icon: VideoCameraIcon },
-  { name: 'Preise', href: 'preise', icon: VideoCameraIcon },
+  { name: 'Preise', href: 'preise', icon: CurrencyEuroIcon },
 ]
 
 const recentPosts = [
@@ -67,8 +69,6 @@ const recentPosts = [
 ]
 
 const links = [
-  { href: '/pricing', label: 'Pricing' },
-  { href: '/company', label: 'Company' },
   { href: '/blog', label: 'Blog' },
 ]
 
@@ -77,10 +77,9 @@ function DesktopNav() {
     <nav className="relative hidden lg:flex items-center gap-2">
       <Popover>
         <PopoverButton className="inline-flex items-center gap-x-1 px-4 py-3 text-base font-medium text-gray-950 bg-blend-multiply data-hover:bg-black/5 rounded-lg">
-          Solutions
+          Menü
           <ChevronDownIcon aria-hidden="true" className="size-5" />
         </PopoverButton>
-
         <PopoverPanel
           transition
           className="fixed left-1/2 -translate-x-1/2 z-50 mt-5 w-screen max-w-7xl transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
@@ -182,6 +181,7 @@ function DesktopNav() {
           </div>
         </PopoverPanel>
       </Popover>
+      <Button variant="secondary" href="#kontakt"> Kontakt</Button>
     </nav>
   )
 }

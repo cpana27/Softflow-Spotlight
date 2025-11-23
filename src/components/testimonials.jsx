@@ -221,8 +221,8 @@ export function Projects() {
                 }
                 aria-label={`Scroll to project for ${company}`}
                 className={clsx(
-                  'size-2.5 rounded-full border border-transparent bg-gray-300 transition',
-                  'data-active:bg-gray-400 data-hover:bg-gray-400',
+                  'size-2.5 rounded-full border border-transparent bg-emerland-300 transition',
+                  'data-active:bg-emerland-400 data-hover:bg-gray-400',
                   'forced-colors:data-active:bg-[Highlight] forced-colors:data-focus:outline-offset-4',
                 )}
               />
