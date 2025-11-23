@@ -32,24 +32,23 @@ import { Logo } from '@/components/logo'
 const engagement = [
   { name: 'About', href: 'about', icon: InformationCircleIcon },
   { name: 'Projekte', href: 'projekte', icon: UsersIcon },
-  { name: 'Hardware', href: 'hardware', icon: BriefcaseIcon },
-  { name: 'Cybersicherheit', href: 'cybersicherheit', icon: ShieldCheckIcon },
+    { name: 'Preise', href: 'preise', icon: CurrencyEuroIcon },
 ]
 
 const resources = [
   { name: 'Beratung', href: 'beratung', icon: UserGroupIcon },
   { name: 'Webinars', href: 'webinar', icon: VideoCameraIcon },
-  { name: 'Preise', href: 'preise', icon: CurrencyEuroIcon },
+   { name: 'Cybersicherheit', href: 'cybersicherheit', icon: ShieldCheckIcon },
 ]
 
 const recentPosts = [
   {
     id: 1,
     title: 'Boost your conversion rate',
-    href: '#',
+    href: '/blog/moderne_entwicklung',
     date: 'Mar 16, 2023',
     datetime: '2023-03-16',
-    category: { title: 'Marketing', href: '#' },
+    category: { title: 'Marketing', href: '/blog/entwicklung' },
     imageUrl:
       'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
     description:
@@ -58,7 +57,7 @@ const recentPosts = [
   {
     id: 2,
     title: 'How to use search engine optimization to drive sales',
-    href: '#',
+    href: '/blog/architektur',
     date: 'Mar 10, 2023',
     datetime: '2023-03-10',
     category: { title: 'Sales', href: '#' },
