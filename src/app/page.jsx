@@ -189,7 +189,7 @@ function DarkBentoSection() {
             title="Strategische Software-Beratung"
             description="Ich analysiere deine Anforderungen und entwickle maßgeschneiderte Technologie-Strategien von der Architektur bis zur erfolgreichen Implementierung."
             graphic={
-              <div className="h-80 bg-[url(/screenshots/beratung.jpg)] bg-size-[651px_344px] bg-no-repeat" />
+              <div className="h-80 bg-[url(/screenshots/geschaftsplan-besprechen.jpg)] bg-size-[851px_544px] bg-no-repeat" />
             }
             fade={['top']}
             className="max-lg:rounded-t-4xl lg:col-span-4 lg:rounded-tl-4xl"

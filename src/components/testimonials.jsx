@@ -14,19 +14,21 @@ import useMeasure from 'react-use-measure'
 import { Container } from './container'
 import { Link } from './link'
 import { Heading, Subheading } from './text'
+import Solarwelt from "@/images/solarwelt.png"
+
 
 const projects = [
   {
-    img: '/projects/ecommerce-project.jpg',
-    company: 'TechCorp GmbH',
-    industry: 'E-Commerce',
+    img: '/solarwelt.png',
+    company: 'Solarwelt GmbH',
+    industry: 'Photovoltaik Anlagen',
     description:
       'Entwicklung einer skalierbaren E-Commerce-Plattform mit React und Node.js. Migration von Legacy-System zu moderner Microservices-Architektur.',
   },
   {
-    img: '/projects/fintech-project.jpg',
-    company: 'FinanzApp AG',
-    industry: 'FinTech',
+    img: '/dreibrueder.png',
+    company: 'Drei Brüder Friseur',
+    industry: 'Friseur Salon',
     description:
       'Backend-Entwicklung mit Go für hochperformante Banking-APIs. Implementierung von Echtzeit-Transaktionen und sicherer Datenverschlüsselung.',
   },
@@ -44,7 +46,7 @@ const projects = [
     description:
       'Enterprise-Lösung mit Java für Lagerverwaltung und Routenoptimierung. Python-basierte Datenanalyse für Effizienzsteigerung.',
   },
-  {
+  /*{
     img: '/projects/saas-project.jpg',
     company: 'StartupXYZ',
     industry: 'SaaS',
@@ -57,7 +59,7 @@ const projects = [
     industry: 'IoT',
     description:
       'Native Android-App mit Kotlin für Smart-Home-Steuerung. WebSocket-Integration für Echtzeit-Kommunikation mit IoT-Geräten.',
-  },
+  },*/
 ]
 
 function ProjectCard({
