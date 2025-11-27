@@ -30,14 +30,14 @@ import { Link } from './link'
 import { Logo } from '@/components/logo'
 
 const engagement = [
-  { name: 'About', href: 'about', icon: InformationCircleIcon },
+  { name: 'Über Mich', href: 'about', icon: InformationCircleIcon },
   { name: 'Projekte', href: 'projekte', icon: UsersIcon },
     { name: 'Preise', href: 'preise', icon: CurrencyEuroIcon },
 ]
 
 const resources = [
   { name: 'Beratung', href: 'beratung', icon: UserGroupIcon },
-  { name: 'Webinars', href: 'webinar', icon: VideoCameraIcon },
+  { name: 'Webinare', href: 'webinar', icon: VideoCameraIcon },
    { name: 'Cybersicherheit', href: 'cybersicherheit', icon: ShieldCheckIcon },
 ]
 
@@ -89,7 +89,7 @@ function DesktopNav() {
             <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-6 py-10 lg:grid-cols-2">
               <div className="grid grid-cols-2 gap-x-6 sm:gap-x-8">
                 <div>
-                  <h3 className="text-sm/6 font-medium text-gray-500">Engagement</h3>
+                  <h3 className="text-sm/6 font-medium text-gray-500">Einblick</h3>
                   <div className="mt-6 flow-root">
                     <div className="-my-2">
                       {engagement.map((item) => (
@@ -106,7 +106,7 @@ function DesktopNav() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-sm/6 font-medium text-gray-500">Resources</h3>
+                  <h3 className="text-sm/6 font-medium text-gray-500">Ressourcen</h3>
                   <div className="mt-6 flow-root">
                     <div className="-my-2">
                       {resources.map((item) => (
@@ -124,7 +124,6 @@ function DesktopNav() {
                 </div>
               </div>
               <div className="grid grid-cols-1 gap-10 sm:gap-8 lg:grid-cols-2">
-                <h3 className="sr-only">Recent posts</h3>
                 {recentPosts.map((post) => (
                   <article
                     key={post.id}

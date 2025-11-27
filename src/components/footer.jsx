@@ -6,10 +6,10 @@ import { Link } from './link'
 
 const navigation = {
   main: [
-    { name: 'About', href: '#' },
-    { name: 'Blog', href: '#' },
+    { name: 'About', href: '/about' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Datenschutz', href: 'datenschutz' },
-    { name: 'Impressum', href: '#' },
+    { name: 'Impressum', href: '/impressum' },
   ],
   social: [
     {
@@ -26,7 +26,7 @@ const navigation = {
       ),
     },
     {
-      name: 'X',
+      name: 'Instagram',
       href: '#',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>

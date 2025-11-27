@@ -280,11 +280,11 @@ function Contact() {
               <ul className="space-y-3">
                 <li className="flex justify-between text-sm">
                   <span className="text-gray-600">Fullstack-Entwicklung</span>
-                  <Button variant="text" arrow="right" className="text-xs" href="#kontakt">Anfragen</Button>
+                  <Button variant="text" arrow="right" className="text-xs" href="/kontakt">Anfragen</Button>
                 </li>
                 <li className="flex justify-between text-sm">
                   <span className="text-gray-600">Backend-Architektur</span>
-                  <Button variant="text" arrow="right" className="text-xs" href="#kontakt">Anfragen</Button>
+                  <Button variant="text" arrow="right" className="text-xs" href="/kontakt">Anfragen</Button>
                 </li>
               </ul>
             </div>
@@ -297,11 +297,11 @@ function Contact() {
               <ul className="space-y-3">
                 <li className="flex justify-between text-sm">
                   <span className="text-gray-600">Technische Architektur</span>
-                  <Button variant="text" arrow="right" className="text-xs" href="#kontakt">Anfragen</Button>
+                  <Button variant="text" arrow="right" className="text-xs" href="/kontakt">Anfragen</Button>
                 </li>
                 <li className="flex justify-between text-sm">
                   <span className="text-gray-600">Code-Review & Refactoring</span>
-                  <Button variant="text" arrow="right" className="text-xs" href="#kontakt">Anfragen</Button>
+                  <Button variant="text" arrow="right" className="text-xs" href="/kontakt">Anfragen</Button>
                 </li>
               </ul>
             </div>

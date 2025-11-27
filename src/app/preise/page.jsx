@@ -71,7 +71,7 @@ const tiers = [
     description: 'Der perfekte Einstieg – kennenlernen ohne Risiko.',
     price: 250,
     priceLabel: 'Einmalig',
-    href: '#',
+    href: '/kontakt',
     badge: 'Beliebt',
     highlights: [
       { description: 'Umfassender Code Review' },
@@ -97,7 +97,7 @@ const tiers = [
     description: 'Moderne Websites mit Premium-Performance.',
     price: 900,
     priceLabel: 'Ab',
-    href: '#',
+    href: '/kontakt',
     badge: 'Empfohlen',
     highlights: [
       { description: 'React/Next.js Frontend mit TypeScript' },
@@ -123,7 +123,7 @@ const tiers = [
     description: 'Von der Idee zur lauffähigen Web-App.',
     price: 3000,
     priceLabel: 'Ab',
-    href: '#',
+    href: '/kontakt',
     badge: 'Enterprise',
     highlights: [
       { description: 'Fullstack Web-App (React + Node.js)' },
