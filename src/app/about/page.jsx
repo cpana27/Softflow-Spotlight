@@ -7,9 +7,9 @@ import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
 
 export const metadata = {
-  title: 'Softflow',
+  title: 'Über mich - Christian',
   description:
-   'Softflow - Maßgeschneiderte Softwarelösung und Beratung'
+   'Software-Entwickler, Gründer und Technik-Enthusiast aus Deutschland'
 }
 
 function Header() {
@@ -17,18 +17,20 @@ function Header() {
     <Container className="mt-16 mb-8">
       <Heading as="h1">Entwickler mit Leidenschaft für Technik, Hardware und Design.</Heading>
       <Lead className="mt-6 max-w-3xl">
-        Seit mehr als 7 Jahren arbeite ich als Entwickler und habe meine Leidenschaft für Technologie zum Beruf gemacht. 
+        Seit mehr als 8 Jahren arbeite ich als Entwickler und habe meine Leidenschaft für Technologie zum Beruf gemacht.
       </Lead>
       <section className="mt-4 grid grid-cols-1 lg:grid-cols-2 lg:gap-12">
         <div className="max-w-lg">
           <p className="mt-6 text-sm/6 text-gray-600">
-            Mit 29 Jahren blicke ich auf ein Studium der Technischen Informatik zurück, das mir das Fundament für meine heutige Tätigkeit gegeben hat.
+            Mit 30 Jahren blicke ich auf ein abgeschlossenes Studium der Technischen Informatik zurück, das mir das Fundament für meine heutige Tätigkeit gegeben hat.
             Meine Faszination für Programmierung reicht weit zurück. Schon früh entdeckte ich die Möglichkeit, durch Code eigene Ideen zum Leben zu erwecken. Diese Begeisterung hat mich durch mein Studium begleitet und ist bis heute ungebrochen.
-            Beruflich bin ich in Vollzeit als Entwickler tätig, wo ich meine technischen Fähigkeiten täglich einsetzen und erweitern kann. Die Kombination aus theoretischem Wissen und praktischer Erfahrung ermöglicht es mir, komplexe Probleme zu lösen und innovative Lösungen zu entwickeln.
+          </p>
+          <p className="mt-8 text-sm/6 text-gray-600">
+            Beruflich bringe ich 8 Jahre Erfahrung als Fullstack-Entwickler im Versicherungsbereich mit, wo ich meine technischen Fähigkeiten täglich einsetzen und erweitern kann. Die Kombination aus theoretischem Wissen und praktischer Erfahrung ermöglicht es mir, komplexe Probleme zu lösen und effiziente, benutzerfreundliche Softwarelösungen zu entwickeln.
           </p>
           <p className="mt-8 text-sm/6 text-gray-600">
             Neben der Softwareentwicklung beschäftige ich mich in meiner Freizeit intensiv mit Low-Level-Hardwareprogrammierung. Die direkte Interaktion mit der Hardware fasziniert mich und bietet mir einen tieferen Einblick in die Funktionsweise von Computersystemen.
-Wenn ich nicht am Computer sitze, findet man mich häufig beim Kraftsport, wo ich den nötigen Ausgleich zur sitzenden Tätigkeit finde. Außerdem teile ich meine Begeisterung für Autos und Design – zwei Bereiche, in denen Technik und Ästhetik auf faszinierende Weise zusammenkommen.
+            Wenn ich nicht am Computer sitze, findet man mich häufig beim Kraftsport, wo ich den nötigen Ausgleich zur sitzenden Tätigkeit finde. Außerdem teile ich meine Begeisterung für Autos und Design – zwei Bereiche, in denen Technik und Ästhetik auf faszinierende Weise zusammenkommen.
           </p>
         </div>
         <div className="pt-20 lg:row-span-2 lg:-mr-16 xl:mr-auto">
@@ -64,19 +66,19 @@ Wenn ich nicht am Computer sitze, findet man mich häufig beim Kraftsport, wo ic
           </div>
         </div>
         <div className="max-lg:mt-16 lg:col-span-1">
-          <Subheading>The Numbers</Subheading>
+          <Subheading>Die Zahlen</Subheading>
           <hr className="mt-6 border-t border-gray-200" />
           <dl className="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
             <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
-              <dt className="text-sm/6 text-gray-600">Raised</dt>
+              <dt className="text-sm/6 text-gray-600">Jahre Erfahrung</dt>
               <dd className="order-first text-6xl font-medium tracking-tight">
-                $<AnimatedNumber start={100} end={150} />M
+                <AnimatedNumber start={0} end={8} />+
               </dd>
             </div>
             <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
-              <dt className="text-sm/6 text-gray-600">Companies</dt>
+              <dt className="text-sm/6 text-gray-600">Projekte</dt>
               <dd className="order-first text-6xl font-medium tracking-tight">
-                <AnimatedNumber start={15} end={30} />K
+                <AnimatedNumber start={10} end={50} />+
               </dd>
             </div>
           </dl>
@@ -86,31 +88,19 @@ Wenn ich nicht am Computer sitze, findet man mich häufig beim Kraftsport, wo ic
   )
 }
 
-function Person({ name, description, img }) {
-  return (
-    <li className="flex items-center gap-4">
-      <img alt="" src={img} className="size-12 rounded-full" />
-      <div className="text-sm/6">
-        <h3 className="font-medium">{name}</h3>
-        <p className="text-gray-500">{description}</p>
-      </div>
-    </li>
-  )
-}
-
-function Investors() {
+function Expertise() {
   return (
     <Container className="mt-32">
-      <Subheading>Investors</Subheading>
+      <Subheading>Expertise</Subheading>
       <Heading as="h3" className="mt-2">
-        Funded by industry-leaders.
+        Vielseitige Entwicklungskompetenz
       </Heading>
       <Lead className="mt-6 max-w-3xl">
-        We are fortunate to be backed by the best investors in the industry —
-        both literal and metaphorical partners in crime.
+        Mit 8 Jahren Berufserfahrung als Fullstack-Entwickler im Versicherungsbereich 
+        und fundiertem Wissen in Technischer Informatik entwickle ich durchdachte Lösungen.
       </Lead>
       <Subheading as="h3" className="mt-24">
-        Venture Capital
+        Technologien & Bereiche
       </Subheading>
       <hr className="mt-6 border-t border-gray-200" />
       <ul
@@ -118,68 +108,23 @@ function Investors() {
         className="mx-auto mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2"
       >
         <li>
-          <img
-            alt="Remington Schwartz"
-            src="/investors/remington-schwartz.svg"
-            className="h-14"
-          />
+          <h3 className="text-lg font-semibold">Fullstack-Entwicklung</h3>
           <p className="mt-6 max-w-lg text-sm/6 text-gray-500">
-            Remington Schwartz has been a driving force in the tech industry,
-            backing bold entrepreneurs who explore grey areas in financial and
-            privacy law. Their deep industry expertise and extensive political
-            lobbying provide their portfolio companies with favorable regulation
-            and direct access to lawmakers.
+            Mit umfassender Erfahrung in der Fullstack-Entwicklung erstelle ich 
+            komplette Softwarelösungen – von der Benutzeroberfläche bis zur 
+            Datenbankarchitektur. Meine Arbeit im Versicherungsbereich hat mir 
+            gezeigt, wie wichtig robuste und sichere Anwendungen sind.
           </p>
         </li>
         <li>
-          <img alt="Deccel" src="/investors/deccel.svg" className="h-14" />
+          <h3 className="text-lg font-semibold">Hardware-Programmierung</h3>
           <p className="mt-6 max-w-lg text-sm/6 text-gray-500">
-            Deccel has been at the forefront of innovation, investing in
-            pioneering companies across various sectors, including technology,
-            consumer goods, and healthcare. Their philosophy of ‘plausible
-            deniability’ and dedication to looking the other way have helped
-            produce some of the world’s most controversial companies.
+            Die Low-Level-Programmierung ermöglicht mir die direkte Arbeit mit 
+            Hardware-Komponenten. Diese Verbindung zwischen Software und physischer 
+            Technik bietet mir tiefe Einblicke in Computersysteme und eröffnet 
+            spannende Möglichkeiten für innovative Projekte.
           </p>
         </li>
-      </ul>
-      <Subheading as="h3" className="mt-24">
-        Individual investors
-      </Subheading>
-      <hr className="mt-6 border-t border-gray-200" />
-      <ul
-        role="list"
-        className="mx-auto mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
-      >
-        <Person
-          name="Kristin Watson"
-          description="TechNexus Ventures"
-          img="/individual-investors/kristin-watson.jpg"
-        />
-        <Person
-          name="Emma Dorsey"
-          description="Innovate Capital Partners"
-          img="/individual-investors/emma-dorsey.jpg"
-        />
-        <Person
-          name="Alicia Bell"
-          description="FutureWave Investments"
-          img="/individual-investors/alicia-bell.jpg"
-        />
-        <Person
-          name="Jenny Wilson"
-          description="SynergyTech Equity"
-          img="/individual-investors/jenny-wilson.jpg"
-        />
-        <Person
-          name="Anna Roberts"
-          description="NextGen Horizons"
-          img="/individual-investors/anna-roberts.jpg"
-        />
-        <Person
-          name="Benjamin Russel"
-          description="Pioneer Digital Ventures"
-          img="/individual-investors/benjamin-russel.jpg"
-        />
       </ul>
     </Container>
   )
@@ -195,20 +140,20 @@ function Testimonial() {
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 rounded-3xl bg-linear-to-t from-black from-10% to-75% ring-1 ring-gray-950/10 ring-inset lg:from-25%"
+        className="absolute inset-0 rounded-3xl bg-gradient-to-t from-black from-10% to-75% ring-1 ring-gray-950/10 ring-inset lg:from-25%"
       />
       <figure className="relative p-10">
-        <blockquote>
-          <p className="relative text-xl/7 text-white before:absolute before:-translate-x-full before:content-['“'] after:absolute after:content-['”']">
-            We&apos;ve managed to put two of our main competitors out of
-            business in 6 months.
+            <blockquote>
+          <p className="relative text-xl/7 text-white before:absolute before:-translate-x-full before:content-['\201C'] after:absolute after:content-['\201D']">
+            Die Kombination aus technischem Verständnis und praktischer Umsetzung 
+            macht den Unterschied in jedem Projekt.
           </p>
         </blockquote>
         <figcaption className="mt-6 border-t border-white/20 pt-6">
-          <p className="text-sm/6 font-medium text-white">Veronica Winton</p>
+          <p className="text-sm/6 font-medium text-white">Christian</p>
           <p className="text-sm/6 font-medium">
-            <span className="bg-linear-to-r from-[#fff1be] from-28% via-[#ee87cb] via-70% to-[#b060ff] bg-clip-text text-transparent">
-              CSO, Planeteria
+            <span className="bg-gradient-to-r from-[#fff1be] from-28% via-[#ee87cb] via-70% to-[#b060ff] bg-clip-text text-transparent">
+              Software-Entwickler & Gründer
             </span>
           </p>
         </figcaption>
@@ -217,20 +162,20 @@ function Testimonial() {
   )
 }
 
-function Careers() {
+function Contact() {
   return (
     <Container className="my-32">
-      <Subheading>Careers</Subheading>
+      <Subheading>Kontakt</Subheading>
       <Heading as="h3" className="mt-2">
-        Join our fully remote team.
+        Lass uns zusammenarbeiten
       </Heading>
       <Lead className="mt-6 max-w-3xl">
-        We work together from all over the world, mainly from locations without
-        extradition agreements.
+        Du hast ein spannendes Projekt oder möchtest mehr über meine Arbeit erfahren? 
+        Ich freue mich auf den Austausch.
       </Lead>
       <div className="mt-24 grid grid-cols-1 gap-16 lg:grid-cols-[1fr_24rem]">
         <div className="lg:max-w-2xl">
-          <Subheading as="h3">Open positions</Subheading>
+          <Subheading as="h3">Zusammenarbeit</Subheading>
           <div>
             <table className="w-full text-left">
               <colgroup>
@@ -240,77 +185,77 @@ function Careers() {
               </colgroup>
               <thead className="sr-only">
                 <tr>
-                  <th scope="col">Title</th>
-                  <th scope="col">Location</th>
-                  <th scope="col">Read more</th>
+                  <th scope="col">Bereich</th>
+                  <th scope="col">Verfügbarkeit</th>
+                  <th scope="col">Mehr erfahren</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="colgroup" colSpan={3} className="px-0 pt-10 pb-0">
                     <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold">
-                      Engineering
+                      Softwareentwicklung
                     </div>
                   </th>
                 </tr>
                 <tr className="border-b border-dotted border-gray-200 text-sm/6 font-normal">
-                  <td className="px-0 py-4">iOS Developer</td>
-                  <td className="px-0 py-4 text-gray-600">Remote</td>
+                  <td className="px-0 py-4">Fullstack-Entwicklung</td>
+                  <td className="px-0 py-4 text-gray-600">Verfügbar</td>
                   <td className="px-0 py-4 text-right">
                     <Button variant="outline" href="#">
-                      View listing
+                      Anfragen
                     </Button>
                   </td>
                 </tr>
                 <tr className="border-b border-dotted border-gray-200 text-sm/6 font-normal">
-                  <td className="px-0 py-4">Backend Engineer</td>
-                  <td className="px-0 py-4 text-gray-600">Remote</td>
+                  <td className="px-0 py-4">Backend-Entwicklung</td>
+                  <td className="px-0 py-4 text-gray-600">Verfügbar</td>
                   <td className="px-0 py-4 text-right">
                     <Button variant="outline" href="#">
-                      View listing
+                      Anfragen
                     </Button>
                   </td>
                 </tr>
                 <tr className="text-sm/6 font-normal">
-                  <td className="px-0 py-4">Product Engineer</td>
-                  <td className="px-0 py-4 text-gray-600">Remote</td>
+                  <td className="px-0 py-4">Frontend-Entwicklung</td>
+                  <td className="px-0 py-4 text-gray-600">Verfügbar</td>
                   <td className="px-0 py-4 text-right">
                     <Button variant="outline" href="#">
-                      View listing
+                      Anfragen
                     </Button>
                   </td>
                 </tr>
                 <tr>
                   <th scope="colgroup" colSpan={3} className="px-0 pt-5 pb-0">
                     <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold">
-                      Design
+                      Beratung
                     </div>
                   </th>
                 </tr>
                 <tr className="border-b border-dotted border-gray-200 text-sm/6 font-normal">
-                  <td className="px-0 py-4">Principal Designer</td>
-                  <td className="px-0 py-4 text-gray-600">Remote</td>
+                  <td className="px-0 py-4">Technische Beratung</td>
+                  <td className="px-0 py-4 text-gray-600">Verfügbar</td>
                   <td className="px-0 py-4 text-right">
                     <Button variant="outline" href="#">
-                      View listing
+                      Anfragen
                     </Button>
                   </td>
                 </tr>
                 <tr className="border-b border-dotted border-gray-200 text-sm/6 font-normal">
-                  <td className="px-0 py-4">Designer</td>
-                  <td className="px-0 py-4 text-gray-600">Remote</td>
+                  <td className="px-0 py-4">Projektplanung</td>
+                  <td className="px-0 py-4 text-gray-600">Verfügbar</td>
                   <td className="px-0 py-4 text-right">
                     <Button variant="outline" href="#">
-                      View listing
+                      Anfragen
                     </Button>
                   </td>
                 </tr>
                 <tr className="text-sm/6 font-normal">
-                  <td className="px-0 py-4">Senior Designer</td>
-                  <td className="px-0 py-4 text-gray-600">Remote</td>
+                  <td className="px-0 py-4">Code-Review</td>
+                  <td className="px-0 py-4 text-gray-600">Verfügbar</td>
                   <td className="px-0 py-4 text-right">
                     <Button variant="outline" href="#">
-                      View listing
+                      Anfragen
                     </Button>
                   </td>
                 </tr>
@@ -332,8 +277,8 @@ export default function Company() {
         <Navbar />
       </Container>
       <Header />
-      <Investors />
-      <Careers />
+      <Expertise />
+      <Contact />
       <Footer />
     </main>
   )

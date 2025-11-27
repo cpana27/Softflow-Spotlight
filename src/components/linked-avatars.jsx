@@ -69,12 +69,12 @@ function Photos() {
       <div className="mx-auto flex size-full max-w-md items-center justify-around">
         <img
           alt=""
-          src="/linked-avatars/customer.jpg"
+          src="/linked-avatars/api.jpg"
           className="size-20 rounded-full bg-gray-100 ring-4 ring-gray-200 shadow-sm"
         />
         <img
           alt=""
-          src="/linked-avatars/manager.jpg"
+          src="/linked-avatars/server.jpg"
           className="size-20 rounded-full bg-gray-100 ring-4 ring-gray-200 shadow-sm"
         />
       </div>

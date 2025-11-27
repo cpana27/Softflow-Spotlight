@@ -360,7 +360,7 @@ export default function Contact() {
                                             <dl className="mt-4 grid grid-cols-1 gap-4 text-sm sm:grid-cols-2">
                                                 {[
                                                     ['Email:', 'christian.pana@softflow.dev'],
-                                                    ['Telefonnummer', '0203 73823127'],
+                                                    ['Telefonnummer', '0151 26968541'],
                                                 ].map(([label, email]) => (
                                                     <div key={email} className="text-sm/6">
                                                         <dt className="font-medium text-gray-800">{label}</dt>

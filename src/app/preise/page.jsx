@@ -53,7 +53,7 @@ const services = [
     icon: '🚀',
     items: [
       'React, Next.js, TypeScript',
-      'Node.js, Express, NestJS',
+      'Java, Go, Rust',
       'PostgreSQL, MongoDB, Redis',
       'Docker, Kubernetes, Terraform',
       'Stripe, PayPal Integration',
@@ -69,7 +69,7 @@ const tiers = [
     name: 'Quick Start',
     slug: 'quick-start',
     description: 'Der perfekte Einstieg – kennenlernen ohne Risiko.',
-    price: 490,
+    price: 250,
     priceLabel: 'Einmalig',
     href: '#',
     badge: 'Beliebt',
@@ -95,7 +95,7 @@ const tiers = [
     name: 'Professional Web',
     slug: 'professional-web',
     description: 'Moderne Websites mit Premium-Performance.',
-    price: 3200,
+    price: 900,
     priceLabel: 'Ab',
     href: '#',
     badge: 'Empfohlen',
@@ -121,7 +121,7 @@ const tiers = [
     name: 'MVP Launch',
     slug: 'mvp-launch',
     description: 'Von der Idee zur lauffähigen Web-App.',
-    price: 11500,
+    price: 3000,
     priceLabel: 'Ab',
     href: '#',
     badge: 'Enterprise',
@@ -271,12 +271,13 @@ function PricingCard({ tier }) {
           <Subheading>{tier.name}</Subheading>
           <p className="mt-2 text-sm/6 text-gray-950/75">{tier.description}</p>
           <div className="mt-8 flex items-center gap-4">
+            <div className="text-sm/1 text-gray-950/75">
+              <p>{tier.priceLabel}</p>
+            </div>
             <div className="text-5xl font-medium text-gray-950">
               {tier.price.toLocaleString('de-DE')}€
             </div>
-            <div className="text-sm/5 text-gray-950/75">
-              <p>{tier.priceLabel}</p>
-            </div>
+            
           </div>
           <div className="mt-8">
             <Button href={tier.href} className="w-full">

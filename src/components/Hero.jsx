@@ -5,12 +5,39 @@ import chrisImage from '@/images/chris.png'
 import Image from 'next/image'
 
 
+
+
 export function Hero() {
+
+  const calculateYears = (dateString) => {
+    const today = new Date();
+    const startDate = new Date(dateString);
+    
+    let years = today.getFullYear() - startDate.getFullYear();
+    const monthDiff = today.getMonth() - startDate.getMonth();
+    
+    // Wenn der Monat noch nicht erreicht ist oder wir im gleichen Monat sind, 
+    // aber der Tag noch nicht erreicht ist, ziehen wir ein Jahr ab.
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < startDate.getDate())) {
+      years--;
+    }
+    
+    return years;
+  }
+
+      // 1. Dein Geburtsdatum
+  const age = calculateYears('1995-07-02');
+
+  // 2. Dein Karrierestart (Datum anpassen!)
+  // Damit aktuell "7 Jahre" rauskommt, habe ich hier den 01.01.2018 angenommen.
+  // Wenn du z.B. erst im Oktober angefangen hast, ändere das Datum entsprechend.
+  const experience = calculateYears('2017-01-01');
+
   return (
-    <div className="relative">
+    <div className="relative mt-6">
       <Container className="relative">
         <Navbar />
-        <div className="pt-16 pb-12 sm:pt-22 sm:pb-24 md:pt-24 md:pb-24">
+        <div className="pt-16 mt-30 mb-16 pb-12 sm:pt-22 sm:pb-24 md:pt-32 md:pb-32">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             <div>
               <p className="text-base font-semibold text-emerald-600 mb-4">
@@ -23,7 +50,7 @@ export function Hero() {
                 Ein Software-Entwickler und Technik-Begeisterter aus Deutschland.
               </p>
               <p className="mt-4 text-base/7 text-gray-600">
-                Mit 30 Jahren und einem abgeschlossenen Studium der Technischen Informatik bringe ich 7 Jahre Berufserfahrung als Fullstack-Entwickler im Versicherungsbereich und in allgemeinen Programmiertätigkeiten mit. Diese vielseitigen Kenntnisse ermöglichen es mir, komplexe Softwarelösungen zu entwickeln, die sowohl effizient als auch benutzerfreundlich sind.
+                Mit {age} Jahren und einem abgeschlossenen Studium der Technischen Informatik bringe ich {experience} Jahre Berufserfahrung als Fullstack-Entwickler im Versicherungsbereich und in allgemeinen Programmiertätigkeiten mit. Diese vielseitigen Kenntnisse ermöglichen es mir, komplexe Softwarelösungen zu entwickeln, die sowohl effizient als auch benutzerfreundlich sind.
               </p>
               <p className="mt-4 text-base/7 text-gray-600">
                 In meiner Freizeit widme ich mich dem Kraftsport und vertiefe mich in Hardware-Projekte – eine perfekte Balance zwischen körperlicher Aktivität und technischer Kreativität.

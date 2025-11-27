@@ -6,6 +6,7 @@ import { GradientBackground } from '@/components/gradient'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { CTASection } from '@/components/CtaSection'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'Projekte – Fullstack Development',
@@ -17,10 +18,10 @@ export const metadata = {
 const projects = [
   {
     id: 1,
-    title: 'E-Commerce Platform',
+    title: 'Solarwelt-GmbH Photovoltaik',
     category: 'Fullstack Web App',
     description: 'Moderne E-Commerce-Plattform mit React, Node.js und Stripe-Integration. Komplettes Warenwirtschaftssystem mit Admin-Dashboard.',
-    image: '/projects/ecommerce.jpg',
+    image: '/solarwelt.png',
     tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
     year: '2024',
     link: '#',
@@ -30,7 +31,7 @@ const projects = [
     title: 'SaaS Dashboard',
     category: 'Web Application',
     description: 'Analytics-Dashboard für ein SaaS-Startup. Real-time Datenvisualisierung mit WebSockets und komplexem Rechtemanagement.',
-    image: '/projects/dashboard.jpg',
+    image: '/saas.png',
     tags: ['Next.js', 'TypeScript', 'MongoDB', 'WebSockets'],
     year: '2024',
     link: '#',
@@ -40,22 +41,22 @@ const projects = [
     title: 'Corporate Website',
     category: 'Website',
     description: 'Hochperformante Unternehmenswebsite mit Headless CMS. SEO-optimiert und perfekte Core Web Vitals Scores.',
-    image: '/projects/corporate.jpg',
+    image: '/saas.png',
     tags: ['Next.js', 'Sanity CMS', 'Vercel'],
     year: '2023',
     link: '#',
   },
   {
     id: 4,
-    title: 'Booking System',
-    category: 'Fullstack Web App',
+    title: 'Drei Brueder',
+    category: 'Website',
     description: 'Online-Buchungssystem für Dienstleister mit Kalendersynchronisation, Zahlungsabwicklung und automatisierten E-Mail-Benachrichtigungen.',
-    image: '/projects/booking.jpg',
+    image: '/dreibrueder.png',
     tags: ['React', 'Express', 'PostgreSQL', 'AWS'],
     year: '2023',
     link: '#',
   },
-  {
+  /*{
     id: 5,
     title: 'API Modernization',
     category: 'Backend',
@@ -74,7 +75,7 @@ const projects = [
     tags: ['React', 'Service Workers', 'IndexedDB'],
     year: '2023',
     link: '#',
-  },
+  },*/
 ]
 
 const techStack = [
@@ -90,9 +91,9 @@ const techStack = [
   {
     category: 'Backend',
     technologies: [
-      { name: 'Node.js', level: 93 },
-      { name: 'Express', level: 90 },
-      { name: 'NestJS', level: 85 },
+      { name: 'Java', level: 93 },
+      { name: 'Go', level: 90 },
+      { name: 'Spring/Quarkus', level: 85 },
       { name: 'GraphQL', level: 87 },
     ],
   },
@@ -179,12 +180,16 @@ function ProjectCard({ project }) {
   return (
     <article className="group relative">
       <div className="overflow-hidden rounded-3xl bg-gray-100 shadow-md ring-1 ring-black/5 transition hover:shadow-xl">
-        <div className="aspect-4/3 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+        <div className="relative mx-auto aspect-4/3 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
           {/* Platzhalter für Projekt-Bild */}
-          <div className="flex h-full items-center justify-center text-gray-400">
-            <svg className="h-24 w-24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
+          <div className="flex items-center justify-center text-gray-400">
+               <Image 
+            src={project.image} 
+            alt={project.title}
+            fill // Sagt dem Bild: Fülle den Eltern-Container aus
+            className="object-cover transition duration-300 group-hover:scale-105" // object-cover verhindert Verzerrung
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Performance Optimierung
+          />
           </div>
         </div>
         <div className="p-8">

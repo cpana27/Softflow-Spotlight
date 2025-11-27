@@ -118,7 +118,7 @@ export function FeatureSection() {
 function BentoSection() {
   return (
     <Container>
-      <Subheading className="mt-26">Entwicklung & Tech-Stack</Subheading>
+      <Subheading className="mt-32">Entwicklung & Tech-Stack</Subheading>
       <Heading as="h2" className="mt-2">
         Moderne Software Lösungen für dein Business.
       </Heading>
@@ -129,7 +129,7 @@ function BentoSection() {
           title="Full-Stack Entwicklung"
           description="Von Go & Node.js im Backend bis React & TypeScript im Frontend – ich entwickle skalierbare Web-Anwendungen mit modernen Technologien und Best Practices."
           graphic={
-            <div className="h-80 bg-[url(/screenshots/code.jpg)] bg-size-[1000px_560px] bg-position-[left_-109px_top_-112px] bg-no-repeat" />
+            <div className="h-80 bg-[url(/screenshots/code.jpg)] bg-size-[1000px_560px] bg-position-[left_-109px_top_-112px] bg-center" />
           }
           fade={['bottom']}
           className="max-lg:rounded-t-4xl lg:col-span-3 lg:rounded-tl-4xl"
@@ -139,7 +139,7 @@ function BentoSection() {
           title="Modernster Tech-Stack"
           description="Ich arbeite mit den neuesten Technologien: Go, TypeScript, React, Node.js, Python, Java, Docker, Kotlin und Flutter für Web, Backend und Mobile."
           graphic={
-            <div className="absolute inset-0 bg-[url(/screenshots/modern.jpg)] bg-size-[1000px_560px] bg-position-[left_-109px_top_-112px] bg-no-repeat" />
+            <div className="absolute inset-0 bg-[url(/screenshots/modern.jpg)] bg-size-[1000px_560px] bg-position-[left_-109px_top_-112px] bg-center" />
           }
           fade={['bottom']}
           className="lg:col-span-3 lg:rounded-tr-4xl"
@@ -213,7 +213,7 @@ function DarkBentoSection() {
             title="Clean Code & Best Practices"
             description="Wartbarer, typsicherer Code mit TypeScript, automatisierte Tests und CI/CD-Pipelines für höchste Code-Qualität und Zuverlässigkeit."
             graphic={
-              <div className="h-80 bg-[url(/screenshots/engagement.png)] bg-size-[851px_344px] bg-no-repeat" />
+              <div className="h-80 bg-[url(/screenshots/codeS.jpg)] bg-size-[851px_584px] bg-no-repeat bg-center" />
             }
             fade={['top']}
             className="max-lg:rounded-b-4xl lg:col-span-4 lg:rounded-br-4xl"
