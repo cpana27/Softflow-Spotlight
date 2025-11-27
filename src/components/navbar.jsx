@@ -47,8 +47,8 @@ const recentPosts = [
     title: 'Der "Polyglot" Stack: Skalierbare Architektur mit Go, Java & React',
     href: '/blog/moderne_entwicklung',
     date: 'Mar 16, 2025',
-    datetime: '2023-03-16',
-    category: { title: 'Marketing', href: '/blog/entwicklung' },
+    datetime: '2025-03-16',
+    category: { title: 'Arichtektur', href: '/blog/entwicklung' },
     imageUrl:
       'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
     description:
@@ -60,7 +60,7 @@ const recentPosts = [
     href: '/blog/architektur',
     date: 'Mar 10, 2025',
     datetime: '2023-03-10',
-    category: { title: 'Sales', href: '#' },
+    category: { title: 'Hardware & Tech', href: '#' },
     imageUrl:
       'https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80',
     description: 'Jeden Tag erscheinen neue JavaScript-Frameworks, Datenbanken und Cloud-Services. Für CTOs und Gründer ist die Versuchung groß, immer auf das neueste Pferd zu setzen.',
@@ -69,6 +69,7 @@ const recentPosts = [
 
 const links = [
   { href: '/blog', label: 'Blog' },
+  { href: '/faq', label: 'FAQs' },
 ]
 
 function DesktopNav() {

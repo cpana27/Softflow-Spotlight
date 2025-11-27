@@ -70,7 +70,7 @@ function AuthorCard() {
       <div className="flex items-center gap-4">
         <div className="h-12 w-12 rounded-full bg-gray-200 flex items-center justify-center text-xl">👨‍💻</div>
         <div>
-          <div className="font-semibold text-gray-900">Dein Name</div>
+          <div className="font-semibold text-gray-900">Christian Pana</div>
           <div className="text-xs text-gray-500">Fullstack Architect</div>
         </div>
       </div>
@@ -147,7 +147,7 @@ function BlogPost() {
               Microservices lösen Organisationsprobleme (für Teams mit 100+ Entwicklern), schaffen aber technische Probleme (Latenz, Konsistenz, Debugging).
             </p>
             <p>
-              Für 95% meiner Kunden empfehle ich den <strong>Modularen Monolithen</strong>. Er ist einfacher zu deployen, einfacher zu testen und performanter – bis Sie wirklich Scale-Probleme haben.
+              Für 95% meiner Kunden empfehle ich den <strong>Modularen Monolithen</strong>. Er ist einfacher zu deployen, einfacher zu testen und performanter, bis Sie wirklich Scale-Probleme haben.
             </p>
 
             <DecisionMatrix 

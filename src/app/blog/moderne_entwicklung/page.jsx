@@ -60,7 +60,7 @@ function AuthorCard() {
       <div className="flex items-center gap-4">
         <div className="h-12 w-12 rounded-full bg-gray-200 flex items-center justify-center text-xl">👨‍💻</div>
         <div>
-          <div className="font-semibold text-gray-900">Dein Name</div>
+          <div className="font-semibold text-gray-900">Christian Pana</div>
           <div className="text-xs text-gray-500">Fullstack Architect</div>
         </div>
       </div>
@@ -173,7 +173,7 @@ function BlogPost() {
 
             <p>
               <strong>PostgreSQL</strong> dient als "Source of Truth". Dank JSONB-Support können wir hier relationale Integrität mit der Flexibilität von NoSQL verbinden. 
-              <strong> Redis</strong> hingegen fängt bis zu 80% der Leseanfragen ab. User-Sessions, Leaderboards oder Produktlisten kommen direkt aus dem RAM – mit Antwortzeiten unter 5ms.
+              <strong> Redis</strong> hingegen fängt bis zu 80% der Leseanfragen ab. User-Sessions, Leaderboards oder Produktlisten kommen direkt aus dem RAM mit Antwortzeiten unter 5ms.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-6">3. DevOps mit Docker</h2>

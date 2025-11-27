@@ -33,7 +33,7 @@ export function FeatureSection() {
               Maßgeschneiderte Software-Lösungen
             </Heading>
             <p className="mt-6 text-xl text-gray-700">
-              Als erfahrener Full-Stack Entwickler und Berater unterstütze ich dich von der ersten Idee bis zum erfolgreichen Launch – mit modernen Technologien und bewährten Best Practices.
+              Als erfahrener Full-Stack Entwickler und Berater unterstütze ich dich von der ersten Idee bis zum erfolgreichen Launch mit modernen Technologien und bewährten Best Practices.
               </p>
           </div>
 
@@ -43,13 +43,13 @@ export function FeatureSection() {
                 <li className="flex gap-x-3">
                   <CodeBracketIcon aria-hidden="true" className="mt-1 size-5 flex-none text-blue-600" />
                   <span>
-                    <strong className="font-semibold text-gray-900">Full-Stack Entwicklung.</strong> Von Go & Node.js im Backend bis React & TypeScript im Frontend – ich beherrsche den kompletten Stack für moderne Web-Anwendungen.
+                    <strong className="font-semibold text-gray-900">Full-Stack Entwicklung.</strong> Von Go & Node.js im Backend bis React & TypeScript im Frontend ich beherrsche den kompletten Stack für moderne Web-Anwendungen.
                   </span>
                 </li>
                 <li className="flex gap-x-3">
                   <DevicePhoneMobileIcon aria-hidden="true" className="mt-1 size-5 flex-none text-blue-600" />
                   <span>
-                    <strong className="font-semibold text-gray-900">Mobile Apps.</strong> Native Android-Entwicklung mit Kotlin oder plattformübergreifende Lösungen mit Flutter – optimal für jedes Projekt.
+                    <strong className="font-semibold text-gray-900">Mobile Apps.</strong> Native Android-Entwicklung mit Kotlin oder plattformübergreifende Lösungen mit Flutter optimal für jedes Projekt.
                   </span>
                 </li>
                 <li className="flex gap-x-3">
@@ -78,7 +78,7 @@ export function FeatureSection() {
                 </li>
               </ul>
               <p className="mt-8">
-                Egal ob du eine neue Web-Anwendung entwickeln, bestehende Systeme modernisieren oder dein Team mit Expertenwissen unterstützen möchtest – ich finde die passende Lösung für deine Anforderungen.
+                Egal ob du eine neue Web-Anwendung entwickeln, bestehende Systeme modernisieren oder dein Team mit Expertenwissen unterstützen möchtest ich finde die passende Lösung für deine Anforderungen.
               </p>
             </div>
           </div>
@@ -94,10 +94,12 @@ export function FeatureSection() {
                 <h3 className="text-sm font-semibold text-gray-900">Tech-Stack</h3>
                 <div className="mt-4 flex flex-wrap gap-2">
                   <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">Go</span>
+                  <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">Java</span>
+                  <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">Tailwind</span>
                   <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">React</span>
                   <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">TypeScript</span>
                   <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">Node.js</span>
-                  <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">Python</span>
+                  <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">Rust</span>
                   <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">Docker</span>
                   <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">Kotlin</span>
                   <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">Flutter</span>
@@ -109,7 +111,7 @@ export function FeatureSection() {
 
          <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">Von der Beratung bis zum Launch</h2>
               <p className="mt-6">
-                Mein Ansatz beginnt mit einer gründlichen Analyse deiner Anforderungen. Gemeinsam entwickeln wir eine technische Strategie, die zu deinem Business passt. Durch agile Methoden und regelmäßiges Feedback stelle ich sicher, dass das Endprodukt genau deinen Vorstellungen entspricht – und diese oft sogar übertrifft.
+                Mein Ansatz beginnt mit einer gründlichen Analyse deiner Anforderungen. Gemeinsam entwickeln wir eine technische Strategie, die zu deinem Business passt. Durch agile Methoden und regelmäßiges Feedback stelle ich sicher, dass das Endprodukt genau deinen Vorstellungen entspricht und diese oft sogar übertrifft.
               </p>
       </Container>
     </div>
@@ -127,7 +129,7 @@ function BentoSection() {
         <BentoCard
           eyebrow="Expertise"
           title="Full-Stack Entwicklung"
-          description="Von Go & Node.js im Backend bis React & TypeScript im Frontend – ich entwickle skalierbare Web-Anwendungen mit modernen Technologien und Best Practices."
+          description="Von Go & Node.js im Backend bis React & TypeScript im Frontend ich entwickle skalierbare Web-Anwendungen mit modernen Technologien und Best Practices."
           graphic={
             <div className="h-80 bg-[url(/screenshots/code.jpg)] bg-size-[1000px_560px] bg-position-[left_-109px_top_-112px] bg-center" />
           }
@@ -197,14 +199,14 @@ function DarkBentoSection() {
           <BentoCard
             eyebrow="Integration"
             title="Nahtlose System-Integration"
-            description="REST APIs, GraphQL, WebSockets und Microservices – ich verbinde deine Systeme zuverlässig und sicher miteinander."
+            description="REST APIs, GraphQL, WebSockets und Microservices ich verbinde deine Systeme zuverlässig und sicher miteinander."
             graphic={<LinkedAvatars />}
             className="z-10 overflow-visible! lg:col-span-2 lg:rounded-tr-4xl"
           />
           <BentoCard
             eyebrow="Entwicklung"
             title="Agiler Entwicklungsprozess"
-            description="Strukturierte Entwicklung mit regelmäßigen Updates und Feedback-Schleifen – transparent, effizient und zielorientiert."
+            description="Strukturierte Entwicklung mit regelmäßigen Updates und Feedback-Schleifen transparent, effizient und zielorientiert."
             graphic={<LogoTimeline />}
             className="lg:col-span-2 lg:rounded-bl-4xl"
           />

@@ -23,28 +23,28 @@ const projects = [
     company: 'Solarwelt GmbH',
     industry: 'Photovoltaik Anlagen',
     description:
-      'Entwicklung einer skalierbaren E-Commerce-Plattform mit React und Node.js. Migration von Legacy-System zu moderner Microservices-Architektur.',
+      'Entwicklung eines interaktiven PV-Konfigurators mit React zur Lead-Generierung. Anbindung an das interne CRM-System und Performance-Optimierung für mobile Endgeräte.',
   },
   {
     img: '/dreibrueder.png',
     company: 'Drei Brüder Friseur',
     industry: 'Friseur Salon',
     description:
-      'Backend-Entwicklung mit Go für hochperformante Banking-APIs. Implementierung von Echtzeit-Transaktionen und sicherer Datenverschlüsselung.',
+      'Design und Umsetzung eines modernen Webauftritts mit Fokus auf Local SEO. Integration eines digitalen Terminbuchungssystems zur Automatisierung der Kundenverwaltung.',
   },
   {
-    img: '/projects/healthcare-project.jpg',
+    img:  '/saas.png',
     company: 'MedTech Solutions',
-    industry: 'Healthcare',
+    industry: 'SaaS-Startup',
     description:
-      'Cross-Platform Mobile App mit Flutter für Patientenverwaltung. Integration mit bestehenden Krankenhaus-Systemen via REST APIs.',
+      'Aufbau eines skalierbaren B2B-Dashboards zur Datenvisualisierung. Implementierung einer sicheren Multi-Tenant-Architektur und REST-APIs für medizinische Daten.',
   },
   {
-    img: '/projects/logistics-project.jpg',
+    img: '/web.png',
     company: 'LogisticPro',
-    industry: 'Logistik',
+    industry: 'Unternehmenswebsite',
     description:
-      'Enterprise-Lösung mit Java für Lagerverwaltung und Routenoptimierung. Python-basierte Datenanalyse für Effizienzsteigerung.',
+      'Relaunch der Corporate Website mit Next.js für maximale Ladegeschwindigkeit. Integration eines Headless CMS (Sanity) für die eigenständige Content-Pflege durch den Kunden.',
   },
   /*{
     img: '/projects/saas-project.jpg',

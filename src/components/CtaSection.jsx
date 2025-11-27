@@ -6,8 +6,8 @@ import { Container } from '@/components/container'
 export function CTASection() {
   return (
     <div className="relative overflow-hidden mb-18">
-      <Container className="relative">
-        <div className="mx-auto max-w-3xl rounded-4xl bg-gradient-to-br from-emerald-300 to-emerald-700 px-8 py-16 text-center shadow-2xl ring-1 ring-emerald-200/50">
+    
+        <div className="mx-auto  rounded-4xl bg-gradient-to-br from-emerald-300 to-emerald-700 px-8 py-16 text-center shadow-2xl ring-1 ring-emerald-200/50">
           <Heading as="h2" className="text-black">
             Bereit für Ihr nächstes Projekt?
           </Heading>
@@ -22,7 +22,6 @@ export function CTASection() {
             </Button>
           </div>
         </div>
-      </Container>
     </div>
   )
 }

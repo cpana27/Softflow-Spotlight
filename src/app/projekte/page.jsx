@@ -20,9 +20,9 @@ const projects = [
     id: 1,
     title: 'Solarwelt-GmbH Photovoltaik',
     category: 'Fullstack Web App',
-    description: 'Moderne E-Commerce-Plattform mit React, Node.js und Stripe-Integration. Komplettes Warenwirtschaftssystem mit Admin-Dashboard.',
+    description: 'Entwicklung eines interaktiven PV-Konfigurators mit React zur Lead-Generierung. Anbindung an das interne CRM-System und Performance-Optimierung für mobile Endgeräte.',
     image: '/solarwelt.png',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
+    tags: ['React', 'Node.js', 'PostgreSQL'],
     year: '2024',
     link: '#',
   },
@@ -32,18 +32,18 @@ const projects = [
     category: 'Web Application',
     description: 'Analytics-Dashboard für ein SaaS-Startup. Real-time Datenvisualisierung mit WebSockets und komplexem Rechtemanagement.',
     image: '/saas.png',
-    tags: ['Next.js', 'TypeScript', 'MongoDB', 'WebSockets'],
-    year: '2024',
+    tags: ['Next.js', 'TypeScript', 'MongoDB', 'WebSockets, Java'],
+    year: '2025',
     link: '#',
   },
   {
     id: 3,
     title: 'Corporate Website',
-    category: 'Website',
+    category: 'Web App',
     description: 'Hochperformante Unternehmenswebsite mit Headless CMS. SEO-optimiert und perfekte Core Web Vitals Scores.',
-    image: '/saas.png',
+    image: '/web.png',
     tags: ['Next.js', 'Sanity CMS', 'Vercel'],
-    year: '2023',
+    year: '2025',
     link: '#',
   },
   {
@@ -52,8 +52,8 @@ const projects = [
     category: 'Website',
     description: 'Online-Buchungssystem für Dienstleister mit Kalendersynchronisation, Zahlungsabwicklung und automatisierten E-Mail-Benachrichtigungen.',
     image: '/dreibrueder.png',
-    tags: ['React', 'Express', 'PostgreSQL', 'AWS'],
-    year: '2023',
+    tags: ['React', 'Tailwind'],
+    year: '2024',
     link: '#',
   },
   /*{
@@ -117,12 +117,30 @@ const techStack = [
   },
 ]
 
+
+function calculateYears(dateString) {
+  const today = new Date();
+  const startDate = new Date(dateString);
+  let years = today.getFullYear() - startDate.getFullYear();
+  const monthDiff = today.getMonth() - startDate.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < startDate.getDate())) {
+    years--;
+  }
+  return years;
+}
+
+
+
 function Header() {
+
+   const careerStart = '2017-01-01'; // Beispiel für Berufserfahrung
+  const experienceYears = calculateYears(careerStart);
+
   return (
     <Container className="mt-26 mb-8">
-      <Heading as="h1">Projekte, die Technologie und Design vereinen</Heading>
+      <Heading as="h3">Projekte, die Technologie und Design vereinen</Heading>
       <Lead className="mt-6 max-w-3xl">
-        Eine Auswahl meiner Arbeiten – von modernen Web-Apps über E-Commerce-Lösungen 
+        Eine Auswahl meiner Arbeiten von modernen Web-Apps über E-Commerce-Lösungen 
         bis zu komplexen Backend-Systemen. Jedes Projekt mit Fokus auf Performance, 
         Skalierbarkeit und Best Practices.
       </Lead>
@@ -141,30 +159,30 @@ function Header() {
             gewährleisten.
           </p>
           <p className="mt-6 text-sm/6 text-gray-600">
-            Von der ersten Konzeption über das Design bis zum finalen Deployment – 
+            Von der ersten Konzeption über das Design bis zum finalen Deployment
             ich begleite Projekte durch alle Phasen. Dabei arbeite ich eng mit meinen 
             Kunden zusammen und halte sie durch regelmäßige Updates auf dem Laufenden.
           </p>
         </div>   
-       <div className="max-lg:mt-16 lg:col-span-1">
-          <Subheading>The Numbers</Subheading>
+       <div className="max-lg:mt-16 mt-16 lg:col-span-1">
+          <Subheading>Die Zahlen</Subheading>
           <hr className="mt-6 border-t border-gray-200" />
           <dl className="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-3">
             <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
               <dd className="text-6xl font-medium tracking-tight">
-                45+
+                15+
               </dd>
               <dt className="text-sm/6 text-gray-600">Abgeschlossene Projekte</dt>
             </div>
             <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
               <dd className="text-6xl font-medium tracking-tight">
-                7+
+                {experienceYears}+
               </dd>
               <dt className="text-sm/6 text-gray-600">Jahre Erfahrung</dt>
             </div>
             <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
               <dd className="text-6xl font-medium tracking-tight">
-                30+
+                12+
               </dd>
               <dt className="text-sm/6 text-gray-600">Zufriedene Kunden</dt>
             </div>
@@ -278,7 +296,7 @@ function TechStackSection() {
                     </div>
                     <div className="mt-2 h-2 overflow-hidden rounded-full bg-gray-800">
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-blue-500 to-blue-400 transition-all duration-1000 ease-out"
+                        className="h-full rounded-full bg-gradient-to-r from-emerlad-500 to-emerald-400 transition-all duration-1000 ease-out"
                         style={{ width: `${tech.level}%` }}
                       />
                     </div>
@@ -324,11 +342,8 @@ function ProcessSection() {
   return (
     <Container className="my-32">
       <Subheading>Mein Prozess</Subheading>
-      <Heading as="h3" className="mt-2">
-        Von der ersten Idee bis zum Launch
-      </Heading>
       <Lead className="mt-6 max-w-3xl">
-        Strukturiert, transparent und mit Fokus auf Ihre Anforderungen – 
+        Strukturiert, transparent und mit Fokus auf Ihre Anforderungen
         so arbeite ich an jedem Projekt.
       </Lead>
       <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2">
@@ -364,19 +379,19 @@ function TestimonialSection() {
   const testimonials = [
     {
       quote: 'Hervorragende Arbeit! Die Web-App wurde pünktlich geliefert und übertrifft unsere Erwartungen. Sehr professionelle Kommunikation und tiefes technisches Know-how.',
-      author: 'Michael Schmidt',
-      role: 'CEO, TechStart GmbH',
+      author: 'Hakan Tarhan',
+      role: 'CEO, Solarwelt GmbH',
       image: '/testimonials/michael-schmidt.jpg',
     },
     {
       quote: 'Die Zusammenarbeit war reibungslos und effizient. Besonders beeindruckt hat uns die Fähigkeit, komplexe technische Anforderungen in verständliche Lösungen zu übersetzen.',
-      author: 'Sarah Weber',
-      role: 'Product Lead, InnovateLabs',
+      author: 'Mazlum Bekdas',
+      role: 'Drei Brüder Salon',
       image: '/testimonials/sarah-weber.jpg',
     },
     {
       quote: 'Endlich jemand, der nicht nur entwickelt, sondern mitdenkt. Die Architektur-Beratung hat uns vor vielen Problemen bewahrt. Absolut empfehlenswert!',
-      author: 'Thomas Müller',
+      author: 'Lale Koch',
       role: 'CTO, DataFlow Systems',
       image: '/testimonials/thomas-mueller.jpg',
     },
@@ -425,8 +440,9 @@ export default function Projects() {
         <Navbar />
       </Container>
       <Header />
-      <ProjectsGrid />
       <ProcessSection />
+      <ProjectsGrid />
+      
       <TechStackSection />
       <TestimonialSection />
       <CTASection />
