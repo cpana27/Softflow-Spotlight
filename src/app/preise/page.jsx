@@ -1,3 +1,5 @@
+
+
 import { Button } from '@/components/button'
 import { Container } from '@/components/container'
 import { Footer } from '@/components/footer'
@@ -586,7 +588,7 @@ function PricingTable({ selectedTier }) {
                           feature.section === section && feature.name === name,
                       )?.value
 
-                      return (
+                    return (
                         <td
                           key={tier.slug}
                           data-selected={
@@ -595,19 +597,19 @@ function PricingTable({ selectedTier }) {
                           className="p-4 data-selected:table-cell max-sm:hidden"
                         >
                           {value === true ? (
-                            <>
+                            <div>
                               <CheckIcon className="size-4 fill-green-600" />
                               <span className="sr-only">
                                 Included in {tier.name}
                               </span>
-                            </>
+                            </div>
                           ) : value === false || value === undefined ? (
-                            <>
+                            <div>
                               <MinusIcon className="size-4 fill-gray-400" />
                               <span className="sr-only">
                                 Not included in {tier.name}
                               </span>
-                            </>
+                            </div>
                           ) : (
                             <div className="text-sm/6">{value}</div>
                           )}
@@ -638,14 +640,7 @@ function FeatureItem({ description, disabled = false }) {
     </li>
   )
 }
-
-export default async function Pricing({ searchParams }) {
-  let params = await searchParams
-  let tier =
-    typeof params.tier === 'string'
-      ? tiers.find(({ slug }) => slug === params.tier)
-      : tiers[0]
-
+export default function Pricing() {
   return (
     <main className="overflow-hidden">
       <GradientBackground />
@@ -658,8 +653,7 @@ export default async function Pricing({ searchParams }) {
       <HourlyRatesSection />
       <RetainerSection />
       <ValueProposition />
-      <PricingTable selectedTier={tier} />
-
+      <PricingTable selectedTier={tiers[0]} />
       <Footer />
     </main>
   )
