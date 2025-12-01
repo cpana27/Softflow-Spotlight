@@ -37,7 +37,7 @@ export function Hero() {
     <div className="relative mt-6">
       <Container className="relative">
         <Navbar />
-        <div className="pt-16 mt-30 mb-16 pb-12 sm:pt-22 sm:pb-24 md:pt-32 md:pb-32">
+        <div className="pt-12 mt-10 mb-16 pb-12 sm:pt-8 sm:pb-24 md:pt-32 md:pb-32">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             <div>
               <p className="text-base font-semibold text-emerald-600 mb-4">
